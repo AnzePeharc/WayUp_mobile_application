@@ -1,0 +1,2 @@
+rootProject.name='WayUp_mobile_application'
+include ':app'
