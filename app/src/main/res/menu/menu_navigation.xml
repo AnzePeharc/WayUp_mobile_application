@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/load_problem"
+        android:title="LoadProblem"
+        android:icon="@drawable/ic_load_problem"/>
+    <item
+        android:id="@+id/show_problem"
+        android:title="ShowProblem"
+        android:icon="@drawable/ic_show_problem"/>
+    <item
+        android:id="@+id/add_problem"
+        android:title="AddProblem"
+        android:icon="@drawable/ic_add_problem"/>
+</menu>
