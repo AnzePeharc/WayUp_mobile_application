@@ -25,13 +25,15 @@
                 <Button
                     android:text="Search"
                     android:id="@+id/search"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
                     />
 
                 <ImageButton
                     android:id="@+id/sort"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
                     android:layout_height="50sp"
                     android:src="@drawable/ic_sort"
                     />
@@ -39,29 +41,117 @@
 
                 <Button
                     android:text="Filter"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
                     android:layout_height="wrap_content"
                     android:id="@+id/filter"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50sp"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:layout_height="wrap_content"
                     android:text="Problem count: 12"
                     android:textStyle="bold"
-                    android:textSize="20sp"/>
+                    android:textSize="15sp"/>
 
 
 
         </LinearLayout>
 
-    <TextView
-        android:id="@+id/database_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Database"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:text="NAME"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:text="GRADE"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:text="SETTER"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:text="COMMENT"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#000000"/>
+
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-127dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/problem_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:text="NAME"
+                    android:gravity="center"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/problem_grade"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:text="GRADE"
+                    android:gravity="center"
+                    android:textColor="#000000"/>
+                <TextView
+                    android:id="@+id/prolem_setter"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:text="SETTER"
+                    android:gravity="center"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/problem_comment"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:text="COMMENT"
+                    android:gravity="center"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+        </ScrollView>
+
 
 
     </LinearLayout>

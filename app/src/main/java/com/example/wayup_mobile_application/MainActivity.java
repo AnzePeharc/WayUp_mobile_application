@@ -8,20 +8,24 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
+    GridLayout climbing_wall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        climbing_wall = findViewById(R.id.climbing_wall);
+
+
         // TOP NAVIGATION CODE
         drawerLayout = findViewById(R.id.drawer_layout);
 
