@@ -2,28 +2,49 @@ package com.example.wayup_mobile_application;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements HoldAdapter.ItemClickListener{
 
     DrawerLayout drawerLayout;
-    GridLayout climbing_wall;
+    HoldAdapter adapter;
+    ArrayList<Hold> holds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        climbing_wall = findViewById(R.id.climbing_wall);
+
+        // Lookup the recyclerview in activity layout
+        RecyclerView rvHolds = (RecyclerView) findViewById(R.id.climbing_wall);
+
+        // Initialize contacts
+        holds = Hold.createHoldsList(100);
+        // Create adapter passing in the sample user data
+        adapter = new HoldAdapter(holds);
+        // Attach the adapter to the recyclerview to populate items
+        adapter.setClickListener(this);
+        rvHolds.setAdapter(adapter);
+        // Set layout manager to position the items
+        rvHolds.setLayoutManager(new GridLayoutManager(this, 10));
+
 
 
         // TOP NAVIGATION CODE
@@ -51,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Log.i("TAG", "You clicked number " + adapter.getItem(position) + ", which is at cell position " + position);
     }
 
     public void ClickMenu(View view){
