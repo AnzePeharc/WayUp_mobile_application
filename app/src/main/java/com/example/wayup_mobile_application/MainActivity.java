@@ -2,11 +2,9 @@ package com.example.wayup_mobile_application;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
@@ -15,7 +13,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.GridLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -66,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements HoldAdapter.ItemC
                         return true;
 
                     case R.id.add_problem:
-                        startActivity(new Intent(getApplicationContext(), AddProblem.class));
+                        startActivity(new Intent(getApplicationContext(), SetProblem.class));
                         return true;
                 }
                 return false;

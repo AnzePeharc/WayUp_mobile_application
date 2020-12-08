@@ -5,19 +5,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:layout_marginBottom="100dp">
 
 
         <Button
+            android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"/>
+            android:text="Back"
+            style="@style/Widget.MaterialComponents.Button"
+            />
 
         <View
             android:layout_width="0dp"
@@ -27,7 +33,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Set Problem"
+            android:text="Save Problem"
             android:textSize="30sp"
             android:textStyle="bold"/>
         <View
@@ -36,20 +42,90 @@
             android:layout_weight="1" />
 
         <Button
+            android:id="@+id/discard_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next"
- />
+            android:text="Discard"
+            style="@style/Widget.MaterialComponents.Button"
+            />
 
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name_input"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Problem"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
+        app:boxStrokeColor="#000000"
+        app:boxStrokeWidth="10dp"
+        android:textColorHint="#000000"
+        android:hint="Name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:textColorHint="#000000"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/grade_spinner"
+        android:layout_marginBottom="50dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/setter_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="#000000"
+        app:boxStrokeWidth="10dp"
+        android:textColorHint="#000000"
+        android:hint="Setter"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:textColorHint="#000000"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/comment_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="#000000"
+        app:boxStrokeWidth="10dp"
+        android:textColorHint="#000000"
+        android:hint="Comment"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="50dp"
+            android:textColorHint="#000000"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_gravity="center"
+        style="@style/Widget.MaterialComponents.Button"
+        />
 
 </LinearLayout>
