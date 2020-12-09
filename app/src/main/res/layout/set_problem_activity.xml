@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel"
-            style="@style/Widget.MaterialComponents.Button"/>
+            android:theme="@style/Button"/>
 
         <View
             android:layout_width="0dp"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Next"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:theme="@style/Button" />
 
 
     </LinearLayout>

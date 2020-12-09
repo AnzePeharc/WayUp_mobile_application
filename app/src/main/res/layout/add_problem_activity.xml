@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Back"
-            style="@style/Widget.MaterialComponents.Button"
+            style="@style/Button"
             />
 
         <View
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Discard"
-            style="@style/Widget.MaterialComponents.Button"
+            android:theme="@style/Button"
             />
 
 
@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxStrokeColor="#000000"
-        app:boxStrokeWidth="10dp"
+        app:boxStrokeWidth="2dp"
         android:textColorHint="#000000"
         android:hint="Name"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -78,14 +78,15 @@
         android:id="@+id/grade_spinner"
         android:layout_marginBottom="50dp"
         android:textAlignment="center"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/setter_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxStrokeColor="#000000"
-        app:boxStrokeWidth="10dp"
+        app:boxStrokeWidth="2dp"
         android:textColorHint="#000000"
         android:hint="Setter"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -104,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxStrokeColor="#000000"
-        app:boxStrokeWidth="10dp"
+        app:boxStrokeWidth="2dp"
         android:textColorHint="#000000"
         android:hint="Comment"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -125,7 +126,7 @@
         android:layout_height="wrap_content"
         android:text="Save"
         android:layout_gravity="center"
-        style="@style/Widget.MaterialComponents.Button"
+        android:theme="@style/Button"
         />
 
 </LinearLayout>
