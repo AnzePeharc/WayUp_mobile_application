@@ -2,6 +2,7 @@ package com.example.wayup_mobile_application;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -9,27 +10,49 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements HoldAdapter.ItemClickListener{
+public class MainActivity extends AppCompatActivity{
 
     DrawerLayout drawerLayout;
-    HoldAdapter adapter;
-    ArrayList<Hold> holds;
+    ArrayList<ImageView> holds;
+
+    // variables for drawing
+    Bitmap mBitmap;
+    Paint mPaint = new Paint();
+    Canvas mCanvas;
+    ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mPaint.setColor(ResourcesCompat.getColor(getResources(),
+                R.color.colorPrimary, null));
+
+
+
+
         // Lookup the recyclerview in activity layout
+        /*
         RecyclerView rvHolds = (RecyclerView) findViewById(R.id.climbing_wall);
 
         // Initialize contacts
@@ -41,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements HoldAdapter.ItemC
         rvHolds.setAdapter(adapter);
         // Set layout manager to position the items
         rvHolds.setLayoutManager(new GridLayoutManager(this, 10));
+        */
 
 
 
@@ -71,10 +95,6 @@ public class MainActivity extends AppCompatActivity implements HoldAdapter.ItemC
         });
     }
 
-    @Override
-    public void onItemClick(View view, int position) {
-        Log.i("TAG", "You clicked number " + adapter.getItem(position) + ", which is at cell position " + position);
-    }
 
     public void ClickMenu(View view){
         // open Drawer
@@ -124,6 +144,28 @@ public class MainActivity extends AppCompatActivity implements HoldAdapter.ItemC
         super.onPause();
         // close Drawer
         closeDrawer(drawerLayout);
+
+    }
+
+    // ACTION WHEN A HOLDS IS SELECTED
+
+    public void SelectHold(View view){
+        // TODO implement drawing circles on the wall
+        mImageView = (ImageView) view;
+        Toast.makeText(getApplicationContext(),"ID of the item is: "+view.getWidth() , Toast.LENGTH_LONG).show();
+
+        // Draw a circle over the selected hold
+
+        int vWidth = view.getWidth();
+        int vHeight = view.getHeight();
+        int halfWidth = vWidth / 2;
+        int halfHeight = vHeight / 2;
+
+        mBitmap = Bitmap.createBitmap(vWidth, vHeight, Bitmap.Config.ARGB_8888);
+        mImageView.setImageBitmap(mBitmap);
+        mCanvas = new Canvas(mBitmap);
+        mCanvas.drawCircle(halfWidth, halfHeight, halfWidth / 3, mPaint);
+
 
     }
 }

@@ -5,5 +5,7 @@
     <color name="colorAccent">#000000</color>
     <color name="colorBackgroundButton">#000000</color>
     <color name="colorForegroundButton">#ffffff</color>
+    <color name="colorClimbingWall">#808080</color>
+
 
 </resources>

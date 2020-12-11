@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.function.ToDoubleBiFunction;
 
@@ -27,9 +28,9 @@ public class AddProblem extends Activity implements AdapterView.OnItemSelectedLi
     Button save;
     Spinner spinner;
     AlertDialog dialog;
-    EditText name;
-    EditText setter;
-    EditText comment;
+    TextInputLayout name;
+    TextInputLayout setter;
+    TextInputLayout comment;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +39,9 @@ public class AddProblem extends Activity implements AdapterView.OnItemSelectedLi
         back = (Button) findViewById(R.id.back_button);
         discard = (Button) findViewById(R.id.discard_button);
         save = (Button) findViewById(R.id.save_button); //TODO implement onclicklistener for adding problems to the database
-        name = (EditText) findViewById(R.id.name_input);
-        setter = (EditText) findViewById(R.id.setter_input);
-        comment = (EditText) findViewById(R.id.comment_input);
+        name = (TextInputLayout) findViewById(R.id.name_input);
+        setter = (TextInputLayout) findViewById(R.id.setter_input);
+        comment = (TextInputLayout) findViewById(R.id.comment_input);
         spinner = (Spinner) findViewById(R.id.grade_spinner);
         // set the default value of the spinner to the first element from array - grades
         spinner.setSelection(0);
@@ -85,10 +86,10 @@ public class AddProblem extends Activity implements AdapterView.OnItemSelectedLi
         save.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                if(name.getText().toString().equals("")){
+                if(name.getEditText().getText().equals("")){
                     Toast.makeText(getApplicationContext(),"You need to add the name of the problem!" , Toast.LENGTH_LONG).show();
                 }
-                if(setter.getText().toString().equals("")){
+                if(setter.getEditText().getText().equals("")){
                     Toast.makeText(getApplicationContext(),"You need to add the name of the problem!" , Toast.LENGTH_LONG).show();
                 }
                 if(spinner.getSelectedItem().toString().equals("Select grade of the problem")){
