@@ -9,8 +9,9 @@
     android:padding="20dp">
 
     <LinearLayout
+        android:id="@+id/set_problem_header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp">
 
@@ -48,12 +49,18 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Problem"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
+    <LinearLayout
+        android:id="@+id/set_problem_wall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/set_problem_header"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/colorClimbingWall">
+
+        <include
+            layout="@layout/hold_row"
+            />
+    </LinearLayout>
 
 </LinearLayout>

@@ -21,7 +21,7 @@ import java.util.function.ToDoubleBiFunction;
 
 public class AddProblem extends Activity implements AdapterView.OnItemSelectedListener{
 
-    String[] grades = { "Select grade of the problem","4a", "4a+", "4b", "4b+", "4c", "4c+", "5a", "5a+", "5b", "5b+", "5c", "5c+", "6a", "6a+", "6b", "6b+", "6c", "6c+",
+    String[] grades = {"4a", "4a+", "4b", "4b+", "4c", "4c+", "5a", "5a+", "5b", "5b+", "5c", "5c+", "6a", "6a+", "6b", "6b+", "6c", "6c+",
             "7a", "7a+", "7b", "7b+", "7c", "7c+", "8a", "8a+", "8b", "8b+", "8c", "8c+"};
     Button back;
     Button discard;
@@ -45,13 +45,7 @@ public class AddProblem extends Activity implements AdapterView.OnItemSelectedLi
         spinner = (Spinner) findViewById(R.id.grade_spinner);
         // set the default value of the spinner to the first element from array - grades
         spinner.setSelection(0);
-        // set onclicklistener for spinner
         spinner.setOnItemSelectedListener(this);
-        //Creating the ArrayAdapter instance having the country list
-        ArrayAdapter spinner_adapter = new ArrayAdapter(this,R.layout.spinner_item,grades);
-        // spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //Setting the ArrayAdapter data on the Spinner
-        spinner.setAdapter(spinner_adapter);
 
         back.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -59,6 +53,7 @@ public class AddProblem extends Activity implements AdapterView.OnItemSelectedLi
                 MainActivity.redirectActivity(AddProblem.this, SetProblem.class);
             }
         });
+        // Popup window for discarding the problem and redirecting user back to MainScreen
         discard.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -95,6 +90,10 @@ public class AddProblem extends Activity implements AdapterView.OnItemSelectedLi
                 if(spinner.getSelectedItem().toString().equals("Select grade of the problem")){
                     Toast.makeText(getApplicationContext(),"You must choose the grade of the problem from dropdown!" , Toast.LENGTH_LONG).show();
                 }
+                else{
+                    // TODO implement a function for adding data to the database
+                    Toast.makeText(getApplicationContext(),"Trying to add problem to database!" , Toast.LENGTH_LONG).show();
+                }
 
             }
         });
@@ -104,7 +103,7 @@ public class AddProblem extends Activity implements AdapterView.OnItemSelectedLi
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(),grades[position] , Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),grades[position], Toast.LENGTH_LONG).show();
     }
 
     @Override
