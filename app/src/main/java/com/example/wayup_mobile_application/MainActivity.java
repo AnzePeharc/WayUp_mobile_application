@@ -5,16 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,39 +28,17 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity{
 
     DrawerLayout drawerLayout;
-    ArrayList<ImageView> holds;
+    ArrayList<ImageView> selected_holds = new ArrayList<>();
 
     // variables for drawing
-    Bitmap mBitmap;
-    Paint mPaint = new Paint();
-    Canvas mCanvas;
-    ImageView mImageView;
+    ImageView selected_hold;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mPaint.setColor(ResourcesCompat.getColor(getResources(),
-                R.color.colorPrimary, null));
 
-
-
-
-        // Lookup the recyclerview in activity layout
-        /*
-        RecyclerView rvHolds = (RecyclerView) findViewById(R.id.climbing_wall);
-
-        // Initialize contacts
-        holds = Hold.createHoldsList(100);
-        // Create adapter passing in the sample user data
-        adapter = new HoldAdapter(holds);
-        // Attach the adapter to the recyclerview to populate items
-        adapter.setClickListener(this);
-        rvHolds.setAdapter(adapter);
-        // Set layout manager to position the items
-        rvHolds.setLayoutManager(new GridLayoutManager(this, 10));
-        */
 
 
 
@@ -87,7 +61,10 @@ public class MainActivity extends AppCompatActivity{
                         return true;
 
                     case R.id.add_problem:
-                        startActivity(new Intent(getApplicationContext(), SetProblem.class));
+                        for(int i = 0; i < selected_holds.size(); i++){
+                            System.out.println(i + ". Hold is: "+ selected_holds.get(i) +" with color: " + selected_holds.get(i).getTag().toString());
+                        }
+                        //startActivity(new Intent(getApplicationContext(), SetProblem.class));
                         return true;
                 }
                 return false;
@@ -151,21 +128,108 @@ public class MainActivity extends AppCompatActivity{
 
     public void SelectHold(View view){
         // TODO implement drawing circles on the wall
-        mImageView = (ImageView) view;
-        Toast.makeText(getApplicationContext(),"ID of the item is: "+view.getWidth() , Toast.LENGTH_LONG).show();
+        selected_hold = (ImageView) view;
+        Toast.makeText(getApplicationContext(),"ID of the item is: "+ view.getId() , Toast.LENGTH_LONG).show();
 
         // Draw a circle over the selected hold
 
-        int vWidth = view.getWidth();
-        int vHeight = view.getHeight();
-        int halfWidth = vWidth / 2;
-        int halfHeight = vHeight / 2;
+        int vWidth = view.getWidth(); // get ImageView width
+        int vHeight = view.getHeight(); // get ImageView height
+        /*
+        if(!selected_holds.isEmpty()){
 
-        mBitmap = Bitmap.createBitmap(vWidth, vHeight, Bitmap.Config.ARGB_8888);
-        mImageView.setImageBitmap(mBitmap);
-        mCanvas = new Canvas(mBitmap);
-        mCanvas.drawCircle(halfWidth, halfHeight, halfWidth / 3, mPaint);
+            if(selected_holds.contains(selected_hold)){
+                ShapeDrawable sd = new ShapeDrawable(new OvalShape());
+                sd.setIntrinsicHeight(vHeight / 2);
+                sd.setIntrinsicWidth(vHeight / 2);
+                sd.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                        R.color.hold_blue_background, null));;
+                selected_hold.setBackground(sd);
+            }
+            else{
+                ShapeDrawable sd = new ShapeDrawable(new OvalShape());
+                sd.setIntrinsicHeight(vHeight / 2);
+                sd.setIntrinsicWidth(vHeight / 2);
+                sd.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                        R.color.hold_green_background, null));;
+                selected_hold.setBackground(sd);
+                selected_holds.add(selected_hold);
+            }
+        }
+        else{
+            ShapeDrawable sd = new ShapeDrawable(new OvalShape());
+            sd.setIntrinsicHeight(vHeight / 2);
+            sd.setIntrinsicWidth(vHeight / 2);
+            sd.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                    R.color.hold_green_background, null));;
+            selected_hold.setBackground(sd);
+            selected_holds.add(selected_hold);
+        }
+        */
+        //
+        if(!selected_holds.isEmpty()){
+            if(selected_holds.contains(selected_hold)){
+                switch(String.valueOf(selected_hold.getTag())){
+                    case "green":
+                        ShapeDrawable blue = new ShapeDrawable(new OvalShape());
+                        blue.setIntrinsicHeight(vHeight / 2);
+                        blue.setIntrinsicWidth(vHeight / 2);
+                        blue.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                                R.color.hold_blue_background, null));;
+                        selected_hold.setBackground(blue);
+                        selected_hold.setTag("blue");
+                        break;
+                    case "blue":
+                        ShapeDrawable red = new ShapeDrawable(new OvalShape());
+                        red.setIntrinsicHeight(vHeight / 2);
+                        red.setIntrinsicWidth(vHeight / 2);
+                        red.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                                R.color.hold_red_background, null));;
+                        selected_hold.setBackground(red);
+                        selected_hold.setTag("red");
+                        break;
+                    case "red":
+                        ShapeDrawable empty = new ShapeDrawable(new OvalShape());
+                        empty.setIntrinsicHeight(vHeight / 2);
+                        empty.setIntrinsicWidth(vHeight / 2);
+                        empty.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                                R.color.colorClimbingWall, null));;
+                        selected_hold.setBackground(empty);
+                        selected_hold.setTag("empty");
+                        // remove the select_hold from the ArrayList
+                        for(int i = 0; i < selected_holds.size(); i++){
+                            if(selected_holds.get(i) == selected_hold){
+                                selected_holds.remove(i);
+                                break;
+                            }
+                        }
+                        break;
 
+                }
+            }
+            // Add new holds to the ArrayList
+            else{
+                ShapeDrawable next = new ShapeDrawable(new OvalShape());
+                next.setIntrinsicHeight(vHeight / 2);
+                next.setIntrinsicWidth(vHeight / 2);
+                next.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                        R.color.hold_green_background, null));;
+                selected_hold.setBackground(next);
+                selected_hold.setTag("green");
+                selected_holds.add(selected_hold);
+            }
+        }
+        // Add the first hold to the ArrayList
+        else{
+            ShapeDrawable first = new ShapeDrawable(new OvalShape());
+            first.setIntrinsicHeight(vHeight / 2);
+            first.setIntrinsicWidth(vHeight / 2);
+            first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                    R.color.hold_green_background, null));;
+            selected_hold.setBackground(first);
+            selected_hold.setTag("green");
+            selected_holds.add(selected_hold);
+        }
 
     }
 }
