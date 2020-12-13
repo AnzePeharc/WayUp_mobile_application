@@ -1,9 +1,14 @@
 package com.example.wayup_mobile_application;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.core.view.GravityCompat;
@@ -12,14 +17,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 public class DatabaseActivity extends Activity {
 
     DrawerLayout drawerLayout;
+    ScrollView problemTable;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.database_activity);
 
-
+        // set variable for drawerLayout
         drawerLayout = findViewById(R.id.drawer_layout);
+
+        // fil the table with database content
+        problemTable = findViewById(R.id.problem_table);
+        fillTable(this);
+
     }
 
     public void ClickMenu(View view) {
@@ -56,5 +67,16 @@ public class DatabaseActivity extends Activity {
         // close Drawer
         MainActivity.closeDrawer(drawerLayout);
 
+    }
+
+    // function for filling the table with problem entries
+    public void fillTable(Context context){
+        TextView textView = new TextView(context);
+        textView.setText("my text");
+
+        LinearLayout linearLayout = new LinearLayout(context);
+        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayout.setGravity(Gravity.CENTER);
+        linearLayout.addView(textView);
     }
 }

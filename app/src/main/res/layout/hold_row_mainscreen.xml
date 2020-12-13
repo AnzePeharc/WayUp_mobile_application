@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:columnCount="11"
+    android:rowCount="15"
+    android:padding="10dp">
+
+    <!-- 1 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 2 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 3 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 4 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 5 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 6 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 7 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 8 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 9 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 10 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 11 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 12 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 13 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 14 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <!-- 15 Row -->
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+    <include layout="@layout/grid_view_items_mainscreen"/>
+
+</GridLayout>

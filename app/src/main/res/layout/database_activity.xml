@@ -102,6 +102,7 @@
 
         </LinearLayout>
         <ScrollView
+            android:id="@+id/problem_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="0dp"
