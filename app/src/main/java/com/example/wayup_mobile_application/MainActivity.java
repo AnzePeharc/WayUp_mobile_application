@@ -2,28 +2,17 @@ package com.example.wayup_mobile_application;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -59,7 +48,7 @@ public class MainActivity extends AppCompatActivity{
 
                     case R.id.add_problem:
 
-                        startActivity(new Intent(getApplicationContext(), SetProblem.class));
+                        startActivity(new Intent(getApplicationContext(), SetProblemActivity.class));
                         return true;
                 }
                 return false;
