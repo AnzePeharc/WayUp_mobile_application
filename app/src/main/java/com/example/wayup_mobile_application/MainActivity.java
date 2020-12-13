@@ -2,45 +2,40 @@ package com.example.wayup_mobile_application;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements HoldAdapter.ItemClickListener{
+public class MainActivity extends AppCompatActivity{
 
     DrawerLayout drawerLayout;
-    HoldAdapter adapter;
-    ArrayList<Hold> holds;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Lookup the recyclerview in activity layout
-        RecyclerView rvHolds = (RecyclerView) findViewById(R.id.climbing_wall);
 
-        // Initialize contacts
-        holds = Hold.createHoldsList(100);
-        // Create adapter passing in the sample user data
-        adapter = new HoldAdapter(holds);
-        // Attach the adapter to the recyclerview to populate items
-        adapter.setClickListener(this);
-        rvHolds.setAdapter(adapter);
-        // Set layout manager to position the items
-        rvHolds.setLayoutManager(new GridLayoutManager(this, 10));
 
 
 
@@ -63,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements HoldAdapter.ItemC
                         return true;
 
                     case R.id.add_problem:
+
                         startActivity(new Intent(getApplicationContext(), SetProblem.class));
                         return true;
                 }
@@ -71,10 +67,6 @@ public class MainActivity extends AppCompatActivity implements HoldAdapter.ItemC
         });
     }
 
-    @Override
-    public void onItemClick(View view, int position) {
-        Log.i("TAG", "You clicked number " + adapter.getItem(position) + ", which is at cell position " + position);
-    }
 
     public void ClickMenu(View view){
         // open Drawer
@@ -119,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements HoldAdapter.ItemC
         activity.startActivity(intent);
     }
 
+
     @Override
     protected void onPause(){
         super.onPause();
@@ -126,4 +119,5 @@ public class MainActivity extends AppCompatActivity implements HoldAdapter.ItemC
         closeDrawer(drawerLayout);
 
     }
+
 }

@@ -5,5 +5,12 @@
     <color name="colorAccent">#000000</color>
     <color name="colorBackgroundButton">#000000</color>
     <color name="colorForegroundButton">#ffffff</color>
+    <color name="colorClimbingWall">#808080</color>
+    <color name="hold_blue_background">#0000FF</color>
+    <color name="hold_red_background">#FF0000</color>
+    <color name="hold_green_background">#00FF00</color>
+    <color name="hold_empty_background">#ffffff</color>
+
+
 
 </resources>
