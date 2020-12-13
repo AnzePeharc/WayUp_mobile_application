@@ -16,7 +16,7 @@ import androidx.core.content.res.ResourcesCompat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SetProblem extends Activity{
+public class SetProblemActivity extends Activity{
 
     Button cancel;
     Button next;
@@ -36,7 +36,7 @@ public class SetProblem extends Activity{
         cancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                MainActivity.redirectActivity(SetProblem.this, MainActivity.class);
+                MainActivity.redirectActivity(SetProblemActivity.this, MainActivity.class);
             }
         });
 
@@ -45,7 +45,7 @@ public class SetProblem extends Activity{
             public void onClick(View view) {
                 // check if the sequence is not empty
                 if(!selected_holds.isEmpty()){
-                    sendProblemSequence(SetProblem.this, AddProblem.class, Arrays.toString(selected_holds.toArray()));
+                    sendProblemSequence(SetProblemActivity.this, AddProblemActivity.class, Arrays.toString(selected_holds.toArray()));
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Select holds for the problem!" , Toast.LENGTH_LONG).show();

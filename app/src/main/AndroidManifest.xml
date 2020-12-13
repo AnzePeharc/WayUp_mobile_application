@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SetProblem"/>
+        <activity android:name=".SetProblemActivity"/>
         <activity android:name=".DatabaseActivity"/>
-        <activity android:name=".AddProblem"/>
+        <activity android:name=".AddProblemActivity"/>
     </application>
 
 </manifest>

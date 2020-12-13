@@ -32,7 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
     }
-    public boolean insertData(String sequence, String name,String grade,String setter, String comment ) {
+    public boolean insertData(String sequence, String name, String grade, String setter, String comment ) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2,sequence);

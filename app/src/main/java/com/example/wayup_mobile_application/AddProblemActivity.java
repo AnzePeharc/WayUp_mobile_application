@@ -5,9 +5,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,20 +15,31 @@ import androidx.appcompat.app.AlertDialog;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.function.ToDoubleBiFunction;
+public class AddProblemActivity extends Activity implements AdapterView.OnItemSelectedListener{
 
-public class AddProblem extends Activity implements AdapterView.OnItemSelectedListener{
-
+    // Array with Dropdown values
     String[] grades = {"4a", "4a+", "4b", "4b+", "4c", "4c+", "5a", "5a+", "5b", "5b+", "5c", "5c+", "6a", "6a+", "6b", "6b+", "6c", "6c+",
             "7a", "7a+", "7b", "7b+", "7c", "7c+", "8a", "8a+", "8b", "8b+", "8c", "8c+"};
+
+    // Button variables
     Button back;
     Button discard;
     Button save;
+
+    // Dropdown variable
     Spinner spinner;
+
+    // variable for alert PopUp
     AlertDialog dialog;
+
+    // TextEdit layout variables
     TextInputLayout name;
     TextInputLayout setter;
     TextInputLayout comment;
+
+    // variable for interacting with DatabaseHelper
+    DatabaseHelper databaseHelper = new DatabaseHelper(this);
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,21 +59,21 @@ public class AddProblem extends Activity implements AdapterView.OnItemSelectedLi
         back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                MainActivity.redirectActivity(AddProblem.this, SetProblem.class);
+                MainActivity.redirectActivity(AddProblemActivity.this, SetProblemActivity.class);
             }
         });
         // Popup window for discarding the problem and redirecting user back to MainScreen
         discard.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(AddProblem.this);
+                final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(AddProblemActivity.this);
 
                 builder.setTitle("Discarding the problem!");
                 builder.setMessage("Are you sure you want to discard it?");
                 builder.setPositiveButton("Discard", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        MainActivity.redirectActivity(AddProblem.this, MainActivity.class);
+                        MainActivity.redirectActivity(AddProblemActivity.this, MainActivity.class);
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -92,7 +101,21 @@ public class AddProblem extends Activity implements AdapterView.OnItemSelectedLi
                 }
                 else{
                     // TODO implement a function for adding data to the database
-                    Toast.makeText(getApplicationContext(),"Trying to add problem to database!" , Toast.LENGTH_LONG).show();
+
+                    String problem_sequence = getIntent().getStringExtra("Problem_sequence"); // get the sequence from SetProblemActivity
+                    // insert data into database
+                    boolean insert_status = databaseHelper.insertData(problem_sequence, name.getEditText().getText().toString(),
+                            spinner.getSelectedItem().toString(), setter.getEditText().getText().toString(), comment.getEditText().getText().toString());
+
+                    // Alert user about the status of the added problem
+                    if(insert_status){
+                        Toast.makeText(getApplicationContext(),"Problem successfully added." +  insert_status, Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"Failed to add the problem." +  insert_status, Toast.LENGTH_LONG).show();
+                    }
+                    // Redirect the user back to the mainActivity
+                    MainActivity.redirectActivity(AddProblemActivity.this, MainActivity.class);
                 }
 
             }
