@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -29,7 +30,7 @@ public class DatabaseActivity extends Activity {
 
     // variables for filling the ListView
     ArrayList<Problem> arrayOfProblems = new ArrayList<Problem>();
-    ProblemAdapter problemAdapter = new ProblemAdapter(this, arrayOfProblems);
+    ProblemAdapter problemAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,8 +41,22 @@ public class DatabaseActivity extends Activity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         // fill the table with database content
+        problemAdapter =  new ProblemAdapter(this, arrayOfProblems);
         problemTable = (ListView) findViewById(R.id.problem_table);
         problemTable.setAdapter(problemAdapter); // bind the adapter to the arrayList
+        // Add OnItemClickListener for ListView
+        problemTable.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position,
+                                    long arg3)
+            {
+                Problem value = (Problem) adapter.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(),value.getSequence(), Toast.LENGTH_LONG).show();
+
+
+            }
+        });
 
         // call function for filling the table with elements
         fillTable(this);
@@ -101,7 +116,6 @@ public class DatabaseActivity extends Activity {
                         cursor.getString(4), cursor.getString(5));
                 arrayOfProblems.add(new_problem);
             }
-            Toast.makeText(this,"Database was successfully loaded!" , Toast.LENGTH_LONG).show();
         }
 
     }
