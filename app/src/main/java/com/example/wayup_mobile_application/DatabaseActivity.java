@@ -51,10 +51,9 @@ public class DatabaseActivity extends Activity {
             public void onItemClick(AdapterView<?> adapter, View v, int position,
                                     long arg3)
             {
-                Problem value = (Problem) adapter.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(),value.getSequence(), Toast.LENGTH_LONG).show();
-
-
+                Problem selected_problem = (Problem) adapter.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(), selected_problem.getSequence(), Toast.LENGTH_LONG).show();
+                // TODO show the clicked problem on the mainScreen climbing wall
             }
         });
 
@@ -111,9 +110,9 @@ public class DatabaseActivity extends Activity {
         }
         else{
             while(cursor.moveToNext()){
-                Problem new_problem = new Problem(cursor.getInt(0),cursor.getString(1),
-                        cursor.getString(2), cursor.getString(3),
-                        cursor.getString(4), cursor.getString(5));
+                Problem new_problem = new Problem(cursor.getInt(0),cursor.getString(1),cursor.getString(2),
+                        cursor.getString(3), cursor.getString(4),
+                        cursor.getString(5), cursor.getString(6));
                 arrayOfProblems.add(new_problem);
             }
         }

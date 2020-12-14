@@ -9,15 +9,17 @@ public class Problem {
 
     public int id;
     public String sequence;
+    public String sequence_counters;
     public String name;
     public String grade;
     public String setter;
     public String comment;
 
-    public Problem(int id, String sequence, String name, String grade, String setter, String comment)
+    public Problem(int id, String sequence, String sequence_counters, String name, String grade, String setter, String comment)
     {
         this.id = id;
         this.sequence = sequence;
+        this.sequence_counters = sequence_counters;
         this.name = name;
         this.grade = grade;
         this.setter = setter;
@@ -31,6 +33,10 @@ public class Problem {
     public String getSequence()
     {
         return sequence;
+    }
+    public String getSequence_counters()
+    {
+        return sequence_counters;
     }
     public String getName()
     {

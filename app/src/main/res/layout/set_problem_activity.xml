@@ -58,9 +58,19 @@
         android:orientation="vertical"
         android:background="@color/colorClimbingWall">
 
-        <include
-            layout="@layout/hold_row_setproblem"
-            />
+        <include layout="@layout/hold_row_setproblem" />
+
+        <ImageView
+            android:id="@+id/user_instructions"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            android:paddingLeft="20dp"
+            android:src="@drawable/ic_round_hint"
+            android:onClick="UserInfo"/>
+
     </LinearLayout>
+
+
 
 </LinearLayout>
