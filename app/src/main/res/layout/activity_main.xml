@@ -30,7 +30,7 @@
             android:background="@color/colorClimbingWall">
 
             <include
-                layout="@layout/hold_row"
+                layout="@layout/hold_row_mainscreen"
                 />
         </LinearLayout>
 

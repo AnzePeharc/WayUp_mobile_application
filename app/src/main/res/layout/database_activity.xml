@@ -101,57 +101,13 @@
             android:textColor="#000000"/>
 
         </LinearLayout>
-        <ScrollView
+
+        <ListView
+            android:id="@+id/problem_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="-127dp"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/problem_name"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.25"
-                    android:layout_height="wrap_content"
-                    android:text="NAME"
-                    android:gravity="center"
-                    android:textColor="#000000"/>
-
-                <TextView
-                    android:id="@+id/problem_grade"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.25"
-                    android:layout_height="wrap_content"
-                    android:text="GRADE"
-                    android:gravity="center"
-                    android:textColor="#000000"/>
-                <TextView
-                    android:id="@+id/prolem_setter"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.25"
-                    android:layout_height="wrap_content"
-                    android:text="SETTER"
-                    android:gravity="center"
-                    android:textColor="#000000"/>
-
-                <TextView
-                    android:id="@+id/problem_comment"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.25"
-                    android:layout_height="wrap_content"
-                    android:text="COMMENT"
-                    android:gravity="center"
-                    android:textColor="#000000"/>
-            </LinearLayout>
-
-        </ScrollView>
-
+            android:paddingRight="16dp"/>
 
 
     </LinearLayout>

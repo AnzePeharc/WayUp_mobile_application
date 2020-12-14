@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/problem_name"
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:text="NAME"
+            android:gravity="center"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/problem_grade"
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:text="GRADE"
+            android:gravity="center"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/problem_setter"
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:text="SETTER"
+            android:gravity="center"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/problem_comment"
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:text="COMMENT"
+            android:gravity="center"
+            android:textColor="#000000"/>
+</LinearLayout>
