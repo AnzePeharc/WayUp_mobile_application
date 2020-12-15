@@ -3,12 +3,14 @@ package com.example.wayup_mobile_application;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -81,9 +83,14 @@ public class SetProblemActivity extends Activity{
     // ACTION WHEN A HOLDS IS SELECTED
 
     public void SelectHold(View view){
-        // TODO implement drawing circles on the wall
-        selected_hold = (ImageView) view.findViewById(R.id.climbing_hold);
-        selected_hold_counter = (TextView) view.findViewById(R.id.climbing_hold_counter);
+        // get ID of clicked LinearLayout and use it to find its ImageView and TextView
+        String[] id_split = getResources().getResourceEntryName(view.getId()).split("_");
+        // get ImageView ID
+        int hold_id = getResources().getIdentifier(id_split[1], "id", getPackageName());
+        selected_hold = (ImageView) view.findViewById(hold_id);
+        // get TextView ID
+        int hold_counter_id = getResources().getIdentifier("counter_"+id_split[1], "id", getPackageName());
+        selected_hold_counter = (TextView) view.findViewById(hold_counter_id);
 
         // Draw a circle over the selected hold
 

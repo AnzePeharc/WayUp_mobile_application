@@ -6,7 +6,7 @@
     android:columnCount="12"
     android:rowCount="16"
     android:padding="10dp"
-    android:id="@+id/gridlayout_mainscreen">
+    android:id="@+id/gridlayout_setproblem">
 
     <!-- 0 Row -->
     <TextView
@@ -116,6 +116,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -142,6 +143,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -168,6 +170,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -194,6 +197,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -220,6 +224,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -246,6 +251,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -272,6 +278,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -298,6 +305,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -324,6 +332,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -350,6 +359,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -376,6 +386,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -410,6 +421,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -436,6 +448,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -462,6 +475,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -488,6 +502,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -514,6 +529,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -540,6 +556,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -566,6 +583,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -592,6 +610,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -618,6 +637,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -644,6 +664,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -670,6 +691,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -704,6 +726,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -730,6 +753,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -756,6 +780,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -782,6 +807,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -808,6 +834,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -860,6 +887,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -886,6 +914,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -912,6 +941,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -938,6 +968,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -964,6 +995,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -998,6 +1030,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1024,6 +1057,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1050,6 +1084,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1076,6 +1111,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1102,6 +1138,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1128,6 +1165,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1154,6 +1192,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1180,6 +1219,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1206,6 +1246,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1232,6 +1273,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1258,6 +1300,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1292,6 +1335,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1318,6 +1362,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1344,6 +1389,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1370,6 +1416,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1396,6 +1443,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1422,6 +1470,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1448,6 +1497,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1474,6 +1524,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1500,6 +1551,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1526,6 +1578,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1552,6 +1605,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1586,6 +1640,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1612,6 +1667,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1638,6 +1694,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1664,6 +1721,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1690,6 +1748,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1716,6 +1775,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1742,6 +1802,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1768,6 +1829,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1794,6 +1856,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1820,6 +1883,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1846,6 +1910,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1880,6 +1945,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1906,6 +1972,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1932,6 +1999,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1958,6 +2026,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -1984,6 +2053,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2010,6 +2080,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2036,6 +2107,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2062,6 +2134,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2088,6 +2161,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2114,6 +2188,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2140,6 +2215,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2174,6 +2250,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2200,6 +2277,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2226,6 +2304,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2252,6 +2331,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2278,6 +2358,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2304,6 +2385,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2330,6 +2412,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2356,6 +2439,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2382,6 +2466,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2408,6 +2493,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2434,6 +2520,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2468,6 +2555,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2494,6 +2582,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2520,6 +2609,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2546,6 +2636,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2572,6 +2663,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2598,6 +2690,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2624,6 +2717,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2650,6 +2744,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2676,6 +2771,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2702,6 +2798,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2728,6 +2825,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2762,6 +2860,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2788,6 +2887,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2814,6 +2914,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2840,6 +2941,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2866,6 +2968,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2892,6 +2995,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2918,6 +3022,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2944,6 +3049,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2970,6 +3076,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -2996,6 +3103,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3022,6 +3130,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3056,6 +3165,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3082,6 +3192,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3108,6 +3219,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3134,6 +3246,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3160,6 +3273,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3186,6 +3300,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3212,6 +3327,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3238,6 +3354,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3264,6 +3381,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3290,6 +3408,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3316,6 +3435,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3350,6 +3470,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3376,6 +3497,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3402,6 +3524,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3428,6 +3551,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3454,6 +3578,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3480,6 +3605,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3506,6 +3632,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3532,6 +3659,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3558,6 +3686,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3584,6 +3713,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3610,6 +3740,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3644,6 +3775,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3670,6 +3802,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3696,6 +3829,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3722,6 +3856,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3748,6 +3883,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3774,6 +3910,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3800,6 +3937,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3826,6 +3964,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3852,6 +3991,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3878,6 +4018,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3904,6 +4045,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3938,6 +4080,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3964,6 +4107,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -3990,6 +4134,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4016,6 +4161,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4042,6 +4188,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4068,6 +4215,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4094,6 +4242,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4120,6 +4269,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4146,6 +4296,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4172,6 +4323,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4198,6 +4350,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4232,6 +4385,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
     <LinearLayout
+        android:id="@+id/layout_A1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4258,6 +4412,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_B1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4284,6 +4439,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_C1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4310,6 +4466,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_D1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4336,6 +4493,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_E1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4362,6 +4520,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_F1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4388,6 +4547,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_G1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4414,6 +4574,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_H1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4440,6 +4601,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_I1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4466,6 +4628,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_J1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -4492,6 +4655,7 @@
             android:textColor="#000" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_K1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
