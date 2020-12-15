@@ -3,11 +3,116 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:columnCount="11"
-    android:rowCount="15"
+    android:columnCount="12"
+    android:rowCount="16"
     android:padding="10dp">
+    <!-- 0 Row -->
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text=""
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text="A"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text="B"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text="C"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text="D"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text="E"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text="F"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text="G"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text="H"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text="I"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text="J"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:text="K"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
 
     <!-- 1 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="15"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -20,6 +125,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 2 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="14"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -32,6 +144,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 3 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="13"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -44,6 +163,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 4 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="12"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -56,6 +182,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 5 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="11"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -68,6 +201,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 6 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="10"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -80,6 +220,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 7 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="9"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -92,6 +239,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 8 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="8"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -104,6 +258,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 9 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="7"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -116,6 +277,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 10 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="6"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -128,6 +296,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 11 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="5"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -140,6 +315,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 12 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="4"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -152,6 +334,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 13 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="3"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -164,6 +353,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 14 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="2"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
@@ -176,6 +372,13 @@
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <!-- 15 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:text="1"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>
     <include layout="@layout/grid_view_items_mainscreen"/>

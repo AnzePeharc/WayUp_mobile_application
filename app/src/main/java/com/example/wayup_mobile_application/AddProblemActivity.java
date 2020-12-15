@@ -100,7 +100,6 @@ public class AddProblemActivity extends Activity implements AdapterView.OnItemSe
                     Toast.makeText(getApplicationContext(),"You must choose the grade of the problem from dropdown!" , Toast.LENGTH_LONG).show();
                 }
                 else{
-                    // TODO implement a function for adding data to the database
 
                     String problem_sequence = getIntent().getStringExtra("Problem_sequence"); // get the sequence from SetProblemActivity
                     String problem_sequence_counters = getIntent().getStringExtra("Problem_sequence_counters"); // get the sequence_counters from SetProblemActivity
