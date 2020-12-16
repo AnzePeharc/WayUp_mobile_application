@@ -737,7 +737,7 @@
         android:onClick="SelectHold">
 
         <ImageView
-            android:id="@+id/A143"
+            android:id="@+id/A13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_wall_hole"

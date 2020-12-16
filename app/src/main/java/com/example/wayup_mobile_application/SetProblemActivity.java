@@ -34,8 +34,8 @@ public class SetProblemActivity extends Activity{
     AlertDialog dialog;
 
     // variables for interactive climbing wall
-    ArrayList<ImageView> selected_holds = new ArrayList<>();
-    ArrayList<TextView> selected_holds_counters = new ArrayList<>();
+    ArrayList<Integer> selected_holds = new ArrayList<>();
+    ArrayList<Integer> selected_holds_counters = new ArrayList<>();
     ImageView selected_hold;
     TextView selected_hold_counter;
 
@@ -59,8 +59,25 @@ public class SetProblemActivity extends Activity{
             public void onClick(View view) {
                 // check if the sequence is not empty
                 if(!selected_holds.isEmpty()){
+                    // convert ArrayList with TextView ids into comma separated string
+                    StringBuffer sb_image = new StringBuffer();
+
+                    for (Integer image : selected_holds) {
+                        sb_image.append(image);
+                        sb_image.append(",");
+                    }
+                    String selected_holdsString = sb_image.toString();
+
+                    // convert ArrayList with TextView ids into comma separated string
+                    StringBuffer sb_text = new StringBuffer();
+
+                    for (Integer counter : selected_holds_counters) {
+                        sb_text.append(counter);
+                        sb_text.append(",");
+                    }
+                    String selected_holds_countersString = sb_text.toString();
                     sendProblemSequence(SetProblemActivity.this, AddProblemActivity.class,
-                            Arrays.toString(selected_holds.toArray()), Arrays.toString(selected_holds_counters.toArray()));
+                            selected_holdsString, selected_holds_countersString);
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"No holds selected!" , Toast.LENGTH_LONG).show();
@@ -99,7 +116,7 @@ public class SetProblemActivity extends Activity{
 
         //
         if(!selected_holds.isEmpty()){
-            if(selected_holds.contains(selected_hold)){
+            if(selected_holds.contains(selected_hold.getId())){
                 switch(String.valueOf(selected_hold.getTag())){
                     case "green":
                         ShapeDrawable blue = new ShapeDrawable(new OvalShape());
@@ -129,7 +146,7 @@ public class SetProblemActivity extends Activity{
                         selected_hold.setTag("empty");
                         // remove the select_hold from the ArrayList
                         for(int i = 0; i < selected_holds.size(); i++){
-                            if(selected_holds.get(i) == selected_hold){
+                            if(selected_holds.get(i) == selected_hold.getId()){
                                 selected_holds.remove(i);
                                 break;
                             }
@@ -138,7 +155,7 @@ public class SetProblemActivity extends Activity{
                         selected_hold_counter.setText("");
                         selected_hold_counter.setTag("");
                         for(int i = 0; i < selected_holds_counters.size(); i++) {
-                            if (selected_holds_counters.get(i) == selected_hold_counter) {
+                            if (selected_holds_counters.get(i) == selected_hold_counter.getId()) {
                                 selected_holds_counters.remove(i);
                                 break;
                             }
@@ -157,9 +174,9 @@ public class SetProblemActivity extends Activity{
                         R.color.hold_green_background, null));;
                 selected_hold.setBackground(next);
                 selected_hold.setTag("green");
-                selected_holds.add(selected_hold);
+                selected_holds.add(selected_hold.getId());
                 // add the selected TextView to the ArrayList - to keep track of counters
-                selected_holds_counters.add(selected_hold_counter);
+                selected_holds_counters.add(selected_hold_counter.getId());
                 // set counter of the selected hold, to show the correct sequence
                 selected_hold_counter.setText(Integer.toString(counter));
                 // set the tag to the value of the counter, so it can be shown in the mainScreen after selected from DatabaseActivity
@@ -177,9 +194,9 @@ public class SetProblemActivity extends Activity{
             selected_hold.setBackground(first);
             selected_hold.setTag("green");
             // add the selected ImageView to the ArrayList
-            selected_holds.add(selected_hold);
+            selected_holds.add(selected_hold.getId());
             // add the selected TextView to the ArrayList - to keep track of counters
-            selected_holds_counters.add(selected_hold_counter);
+            selected_holds_counters.add(selected_hold_counter.getId());
             // set counter of the selected hold, to show the correct sequence
             selected_hold_counter.setText(Integer.toString(counter));
             // set the tag to the value of the counter, so it can be shown in the mainScreen after selected from DatabaseActivity

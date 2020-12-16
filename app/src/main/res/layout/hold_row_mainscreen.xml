@@ -6,7 +6,7 @@
     android:columnCount="12"
     android:rowCount="16"
     android:padding="10dp"
-    android:id="@+id/gridlayout_setproblem">
+    android:id="@+id/gridlayout_mainscreen">
 
     <!-- 0 Row -->
     <TextView
