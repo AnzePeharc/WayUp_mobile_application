@@ -13,117 +13,117 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text=""
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text="A"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text="B"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text="C"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text="D"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text="E"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text="F"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text="G"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text="H"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text="I"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text="J"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="20dp"
+        android:paddingBottom="10dp"
         android:text="K"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
 
 
     <!-- 1 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="15"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -147,10 +147,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -174,10 +174,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -201,10 +201,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -228,10 +228,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -255,10 +255,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -282,10 +282,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -309,10 +309,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -336,10 +336,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -363,10 +363,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -390,10 +390,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -416,19 +416,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="14"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -452,10 +452,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -479,10 +479,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -506,10 +506,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -533,10 +533,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -560,10 +560,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -587,10 +587,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -614,10 +614,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -641,10 +641,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -668,10 +668,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -695,10 +695,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -721,19 +721,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="13"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -757,10 +757,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -784,10 +784,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -811,10 +811,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -838,10 +838,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -864,10 +864,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -891,10 +891,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -918,10 +918,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -945,10 +945,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -972,10 +972,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -999,10 +999,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1025,19 +1025,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="12"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1061,10 +1061,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1088,10 +1088,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1115,10 +1115,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1142,10 +1142,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1169,10 +1169,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1196,10 +1196,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1223,10 +1223,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1250,10 +1250,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1277,10 +1277,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1304,10 +1304,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1330,19 +1330,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="11"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1366,10 +1366,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1393,10 +1393,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1420,10 +1420,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1447,10 +1447,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1474,10 +1474,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1501,10 +1501,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1528,10 +1528,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1555,10 +1555,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1582,10 +1582,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1609,10 +1609,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1635,19 +1635,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="10"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1671,10 +1671,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1698,10 +1698,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1725,10 +1725,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1752,10 +1752,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1779,10 +1779,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1806,10 +1806,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1833,10 +1833,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1860,10 +1860,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1887,10 +1887,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1914,10 +1914,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1940,19 +1940,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="9"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -1976,10 +1976,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2003,10 +2003,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2030,10 +2030,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2057,10 +2057,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2084,10 +2084,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2111,10 +2111,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2138,10 +2138,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2165,10 +2165,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2192,10 +2192,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2219,10 +2219,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2245,19 +2245,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="8"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2281,10 +2281,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2308,10 +2308,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2335,10 +2335,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2362,10 +2362,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2389,10 +2389,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2416,10 +2416,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2443,10 +2443,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2470,10 +2470,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2497,10 +2497,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2524,10 +2524,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2550,19 +2550,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="7"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2586,10 +2586,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2613,10 +2613,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2640,10 +2640,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2667,10 +2667,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2694,10 +2694,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2721,10 +2721,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2748,10 +2748,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2775,10 +2775,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2802,10 +2802,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2829,10 +2829,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2855,19 +2855,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="6"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2891,10 +2891,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2918,10 +2918,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2945,10 +2945,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2972,10 +2972,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -2999,10 +2999,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3026,10 +3026,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3053,10 +3053,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3080,10 +3080,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3107,10 +3107,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3134,10 +3134,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3160,19 +3160,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="5"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3196,10 +3196,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3223,10 +3223,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3250,10 +3250,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3277,10 +3277,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3304,10 +3304,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3331,10 +3331,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3358,10 +3358,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3385,10 +3385,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3412,10 +3412,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3439,10 +3439,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3465,19 +3465,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="4"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3501,10 +3501,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3528,10 +3528,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3555,10 +3555,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3582,10 +3582,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3609,10 +3609,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3636,10 +3636,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3663,10 +3663,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3690,10 +3690,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3717,10 +3717,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3744,10 +3744,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3770,19 +3770,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="3"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3806,10 +3806,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3833,10 +3833,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3860,10 +3860,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3887,10 +3887,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3914,10 +3914,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3941,10 +3941,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3968,10 +3968,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -3995,10 +3995,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4022,10 +4022,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4049,10 +4049,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4075,19 +4075,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="2"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4111,10 +4111,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4138,10 +4138,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4165,10 +4165,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4192,10 +4192,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4219,10 +4219,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4246,10 +4246,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4273,10 +4273,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4300,10 +4300,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4327,10 +4327,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4354,10 +4354,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4380,19 +4380,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20dp"
+        android:paddingRight="10dp"
         android:text="1"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/layout_A1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4416,10 +4416,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4443,10 +4443,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4470,10 +4470,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4497,10 +4497,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4524,10 +4524,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4551,10 +4551,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4578,10 +4578,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4605,10 +4605,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4632,10 +4632,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView
@@ -4659,10 +4659,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
         >
 
         <ImageView

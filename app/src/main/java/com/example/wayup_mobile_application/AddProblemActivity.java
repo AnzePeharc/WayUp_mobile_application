@@ -103,8 +103,9 @@ public class AddProblemActivity extends Activity implements AdapterView.OnItemSe
 
                     String problem_sequence = getIntent().getStringExtra("Problem_sequence"); // get the sequence from SetProblemActivity
                     String problem_sequence_counters = getIntent().getStringExtra("Problem_sequence_counters"); // get the sequence_counters from SetProblemActivity
+                    String problem_sequence_tags = getIntent().getStringExtra("Problem_sequence_tags"); // get the sequence_tags from SetProblemActivity
                     // insert data into database
-                    boolean insert_status = databaseHelper.insertData(problem_sequence, problem_sequence_counters, name.getEditText().getText().toString(),
+                    boolean insert_status = databaseHelper.insertData(problem_sequence, problem_sequence_tags,problem_sequence_counters, name.getEditText().getText().toString(),
                             spinner.getSelectedItem().toString(), setter.getEditText().getText().toString(), comment.getEditText().getText().toString());
 
                     // Alert user about the status of the added problem
@@ -126,7 +127,7 @@ public class AddProblemActivity extends Activity implements AdapterView.OnItemSe
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(),grades[position], Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),grades[position], Toast.LENGTH_LONG).show();
     }
 
     @Override

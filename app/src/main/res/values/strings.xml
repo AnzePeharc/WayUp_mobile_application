@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WayUp_mobile_application</string>
+    <string name="app_name">WayUp</string>
     <string-array name="spinnerItems">
         <item>4a</item>
         <item>4a+</item>

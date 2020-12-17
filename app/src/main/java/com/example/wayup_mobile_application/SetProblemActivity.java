@@ -61,13 +61,22 @@ public class SetProblemActivity extends Activity{
                 if(!selected_holds.isEmpty()){
                     // convert ArrayList with TextView ids into comma separated string
                     StringBuffer sb_image = new StringBuffer();
+                    StringBuffer sb_image_tags = new StringBuffer();
 
                     for (Integer image : selected_holds) {
+
+                        ImageView get_tag = findViewById(image); // get ImageView of the selected hold
+                        String tag = (String) get_tag.getTag(); // get tag of the ImageView so you know which color to use in MainScreen
+                        // build image_tags string
+                        sb_image_tags.append(tag);
+                        sb_image_tags.append(",");
+                        // build image ID string
                         sb_image.append(image);
                         sb_image.append(",");
                     }
                     String selected_holdsString = sb_image.toString();
-
+                    String selected_holds_tagsString = sb_image_tags.toString();
+                    System.out.println(selected_holdsString);
                     // convert ArrayList with TextView ids into comma separated string
                     StringBuffer sb_text = new StringBuffer();
 
@@ -77,7 +86,7 @@ public class SetProblemActivity extends Activity{
                     }
                     String selected_holds_countersString = sb_text.toString();
                     sendProblemSequence(SetProblemActivity.this, AddProblemActivity.class,
-                            selected_holdsString, selected_holds_countersString);
+                            selected_holdsString, selected_holds_tagsString, selected_holds_countersString);
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"No holds selected!" , Toast.LENGTH_LONG).show();
@@ -86,12 +95,13 @@ public class SetProblemActivity extends Activity{
         });
     }
 
-    public static void sendProblemSequence(Activity activity, Class aClass, String sequence, String counters) {
+    public static void sendProblemSequence(Activity activity, Class aClass, String sequence, String sequence_tags, String counters) {
         // Initialize intent
         Intent intent = new Intent(activity, aClass);
         // Set Flag
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("Problem_sequence", sequence);
+        intent.putExtra("Problem_sequence_tags", sequence_tags);
         intent.putExtra("Problem_sequence_counters", counters);
         // Start the activity
         activity.startActivity(intent);

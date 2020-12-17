@@ -24,7 +24,7 @@ public class DatabaseActivity extends Activity {
 
     DrawerLayout drawerLayout;
     ListView problemTable;
-
+    MainActivity main = new MainActivity();
     // variable for interacting with DatabaseHelper
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
@@ -53,6 +53,8 @@ public class DatabaseActivity extends Activity {
             {
                 Problem selected_problem = (Problem) adapter.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(), selected_problem.getSequence(), Toast.LENGTH_LONG).show();
+                main.selectDatabaseProblem(selected_problem);
+                MainActivity.redirectActivity(DatabaseActivity.this, MainActivity.class);
                 // TODO show the clicked problem on the mainScreen climbing wall
             }
         });
@@ -110,9 +112,9 @@ public class DatabaseActivity extends Activity {
         }
         else{
             while(cursor.moveToNext()){
-                Problem new_problem = new Problem(cursor.getInt(0),cursor.getString(1),cursor.getString(2),
-                        cursor.getString(3), cursor.getString(4),
-                        cursor.getString(5), cursor.getString(6));
+                Problem new_problem = new Problem(cursor.getInt(0),cursor.getString(1) ,cursor.getString(2),cursor.getString(3),
+                        cursor.getString(4), cursor.getString(5),
+                        cursor.getString(6), cursor.getString(7));
                 arrayOfProblems.add(new_problem);
             }
         }

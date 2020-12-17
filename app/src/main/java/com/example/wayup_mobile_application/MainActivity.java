@@ -59,24 +59,38 @@ public class MainActivity extends AppCompatActivity{
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.load_problem:
-                        // TODO implement correct graphics for loading problem from Database
+                        // TODO implement to draw line between holds to indicate path
                         Problem current_problem = allProblems.get(current_problem_index);
                         String sequence = current_problem.getSequence(); // get holds
                         String sequence_counters = current_problem.getSequence_counters(); //get hold_counters
+                        String sequence_tags = current_problem.getSequence_tags(); //get hold_tags
                         String[] holds = sequence.split(",");
                         String[] hold_counters = sequence_counters.split(",");
-                        System.out.println(sequence_counters.length());
-                        for (int i = 0; i < holds.length; i ++){
-                            System.out.println(hold_counters[i]);
+                        String[] hold_tags = sequence_tags.split(",");
 
+                        for (int i = 0; i < holds.length; i ++){
                             ImageView hold_image = (ImageView) mainWall.findViewById(Integer.parseInt(holds[i]));
                             TextView hold_text = (TextView) mainWall.findViewById(Integer.parseInt(hold_counters[i]));
                             hold_text.setText(String.valueOf(i +1));
                             ShapeDrawable first = new ShapeDrawable(new OvalShape());
                             first.setIntrinsicHeight(hold_image.getHeight() / 2);
                             first.setIntrinsicWidth(hold_image.getHeight() / 2);
-                            first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                                    R.color.hold_green_background, null));;
+                            // select the correct color for the hold background
+                            switch (hold_tags[i]){
+                                case "green":
+                                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                                            R.color.hold_green_background, null));
+                                    break;
+                                case "blue":
+                                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                                            R.color.hold_blue_background, null));
+                                    break;
+                                case "red":
+                                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                                            R.color.hold_red_background, null));
+                                    break;
+                            }
+                            // apply color to the hold background
                             hold_image.setBackground(first);
 
                         }
@@ -166,13 +180,51 @@ public class MainActivity extends AppCompatActivity{
         }
         else{
             while(cursor.moveToNext()){
-                Problem new_problem = new Problem(cursor.getInt(0),cursor.getString(1),cursor.getString(2),
-                        cursor.getString(3), cursor.getString(4),
-                        cursor.getString(5), cursor.getString(6));
+                Problem new_problem = new Problem(cursor.getInt(0), cursor.getString(1),cursor.getString(2),cursor.getString(3),
+                        cursor.getString(4), cursor.getString(5),
+                        cursor.getString(6), cursor.getString(7));
                 allProblems.add(new_problem);
             }
         }
 
+    }
+
+    public void selectDatabaseProblem(Problem problem){
+        // TODO: implement showing problem when you click on Database
+        GridLayout mainWall = (GridLayout) findViewById(R.id.gridlayout_mainscreen);
+        String sequence = problem.getSequence(); // get holds
+        String sequence_counters = problem.getSequence_counters(); //get hold_counters
+        String sequence_tags = problem.getSequence_tags(); //get hold_tags
+        String[] holds = sequence.split(",");
+        String[] hold_counters = sequence_counters.split(",");
+        String[] hold_tags = sequence_tags.split(",");
+
+        for (int i = 0; i < holds.length; i ++){
+            ImageView hold_image = (ImageView) mainWall.findViewById(Integer.parseInt(holds[i]));
+            TextView hold_text = (TextView) mainWall.findViewById(Integer.parseInt(hold_counters[i]));
+            hold_text.setText(String.valueOf(i +1));
+            ShapeDrawable first = new ShapeDrawable(new OvalShape());
+            first.setIntrinsicHeight(hold_image.getHeight() / 2);
+            first.setIntrinsicWidth(hold_image.getHeight() / 2);
+            // select the correct color for the hold background
+            switch (hold_tags[i]){
+                case "green":
+                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                            R.color.hold_green_background, null));
+                    break;
+                case "blue":
+                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                            R.color.hold_blue_background, null));
+                    break;
+                case "red":
+                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                            R.color.hold_red_background, null));
+                    break;
+            }
+            // apply color to the hold background
+            hold_image.setBackground(first);
+
+        }
     }
 
 }
