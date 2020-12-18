@@ -14,10 +14,12 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,12 +30,17 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity{
 
+    private final static String TAG = "MainActivity";
+
     DrawerLayout drawerLayout;
     // variables for loading problem from Database
     GridLayout mainWall;
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
     ArrayList<Problem> allProblems = new ArrayList<Problem>();
     int current_problem_index;
+    String[] width = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
+    String[] height = {"15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,7 @@ public class MainActivity extends AppCompatActivity{
         // TOP NAVIGATION CODE
         drawerLayout = findViewById(R.id.drawer_layout);
 
+        clearWall();
         // BOTTOM NAVIGATION CODE
         // Initialize bottomNavigation variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -119,6 +127,21 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(getIntent().getStringExtra("mainScreen_sequence") != null){
+            selectDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
+        }
+        else{
+            System.out.println("No data has been sent!");
+        }
+
+
+
+    }
+
 
     public void ClickMenu(View view){
         // open Drawer
@@ -162,6 +185,15 @@ public class MainActivity extends AppCompatActivity{
         // Start the activity
         activity.startActivity(intent);
     }
+    public static void sendData(Activity activity, Class aClass, String data) {
+        // Initialize intent
+        Intent intent = new Intent(activity, aClass);
+        // Set Flag
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        // Start the activity
+        activity.startActivity(intent);
+        System.out.println(data);
+    }
 
 
     @Override
@@ -189,12 +221,10 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-    public void selectDatabaseProblem(Problem problem){
-        // TODO: implement showing problem when you click on Database
-        GridLayout mainWall = (GridLayout) findViewById(R.id.gridlayout_mainscreen);
-        String sequence = problem.getSequence(); // get holds
-        String sequence_counters = problem.getSequence_counters(); //get hold_counters
-        String sequence_tags = problem.getSequence_tags(); //get hold_tags
+    public void selectDatabaseProblem(String sequence, String sequence_counters, String sequence_tags){
+
+        clearWall();
+
         String[] holds = sequence.split(",");
         String[] hold_counters = sequence_counters.split(",");
         String[] hold_tags = sequence_tags.split(",");
@@ -225,6 +255,26 @@ public class MainActivity extends AppCompatActivity{
             hold_image.setBackground(first);
 
         }
+
+
+    }
+    public void clearWall(){
+
+        for(String width: width){
+            for(String height: height){
+                int hold_id = getResources().getIdentifier(width+height, "id", getPackageName());
+                ImageView selected_hold = (ImageView) mainWall.findViewById(hold_id);
+                int vHeight = selected_hold.getHeight();
+                ShapeDrawable empty = new ShapeDrawable(new OvalShape());
+                empty.setIntrinsicHeight(vHeight / 2);
+                empty.setIntrinsicWidth(vHeight / 2);
+                empty.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                        R.color.colorClimbingWall, null));;
+                selected_hold.setBackground(empty);
+                selected_hold.setTag("empty");
+            }
+        }
+
     }
 
 }

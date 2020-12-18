@@ -121,8 +121,8 @@ public class SetProblemActivity extends Activity{
 
         // Draw a circle over the selected hold
 
-        int vWidth = view.getWidth(); // get ImageView width
-        int vHeight = view.getHeight(); // get ImageView height
+        int vWidth = view.getWidth(); // get LinearLayout width (LinearLayout wraps ImageView and TextView)
+        int vHeight = view.getHeight(); // get LinearLayout height (LinearLayout wraps ImageView and TextView)
 
         //
         if(!selected_holds.isEmpty()){

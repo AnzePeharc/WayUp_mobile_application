@@ -52,9 +52,9 @@ public class DatabaseActivity extends Activity {
                                     long arg3)
             {
                 Problem selected_problem = (Problem) adapter.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(), selected_problem.getSequence(), Toast.LENGTH_LONG).show();
-                main.selectDatabaseProblem(selected_problem);
-                MainActivity.redirectActivity(DatabaseActivity.this, MainActivity.class);
+                //Toast.makeText(getApplicationContext(), selected_problem.getSequence(), Toast.LENGTH_LONG).show();
+                sendProblemSequence(DatabaseActivity.this, MainActivity.class, selected_problem.getSequence(), selected_problem.getSequence_tags(), selected_problem.getSequence_counters());
+
                 // TODO show the clicked problem on the mainScreen climbing wall
             }
         });
@@ -119,5 +119,17 @@ public class DatabaseActivity extends Activity {
             }
         }
 
+    }
+
+    public static void sendProblemSequence(Activity activity, Class aClass, String sequence, String sequence_tags, String sequence_counters) {
+        // Initialize intent
+        Intent intent = new Intent(activity, aClass);
+        // Set Flag
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("mainScreen_sequence", sequence);
+        intent.putExtra("mainScreen_sequence_tags", sequence_tags);
+        intent.putExtra("mainScreen_sequence_counters", sequence_counters);
+        // Start the activity
+        activity.startActivity(intent);
     }
 }
