@@ -30,7 +30,6 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity{
 
-    private final static String TAG = "MainActivity";
 
     DrawerLayout drawerLayout;
     // variables for loading problem from Database
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity{
         // TOP NAVIGATION CODE
         drawerLayout = findViewById(R.id.drawer_layout);
 
-        clearWall();
         // BOTTOM NAVIGATION CODE
         // Initialize bottomNavigation variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -68,40 +66,9 @@ public class MainActivity extends AppCompatActivity{
                 switch (menuItem.getItemId()){
                     case R.id.load_problem:
                         // TODO implement to draw line between holds to indicate path
+
                         Problem current_problem = allProblems.get(current_problem_index);
-                        String sequence = current_problem.getSequence(); // get holds
-                        String sequence_counters = current_problem.getSequence_counters(); //get hold_counters
-                        String sequence_tags = current_problem.getSequence_tags(); //get hold_tags
-                        String[] holds = sequence.split(",");
-                        String[] hold_counters = sequence_counters.split(",");
-                        String[] hold_tags = sequence_tags.split(",");
-
-                        for (int i = 0; i < holds.length; i ++){
-                            ImageView hold_image = (ImageView) mainWall.findViewById(Integer.parseInt(holds[i]));
-                            TextView hold_text = (TextView) mainWall.findViewById(Integer.parseInt(hold_counters[i]));
-                            hold_text.setText(String.valueOf(i +1));
-                            ShapeDrawable first = new ShapeDrawable(new OvalShape());
-                            first.setIntrinsicHeight(hold_image.getHeight() / 2);
-                            first.setIntrinsicWidth(hold_image.getHeight() / 2);
-                            // select the correct color for the hold background
-                            switch (hold_tags[i]){
-                                case "green":
-                                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                                            R.color.hold_green_background, null));
-                                    break;
-                                case "blue":
-                                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                                            R.color.hold_blue_background, null));
-                                    break;
-                                case "red":
-                                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                                            R.color.hold_red_background, null));
-                                    break;
-                            }
-                            // apply color to the hold background
-                            hold_image.setBackground(first);
-
-                        }
+                        selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags());
 
                         // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
                         if(current_problem_index < allProblems.size()-1){
@@ -137,8 +104,6 @@ public class MainActivity extends AppCompatActivity{
         else{
             System.out.println("No data has been sent!");
         }
-
-
 
     }
 
@@ -185,15 +150,6 @@ public class MainActivity extends AppCompatActivity{
         // Start the activity
         activity.startActivity(intent);
     }
-    public static void sendData(Activity activity, Class aClass, String data) {
-        // Initialize intent
-        Intent intent = new Intent(activity, aClass);
-        // Set Flag
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        // Start the activity
-        activity.startActivity(intent);
-        System.out.println(data);
-    }
 
 
     @Override
@@ -223,7 +179,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void selectDatabaseProblem(String sequence, String sequence_counters, String sequence_tags){
 
-        clearWall();
+        clearWall(); // clear GridLayout
 
         String[] holds = sequence.split(",");
         String[] hold_counters = sequence_counters.split(",");
@@ -262,9 +218,12 @@ public class MainActivity extends AppCompatActivity{
 
         for(String width: width){
             for(String height: height){
+                // get ID of the ImageView
                 int hold_id = getResources().getIdentifier(width+height, "id", getPackageName());
                 ImageView selected_hold = (ImageView) mainWall.findViewById(hold_id);
+
                 int vHeight = selected_hold.getHeight();
+                // set the background color of the ImageView
                 ShapeDrawable empty = new ShapeDrawable(new OvalShape());
                 empty.setIntrinsicHeight(vHeight / 2);
                 empty.setIntrinsicWidth(vHeight / 2);
@@ -272,6 +231,13 @@ public class MainActivity extends AppCompatActivity{
                         R.color.colorClimbingWall, null));;
                 selected_hold.setBackground(empty);
                 selected_hold.setTag("empty");
+
+                // get ID of the TextView
+                int hold_counter = getResources().getIdentifier("counter_"+width+height, "id", getPackageName());
+                TextView selected_counter = (TextView) mainWall.findViewById(hold_counter);
+                // set TextView text
+                selected_counter.setText("");
+
             }
         }
 

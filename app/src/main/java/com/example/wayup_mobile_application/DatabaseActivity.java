@@ -55,13 +55,12 @@ public class DatabaseActivity extends Activity {
                 //Toast.makeText(getApplicationContext(), selected_problem.getSequence(), Toast.LENGTH_LONG).show();
                 sendProblemSequence(DatabaseActivity.this, MainActivity.class, selected_problem.getSequence(), selected_problem.getSequence_tags(), selected_problem.getSequence_counters());
 
-                // TODO show the clicked problem on the mainScreen climbing wall
             }
         });
 
         // call function for filling the table with elements
         fillTable(this);
-
+        //TODO: implement system for filtering the DataBase entries
     }
 
     public void ClickMenu(View view) {
