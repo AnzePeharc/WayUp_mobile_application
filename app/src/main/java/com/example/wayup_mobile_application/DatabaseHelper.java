@@ -57,6 +57,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
+    public Cursor getAllDataAsc() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+TABLE_NAME+" order by "+COL_6+" asc ",null);
+        return res;
+    }
+
+
+    public Cursor getAllDataDesc() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+TABLE_NAME+" order by "+COL_6+" desc ",null);
+        return res;
+    }
     public boolean updateData(String id,String sequence, String sequence_tags,String sequence_counters,String name,String grade,String setter, String comment) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

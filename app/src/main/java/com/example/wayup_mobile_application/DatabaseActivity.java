@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,19 +31,26 @@ public class DatabaseActivity extends Activity {
     MainActivity main = new MainActivity();
     // variable for interacting with DatabaseHelper
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
+    boolean sortedAsc = false;
 
     // variables for filling the ListView
-    ArrayList<Problem> arrayOfProblems = new ArrayList<Problem>();
+    ArrayList<Problem> arrayOfProblems = new ArrayList<Problem>(); // ArrayList containing all the problems
+    ArrayList<Problem> arrayOfProblemsAsc = new ArrayList<Problem>(); // ArrayList containing all the problem sorted ascending
+    ArrayList<Problem> arrayOfProblemsDesc = new ArrayList<Problem>();// ArrayList containing all the problem sorted descending
     ProblemAdapter problemAdapter;
-
+    SearchView search_problems;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.database_activity);
 
+
+
         // set variable for drawerLayout
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
+        // call function for filling the table with elements
+        fillTable(this);
         // fill the table with database content
         problemAdapter =  new ProblemAdapter(this, arrayOfProblems);
         problemTable = (ListView) findViewById(R.id.problem_table);
@@ -58,10 +69,27 @@ public class DatabaseActivity extends Activity {
             }
         });
 
-        // call function for filling the table with elements
-        fillTable(this);
+        // search menu variable for filtering problems by name
+        search_problems = (SearchView) findViewById(R.id.search_menu);
+
+        // Added onTextChange listener to listen on user input and filter the results
+        search_problems.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                problemAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+
         //TODO: implement system for filtering the DataBase entries
     }
+
 
     public void ClickMenu(View view) {
         MainActivity.openDrawer(drawerLayout);
@@ -102,10 +130,14 @@ public class DatabaseActivity extends Activity {
     // function for filling the table with problem entries
     public void fillTable(Context context){
 
-        // get the cursor from Database
+        // get the cursor from Database for AllData
         Cursor cursor = databaseHelper.getAllData();
+        // get the cursor from Database for AllData sorted ascending
+        Cursor cursorAsc = databaseHelper.getAllDataAsc();
+        // get the cursor from Database for AllData sorted descending
+        Cursor cursorDesc = databaseHelper.getAllDataDesc();
 
-        // check if database is empty
+        // check if Cursor contains data
         if(cursor.getCount() == 0){
             Toast.makeText(this,"ERROR: Empty database." , Toast.LENGTH_LONG).show();
         }
@@ -115,6 +147,31 @@ public class DatabaseActivity extends Activity {
                         cursor.getString(4), cursor.getString(5),
                         cursor.getString(6), cursor.getString(7));
                 arrayOfProblems.add(new_problem);
+            }
+        }
+        // check if CursorAsc contains data
+        if(cursorAsc.getCount() == 0){
+            Toast.makeText(this,"ERROR: Empty database." , Toast.LENGTH_LONG).show();
+        }
+        else{
+            while(cursorAsc.moveToNext()){
+                Problem new_problem = new Problem(cursorAsc.getInt(0),cursorAsc.getString(1) ,cursorAsc.getString(2),cursorAsc.getString(3),
+                        cursorAsc.getString(4), cursorAsc.getString(5),
+                        cursorAsc.getString(6), cursorAsc.getString(7));
+                arrayOfProblemsAsc.add(new_problem);
+            }
+        }
+
+        // check if CursorDesc contains data
+        if(cursorDesc.getCount() == 0){
+            Toast.makeText(this,"ERROR: Empty database." , Toast.LENGTH_LONG).show();
+        }
+        else{
+            while(cursorDesc.moveToNext()){
+                Problem new_problem = new Problem(cursorDesc.getInt(0),cursorDesc.getString(1) ,cursorDesc.getString(2),cursorDesc.getString(3),
+                        cursorDesc.getString(4), cursorDesc.getString(5),
+                        cursorDesc.getString(6), cursorDesc.getString(7));
+                arrayOfProblemsDesc.add(new_problem);
             }
         }
 
@@ -130,5 +187,25 @@ public class DatabaseActivity extends Activity {
         intent.putExtra("mainScreen_sequence_counters", sequence_counters);
         // Start the activity
         activity.startActivity(intent);
+    }
+
+    public void sortByGrade(View view){
+
+        if(sortedAsc){
+            problemAdapter =  new ProblemAdapter(this, arrayOfProblemsDesc);
+            problemTable.setAdapter(problemAdapter);
+            sortedAsc = false;
+        }
+        else{
+            problemAdapter =  new ProblemAdapter(this, arrayOfProblemsAsc);
+            problemTable.setAdapter(problemAdapter);
+            sortedAsc = true;
+
+        }
+
+    }
+
+    public void Search(View view){
+
     }
 }
