@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.google.android.material.slider.LabelFormatter;
 import com.google.android.material.slider.RangeSlider;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class FilterActivity extends Activity {
@@ -24,6 +25,8 @@ public class FilterActivity extends Activity {
     TextView slider_info;
     CheckBox ascending;
     CheckBox descending;
+    Float[] array = {(float) 0, (float) 23};
+    List<Float> slider_values = Arrays.asList(array);;
 
 
     @Override
@@ -54,12 +57,13 @@ public class FilterActivity extends Activity {
 
         slider_info = (TextView) findViewById(R.id.slider_info);
         grade_slider = (RangeSlider) findViewById(R.id.grade_slider);
+
         grade_slider.addOnChangeListener(new RangeSlider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull RangeSlider slider, float value, boolean fromUser) {
-                List<Float> values = grade_slider.getValues();
-                String minValue = grades[Math.round(values.get(0))];
-                String maxValue = grades[Math.round(values.get(1))];
+                slider_values = grade_slider.getValues();
+                String minValue = grades[Math.round(slider_values.get(0))];
+                String maxValue = grades[Math.round(slider_values.get(1))];
                 slider_info.setText(getString(R.string.slider_info, minValue, maxValue));
             }
         });
@@ -91,6 +95,8 @@ public class FilterActivity extends Activity {
         // Set Flag
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("sortType", sortType);
+        intent.putExtra("minGrade", grades[Math.round(slider_values.get(0))]);
+        intent.putExtra("maxGrade", grades[Math.round(slider_values.get(1))]);
         // Start the activity
         FilterActivity.this.startActivity(intent);
     }

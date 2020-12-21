@@ -28,10 +28,8 @@ public class DatabaseActivity extends Activity {
 
     DrawerLayout drawerLayout;
     ListView problemTable;
-    MainActivity main = new MainActivity();
     // variable for interacting with DatabaseHelper
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
-    boolean sortedAsc = false;
 
     // variables for filling the ListView
     ArrayList<Problem> arrayOfProblems = new ArrayList<Problem>(); // ArrayList containing all the problems
@@ -95,7 +93,8 @@ public class DatabaseActivity extends Activity {
     protected void onStart() {
         super.onStart();
         if(getIntent().getStringExtra("sortType") != null){
-            sortByGrade(getIntent().getStringExtra("sortType"));
+            sortByGrade(getIntent().getStringExtra("sortType"), getIntent().getStringExtra("minGrade"), getIntent().getStringExtra("maxGrade"));
+
         }
         else{
             System.out.println("No data has been sent!");
@@ -191,6 +190,9 @@ public class DatabaseActivity extends Activity {
         }
 
     }
+    public void updateTable(Context context){
+
+    }
 
     public static void sendProblemSequence(Activity activity, Class aClass, String sequence, String sequence_tags, String sequence_counters) {
         // Initialize intent
@@ -204,19 +206,25 @@ public class DatabaseActivity extends Activity {
         activity.startActivity(intent);
     }
 
-    public void sortByGrade(String sorted){
+    public void sortByGrade(String sorted, String minGrade, String maxGrade){
 
+        ArrayList<Problem> temp = new ArrayList<Problem>();
         if(sorted.equals("descending")){
-            problemAdapter =  new ProblemAdapter(this, arrayOfProblemsDesc);
-            problemTable.setAdapter(problemAdapter);
-            sortedAsc = false;
+            for(Problem problem : arrayOfProblemsDesc){
+                if(problem.getGrade().compareTo(minGrade) >= 0 & problem.getGrade().compareTo(maxGrade) <= 0){
+                    temp.add(problem);
+                }
+            }
         }
         else{
-            problemAdapter =  new ProblemAdapter(this, arrayOfProblemsAsc);
-            problemTable.setAdapter(problemAdapter);
-            sortedAsc = true;
-
+            for(Problem problem : arrayOfProblemsAsc) {
+                if (problem.getGrade().compareTo(minGrade) >= 0 & problem.getGrade().compareTo(maxGrade) <= 0) {
+                    temp.add(problem);
+                }
+            }
         }
+        problemAdapter =  new ProblemAdapter(this, temp);
+        problemTable.setAdapter(problemAdapter);
 
     }
 
