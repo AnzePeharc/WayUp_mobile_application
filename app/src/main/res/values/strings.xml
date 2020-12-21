@@ -1,12 +1,6 @@
 <resources>
     <string name="app_name">WayUp</string>
     <string-array name="spinnerItems">
-        <item>4a</item>
-        <item>4a+</item>
-        <item>4b</item>
-        <item>4b+</item>
-        <item>4c</item>
-        <item>4c+</item>
         <item>5a</item>
         <item>5a+</item>
         <item>5b</item>
@@ -32,4 +26,14 @@
         <item>8c</item>
         <item>8c+</item>
     </string-array>
+    <string-array name="initial_values_slider">
+        <item>0.0</item>
+        <item>23.0</item>
+    </string-array>
+    <string name="problem_count">
+        Problem Count: %1$d
+    </string>
+    <string name="slider_info">
+        Grade: %1$s - %2$s
+    </string>
 </resources>

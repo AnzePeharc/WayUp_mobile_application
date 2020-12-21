@@ -37,14 +37,16 @@ public class DatabaseActivity extends Activity {
     ArrayList<Problem> arrayOfProblems = new ArrayList<Problem>(); // ArrayList containing all the problems
     ArrayList<Problem> arrayOfProblemsAsc = new ArrayList<Problem>(); // ArrayList containing all the problem sorted ascending
     ArrayList<Problem> arrayOfProblemsDesc = new ArrayList<Problem>();// ArrayList containing all the problem sorted descending
-    ProblemAdapter problemAdapter;
-    SearchView search_problems;
+    ProblemAdapter problemAdapter; // adapter that displays the problems from database in ListView
+    SearchView search_problems; // SearchView that allows filtering of the problems by name
+    TextView problem_count; // TextView to display number of problems in database
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.database_activity);
 
-
+        // set variable for problem_count
+        problem_count = (TextView) findViewById(R.id.problem_count);
 
         // set variable for drawerLayout
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -89,6 +91,16 @@ public class DatabaseActivity extends Activity {
 
         //TODO: implement system for filtering the DataBase entries
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(getIntent().getStringExtra("sortType") != null){
+            sortByGrade(getIntent().getStringExtra("sortType"));
+        }
+        else{
+            System.out.println("No data has been sent!");
+        }
+    }
 
 
     public void ClickMenu(View view) {
@@ -132,6 +144,9 @@ public class DatabaseActivity extends Activity {
 
         // get the cursor from Database for AllData
         Cursor cursor = databaseHelper.getAllData();
+        // update the problem_count TextView with the number of all problems
+        problem_count.setText(getString(R.string.problem_count, cursor.getCount()));
+
         // get the cursor from Database for AllData sorted ascending
         Cursor cursorAsc = databaseHelper.getAllDataAsc();
         // get the cursor from Database for AllData sorted descending
@@ -189,9 +204,9 @@ public class DatabaseActivity extends Activity {
         activity.startActivity(intent);
     }
 
-    public void sortByGrade(View view){
+    public void sortByGrade(String sorted){
 
-        if(sortedAsc){
+        if(sorted.equals("descending")){
             problemAdapter =  new ProblemAdapter(this, arrayOfProblemsDesc);
             problemTable.setAdapter(problemAdapter);
             sortedAsc = false;
@@ -205,7 +220,7 @@ public class DatabaseActivity extends Activity {
 
     }
 
-    public void Search(View view){
-
+    public void FilterOptions(View view){
+        MainActivity.redirectActivity(DatabaseActivity.this, FilterActivity.class);
     }
 }

@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".SetProblemActivity"/>
         <activity android:name=".DatabaseActivity"/>
+        <activity android:name=".FilterActivity"/>
         <activity android:name=".AddProblemActivity"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
     </application>

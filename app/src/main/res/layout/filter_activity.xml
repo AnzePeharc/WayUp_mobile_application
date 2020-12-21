@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:onClick="ClickBack"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/slider_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GRADE: 5a - 8c+"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <com.google.android.material.slider.RangeSlider
+        android:id="@+id/grade_slider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stepSize="1.0"
+        android:valueFrom="0.0"
+        android:valueTo="23.0"
+        app:labelBehavior="withinBounds"
+        app:values="@array/initial_values_slider"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5a"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingRight="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="6a"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center_horizontal"
+            android:text="7a"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center_horizontal"
+            android:text="8a"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8c+"
+            android:gravity="end"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/ascending"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:checked="true"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="Ascending"/>
+        <CheckBox
+            android:id="@+id/descending"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:checked="false"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="Descending"/>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Apply"
+        android:onClick="ApplyFilters"/>
+
+</LinearLayout>
