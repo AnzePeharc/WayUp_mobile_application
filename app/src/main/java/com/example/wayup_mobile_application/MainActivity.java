@@ -1,18 +1,22 @@
 package com.example.wayup_mobile_application;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
-import android.media.Image;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -24,13 +28,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity{
 
-
+    // variable for alert PopUp
+    AlertDialog dialog;
+    // variable for drawerMenu
     DrawerLayout drawerLayout;
     // variables for loading problem from Database
     GridLayout mainWall;
@@ -39,6 +51,10 @@ public class MainActivity extends AppCompatActivity{
     int current_problem_index;
     String[] width = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
     String[] height = {"15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
+
+    // variables for establishing socket connection
+    SequenceSender sequenceSender;
+
 
 
     @Override
@@ -56,16 +72,17 @@ public class MainActivity extends AppCompatActivity{
 
         // BOTTOM NAVIGATION CODE
         // Initialize bottomNavigation variable
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        final BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         // set default state
         bottomNavigationView.setSelectedItemId(R.id.show_problem);
         // set ActionListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
+                    // load problem from Database
                     case R.id.load_problem:
-                        // TODO implement to draw line between holds to indicate path
 
                         Problem current_problem = allProblems.get(current_problem_index);
                         selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags());
@@ -79,9 +96,32 @@ public class MainActivity extends AppCompatActivity{
                             current_problem_index = 0;
                         }
                         return true;
+                    // send the Problem sequence via WiFi to Arduino, which then lights the correct LEDs
                     case R.id.show_problem:
-                        return true;
 
+                        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE); // get the WiFi status
+                        // check if WiFi is enabled
+                        if (wifiManager.isWifiEnabled()) {
+                            // TODO: implement client socket communication
+
+                            sendSequence(bottomNavigationView);
+
+                        }
+                        // if the WiFi is disable show AlertDialog to user
+                        else{
+                            final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+                            builder.setTitle("WiFi ERROR");
+                            builder.setMessage("Please connect to the WiFi");
+                            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                            dialog = builder.show();
+                        }
+                        return true;
+                    // add new Problem to the Database, which redirects the user to SetProblemActivity
                     case R.id.add_problem:
 
                         startActivity(new Intent(getApplicationContext(), SetProblemActivity.class));
@@ -94,13 +134,16 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+
     @Override
     protected void onStart() {
         super.onStart();
 
+        // check if you were redirected from DatabaseActivity. If the extra data in Intent is not empty, you show the Problem sequence on the wall
         if(getIntent().getStringExtra("mainScreen_sequence") != null){
             selectDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
         }
+        // otherwise no data has been sent
         else{
             System.out.println("No data has been sent!");
         }
@@ -241,6 +284,11 @@ public class MainActivity extends AppCompatActivity{
             }
         }
 
+    }
+
+    public void sendSequence(View view){
+        sequenceSender = new SequenceSender();
+        sequenceSender.execute("Tole pa zdej dela");
     }
 
 }

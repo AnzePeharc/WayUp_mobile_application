@@ -60,8 +60,8 @@ public class SetProblemActivity extends Activity{
                 // check if the sequence is not empty
                 if(!selected_holds.isEmpty()){
                     // convert ArrayList with TextView ids into comma separated string
-                    StringBuffer sb_image = new StringBuffer();
-                    StringBuffer sb_image_tags = new StringBuffer();
+                    StringBuilder sb_image = new StringBuilder();
+                    StringBuilder sb_image_tags = new StringBuilder();
 
                     for (Integer image : selected_holds) {
 
