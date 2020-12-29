@@ -62,27 +62,31 @@ public class SetProblemActivity extends Activity{
                     // convert ArrayList with TextView ids into comma separated string
                     StringBuilder sb_image = new StringBuilder();
                     StringBuilder sb_image_tags = new StringBuilder();
-
+                    String prefix = "";
                     for (Integer image : selected_holds) {
 
                         ImageView get_tag = findViewById(image); // get ImageView of the selected hold
                         String tag = (String) get_tag.getTag(); // get tag of the ImageView so you know which color to use in MainScreen
                         // build image_tags string
+                        sb_image_tags.append(prefix);
                         sb_image_tags.append(tag);
-                        sb_image_tags.append(",");
                         // build image ID string
+                        sb_image.append(prefix);
                         sb_image.append(image);
-                        sb_image.append(",");
+
+                        prefix = ",";
                     }
                     String selected_holdsString = sb_image.toString();
                     String selected_holds_tagsString = sb_image_tags.toString();
                     System.out.println(selected_holdsString);
                     // convert ArrayList with TextView ids into comma separated string
                     StringBuffer sb_text = new StringBuffer();
-
+                    prefix = "";
                     for (Integer counter : selected_holds_counters) {
+                        sb_text.append(prefix);
                         sb_text.append(counter);
-                        sb_text.append(",");
+
+                        prefix = ",";
                     }
                     String selected_holds_countersString = sb_text.toString();
                     sendProblemSequence(SetProblemActivity.this, AddProblemActivity.class,

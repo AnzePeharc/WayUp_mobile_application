@@ -43,7 +43,7 @@
             app:itemIconTint="@drawable/selector"
             app:itemTextColor="@drawable/selector"
             app:menu="@menu/menu_navigation"
-            android:paddingTop="20dp"/>
+            android:paddingTop="10dp"/>
 
     </RelativeLayout>
     <RelativeLayout

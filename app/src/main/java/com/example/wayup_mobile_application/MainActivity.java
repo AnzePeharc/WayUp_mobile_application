@@ -37,6 +37,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity{
     int current_problem_index;
     String[] width = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
     String[] height = {"15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
+    HashMap<String,String> current_sequence_data = new HashMap<String,String>(); // global variable for holding sequence information
 
     // variables for establishing socket connection
     SequenceSender sequenceSender;
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // assign default values to the HashMap
         mainWall = findViewById(R.id.gridlayout_mainscreen);
         // Fill ArrayList with problems from Database, so you can show them with load_problem
         loadDatabase();
@@ -85,7 +88,11 @@ public class MainActivity extends AppCompatActivity{
                     case R.id.load_problem:
 
                         Problem current_problem = allProblems.get(current_problem_index);
-                        selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags());
+                        System.out.println(current_problem.getSequence());
+                        current_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
+                        current_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
+                        current_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
+                        selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
 
                         // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
                         if(current_problem_index < allProblems.size()-1){
@@ -141,6 +148,11 @@ public class MainActivity extends AppCompatActivity{
 
         // check if you were redirected from DatabaseActivity. If the extra data in Intent is not empty, you show the Problem sequence on the wall
         if(getIntent().getStringExtra("mainScreen_sequence") != null){
+            System.out.println(getIntent().getStringExtra("mainScreen_sequence"));
+            current_sequence_data.put("Sequence",getIntent().getStringExtra("mainScreen_sequence"));// add problem sequence to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_counters",getIntent().getStringExtra("mainScreen_sequence_counters"));// add problem sequence_counters to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_tags",getIntent().getStringExtra("mainScreen_sequence_tags"));// add problem sequence_tags to the HashMap as the currently selected problem
+            // call function for displaying the problem on the graphic wall
             selectDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
         }
         // otherwise no data has been sent
@@ -287,8 +299,43 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void sendSequence(View view){
-        sequenceSender = new SequenceSender();
-        sequenceSender.execute("Tole pa zdej dela");
+        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+        builder.setTitle("WiFi ERROR");
+        builder.setMessage("Please connect to the WiFi");
+        builder.setPositiveButton("Show_all", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                sequenceSender = new SequenceSender(getApplicationContext());
+                // check if HashMap is empty - there is no selected problem
+                if(current_sequence_data.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"ERROR: You need to choose the problem first!" , Toast.LENGTH_LONG).show();
+                    sequenceSender.execute("There is no problem selected");
+                }
+                else{
+                    String [] sequence = current_sequence_data.get("Sequence").split(",");
+                    StringBuilder sequence_id = new StringBuilder();
+                    String prefix = "";
+                    for (String id : sequence){
+                        sequence_id.append(prefix);
+                        sequence_id.append(getResources().getResourceEntryName(Integer.parseInt(id)));
+                        prefix = ",";
+                    }
+                    String sequence_info = sequence_id.toString() + ";" + current_sequence_data.get("Sequence_tags");
+                    sequenceSender.execute(sequence_info);
+                }
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton("Hide_all", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                sequenceSender = new SequenceSender(getApplicationContext());
+                sequenceSender.execute("hide_all");
+                dialog.dismiss();
+            }
+        });
+        dialog = builder.show();
+
     }
 
 }
