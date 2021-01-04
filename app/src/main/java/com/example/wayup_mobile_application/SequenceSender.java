@@ -16,7 +16,7 @@ public class SequenceSender extends AsyncTask<String, Void, Void> {
     Socket socket;
     DataOutputStream dos; // to be used for receiving data from the server
     PrintWriter pw;
-    String SERVER_IP = "192.168.0.108"; // this is the IPv4 address of the device you're trying to connect (for testing purpose use your computers address)
+    String SERVER_IP = "192.168.0.110"; // this is the IPv4 address of the device you're trying to connect (for testing purpose use your computers address)
     int SERVER_PORT = 8080;
     final private Context mContext;
 
@@ -26,7 +26,7 @@ public class SequenceSender extends AsyncTask<String, Void, Void> {
     @Override
     protected Void doInBackground(String... strings) {
 
-        String sequence_info = strings[0];;
+        String sequence_info = strings[0];
         System.out.println(sequence_info);
 
 
@@ -36,8 +36,8 @@ public class SequenceSender extends AsyncTask<String, Void, Void> {
             pw.write(sequence_info); // send the sequence to Arduino Uno (server)
             pw.flush();
             TimeUnit.SECONDS.sleep(1); // wait 1 second before flushing PrintWriter and closing the socket connection
-            //pw.close();
-            //socket.close();
+            pw.close();
+            socket.close();
         }
         catch (IOException | InterruptedException e){
             e.printStackTrace();

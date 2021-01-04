@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity{
     String[] width = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
     String[] height = {"15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
     HashMap<String,String> current_sequence_data = new HashMap<String,String>(); // global variable for holding sequence information
+    HashMap<String,Integer> hold_led_numbers = new HashMap<String,Integer>(); // global variable for holding sequence information
 
     // variables for establishing socket connection
     SequenceSender sequenceSender;
@@ -66,6 +67,18 @@ public class MainActivity extends AppCompatActivity{
 
         // assign default values to the HashMap
         mainWall = findViewById(R.id.gridlayout_mainscreen);
+        // fill the HasHMap with hold led numbers. This is used then to send numbers of LED diodes that need to be lit up to Arduino
+        hold_led_numbers.put("A", 0);
+        hold_led_numbers.put("B", 15);
+        hold_led_numbers.put("C", 30);
+        hold_led_numbers.put("D", 45);
+        hold_led_numbers.put("E", 60);
+        hold_led_numbers.put("F", 75);
+        hold_led_numbers.put("G", 90);
+        hold_led_numbers.put("H", 105);
+        hold_led_numbers.put("I", 120);
+        hold_led_numbers.put("J", 135);
+        hold_led_numbers.put("K", 150);
         // Fill ArrayList with problems from Database, so you can show them with load_problem
         loadDatabase();
         current_problem_index = 0;
@@ -317,7 +330,9 @@ public class MainActivity extends AppCompatActivity{
                     String prefix = "";
                     for (String id : sequence){
                         sequence_id.append(prefix);
-                        sequence_id.append(getResources().getResourceEntryName(Integer.parseInt(id)));
+                        String led_number = translate_coordinate(getResources().getResourceEntryName(Integer.parseInt(id)));
+                        sequence_id.append(led_number);
+                        //sequence_id.append(getResources().getResourceEntryName(Integer.parseInt(id)));
                         prefix = ",";
                     }
                     String sequence_info = sequence_id.toString() + ";" + current_sequence_data.get("Sequence_tags");
@@ -336,6 +351,15 @@ public class MainActivity extends AppCompatActivity{
         });
         dialog = builder.show();
 
+    }
+
+    public String translate_coordinate(String hold_id){
+        String hold_letter = hold_id.substring(0,1); // get the letter part of the ID
+        int hold_number = Integer.parseInt(hold_id.substring(1)); // get the number part of the ID as integer
+
+        int led_number = hold_led_numbers.get(hold_letter) + hold_number; // calculate the corresponding led number
+
+        return String.valueOf(led_number); // convert the led number to string
     }
 
 }
