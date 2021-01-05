@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity{
     HashMap<String,String> current_sequence_data = new HashMap<String,String>(); // global variable for holding sequence information
     HashMap<String,Integer> hold_led_numbers = new HashMap<String,Integer>(); // global variable for holding sequence information
 
+    // variable for turning off lights when application is closed
+    boolean opened = true;
+
     // variables for establishing socket connection
     SequenceSender sequenceSender;
 
@@ -122,7 +125,6 @@ public class MainActivity extends AppCompatActivity{
                         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE); // get the WiFi status
                         // check if WiFi is enabled
                         if (wifiManager.isWifiEnabled()) {
-                            // TODO: implement client socket communication
 
                             sendSequence(bottomNavigationView);
 
@@ -154,6 +156,19 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    @Override
+    public void onDestroy()
+    {
+        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE); // get the WiFi status
+        // check if WiFi is enabled
+        if (wifiManager.isWifiEnabled()) {
+            opened = false; // set the variable for shutting down the lights
+            sendSequence(getCurrentFocus());
+            System.out.println("Pride!");
+
+        }
+        super.onDestroy();
+    }
 
     @Override
     protected void onStart() {
@@ -312,13 +327,14 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void sendSequence(View view){
-        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
-        builder.setTitle("WiFi ERROR");
-        builder.setMessage("Please connect to the WiFi");
-        builder.setPositiveButton("Show_all", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+
+
                 sequenceSender = new SequenceSender(getApplicationContext());
+
+                //check if application is closing
+                if (!opened){
+                    sequenceSender.execute("hide_all");
+                }
                 // check if HashMap is empty - there is no selected problem
                 if(current_sequence_data.isEmpty()){
                     Toast.makeText(getApplicationContext(),"ERROR: You need to choose the problem first!" , Toast.LENGTH_LONG).show();
@@ -338,18 +354,6 @@ public class MainActivity extends AppCompatActivity{
                     String sequence_info = sequence_id.toString() + ";" + current_sequence_data.get("Sequence_tags");
                     sequenceSender.execute(sequence_info);
                 }
-                dialog.dismiss();
-            }
-        });
-        builder.setNegativeButton("Hide_all", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                sequenceSender = new SequenceSender(getApplicationContext());
-                sequenceSender.execute("hide_all");
-                dialog.dismiss();
-            }
-        });
-        dialog = builder.show();
 
     }
 
