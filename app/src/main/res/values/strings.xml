@@ -1,5 +1,53 @@
 <resources>
+    <!-- App Name. -->
     <string name="app_name">WayUp</string>
+
+    <!-- Toolbar strings. -->
+    <string name="toolbar_home">Home</string>
+    <string name="toolbar_database">Problem Library</string>
+
+    <!-- Set Problem strings. -->
+    <string name="set_problem_cancel">Cancel</string>
+    <string name="set_problem_next">Next</string>
+    <string name="set_problem_info">Info</string>
+    <string name="set_problem">Set Problem</string>
+
+    <!-- Add problem strings. -->
+    <string name="add_problem">Save Problem</string>
+    <string name="add_problem_back">Back</string>
+    <string name="add_problem_discard">Discard</string>
+    <string name="add_problem_save">Save</string>
+    <string name="add_problem_name_hint">Name</string>
+    <string name="add_problem_setter_hint">Setter</string>
+    <string name="add_problem_comment_hint">Comment</string>
+    <string name="add_problem_problem_count">Proposed grade of the problem:</string>
+
+    <!-- Add problem strings. -->
+    <string name="problem_count">
+        Problem Count: %1$d
+    </string>
+    <string name="database_activity_name">NAME</string>
+    <string name="database_activity_comment">COMMENT</string>
+    <string name="database_activity_grade">GRADE</string>
+    <string name="database_activity_setter">SETTER</string>
+
+    <!-- Add problem strings. -->
+    <string name="filter_activity_back">Back</string>
+    <string name="filter_activity_apply">Apply</string>
+    <string name="filter_activity_descending">Descending</string>
+    <string name="filter_activity_ascending">Ascending</string>
+    <string name="filter_activity_first_grade">5c</string>
+    <string name="filter_activity_last_grade">8c+</string>
+    <string name="filter_activity_grade_range">GRADE: 5a - 8c+</string>
+
+    <!-- Table item strings. -->
+    <string name="table_item_name">Name</string>
+    <string name="table_item_grade">Grade</string>
+    <string name="table_item_setter">Setter</string>
+    <string name="table_item_comment">Comment</string>
+
+
+    <!-- Spinner values. -->
     <string-array name="spinnerItems">
         <item>5a</item>
         <item>5a+</item>
@@ -26,13 +74,13 @@
         <item>8c</item>
         <item>8c+</item>
     </string-array>
+
     <string-array name="initial_values_slider">
         <item>0.0</item>
         <item>23.0</item>
     </string-array>
-    <string name="problem_count">
-        Problem Count: %1$d
-    </string>
+
+
     <string name="slider_info">
         Grade: %1$s - %2$s
     </string>

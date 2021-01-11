@@ -12,10 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@color/colorBlack"
         >
 
         <include
             layout="@layout/databaseactivity_toolbar"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#ffffff"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,42 +31,47 @@
         android:orientation="horizontal"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingBottom="20dp">
+        android:paddingBottom="20dp"
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="0.25"
             android:layout_height="wrap_content"
-            android:text="NAME"
+            android:text="@string/database_activity_name"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="#000000"/>
+            android:textColor="@color/colorWhite"
+            style="@style/WhiteText"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="0.25"
             android:layout_height="wrap_content"
-            android:text="GRADE"
+            android:text="@string/database_activity_grade"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="#000000"/>
+            android:textColor="@color/colorWhite"
+            style="@style/WhiteText"/>
         <TextView
             android:layout_width="0dp"
             android:layout_weight="0.25"
             android:layout_height="wrap_content"
-            android:text="SETTER"
+            android:text="@string/database_activity_setter"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="#000000"/>
+            android:textColor="@color/colorWhite"
+            style="@style/WhiteText"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="0.25"
             android:layout_height="wrap_content"
-            android:text="COMMENT"
+            android:text="@string/database_activity_comment"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="#000000"/>
+            android:textColor="@color/colorWhite"
+            style="@style/WhiteText"/>
 
         </LinearLayout>
 
@@ -77,7 +90,7 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@android:color/white">
+        android:background="@color/colorBlack">
 
         <include
             layout="@layout/main_drawer"/>

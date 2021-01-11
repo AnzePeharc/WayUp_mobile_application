@@ -7,11 +7,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
+    android:background="@color/colorBlack"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         android:padding="10dp"
         android:layout_marginBottom="100dp">
@@ -21,8 +22,9 @@
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
-            style="@style/Button"
+            android:text="@string/add_problem_back"
+            android:background="@drawable/rounded_button"
+            style="@style/WhiteText"
             />
 
         <View
@@ -33,9 +35,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save Problem"
+            android:text="@string/add_problem"
             android:textSize="30sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            style="@style/WhiteText"/>
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -45,8 +48,9 @@
             android:id="@+id/discard_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Discard"
-            style="@style/Button"
+            android:text="@string/add_problem_discard"
+            android:background="@drawable/rounded_button"
+            style="@style/WhiteText"
             />
 
 
@@ -57,17 +61,18 @@
         android:id="@+id/name_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxStrokeColor="#000000"
+        app:boxStrokeColor="@color/colorBlack"
         app:boxStrokeWidth="2dp"
-        android:textColorHint="#000000"
-        android:hint="Name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        android:textColorHint="@color/colorBlack"
+        android:hint="@string/add_problem_name_hint"
+        style="@style/WhiteText"
+        android:background="@drawable/customborder"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:textColorHint="#000000"
+            android:textColorHint="@color/colorBlack"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -75,15 +80,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="50dp">
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="40dp">
 
         <TextView
             android:layout_width="400dp"
             android:layout_height="match_parent"
-            android:text="Proposed grade of the problem:"
+            android:text="@string/add_problem_problem_count"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:gravity="center"/>
+            android:gravity="center"
+            style="@style/WhiteText"/>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -91,7 +98,7 @@
             android:id="@+id/grade_spinner"
             android:textAlignment="center"
             android:gravity="center_horizontal"
-            android:background="@drawable/customborder"
+            android:background="@drawable/customborder_full"
             />
     </LinearLayout>
 
@@ -100,17 +107,18 @@
         android:id="@+id/setter_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxStrokeColor="#000000"
+        app:boxStrokeColor="@color/colorBlack"
         app:boxStrokeWidth="2dp"
-        android:textColorHint="#000000"
-        android:hint="Setter"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        android:textColorHint="@color/colorBlack"
+        android:hint="@string/add_problem_setter_hint"
+        style="@style/WhiteText"
+        android:background="@drawable/customborder">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:textColorHint="#000000"
+
+            android:textColorHint="@color/colorBlack"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -120,17 +128,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        app:boxStrokeColor="#000000"
+        app:boxStrokeColor="@color/colorBlack"
         app:boxStrokeWidth="2dp"
-        android:textColorHint="#000000"
-        android:hint="Comment"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        android:textColorHint="@color/colorBlack"
+        android:hint="@string/add_problem_comment_hint"
+        style="@style/WhiteText"
+        android:background="@drawable/customborder">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginBottom="20dp"
-            android:textColorHint="#000000" />
+
+            android:textColorHint="@color/colorBlack" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -139,9 +148,10 @@
         android:id="@+id/save_button"
         android:layout_width="400dp"
         android:layout_height="80dp"
-        android:text="Save"
+        android:layout_marginTop="100dp"
+        android:text="@string/add_problem_save"
         android:layout_gravity="center"
-        style="@style/Button"
-        />
+        android:background="@drawable/rounded_button"
+        style="@style/WhiteText"/>
 
 </LinearLayout>

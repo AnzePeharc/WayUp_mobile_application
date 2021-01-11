@@ -10,33 +10,33 @@
             android:layout_width="0dp"
             android:layout_weight="0.25"
             android:layout_height="wrap_content"
-            android:text="NAME"
+            android:text="@string/table_item_name"
             android:gravity="center"
-            android:textColor="#000000"/>
+            android:textColor="@color/colorWhite"/>
 
         <TextView
             android:id="@+id/problem_grade"
             android:layout_width="0dp"
             android:layout_weight="0.25"
             android:layout_height="wrap_content"
-            android:text="GRADE"
+            android:text="@string/table_item_grade"
             android:gravity="center"
-            android:textColor="#000000"/>
+            android:textColor="@color/colorWhite"/>
         <TextView
             android:id="@+id/problem_setter"
             android:layout_width="0dp"
             android:layout_weight="0.25"
             android:layout_height="wrap_content"
-            android:text="SETTER"
+            android:text="@string/table_item_setter"
             android:gravity="center"
-            android:textColor="#000000"/>
+            android:textColor="@color/colorWhite"/>
 
         <TextView
             android:id="@+id/problem_comment"
             android:layout_width="0dp"
             android:layout_weight="0.25"
             android:layout_height="wrap_content"
-            android:text="COMMENT"
+            android:text="@string/table_item_comment"
             android:gravity="center"
-            android:textColor="#000000"/>
+            android:textColor="@color/colorWhite"/>
 </LinearLayout>

@@ -6,34 +6,38 @@
     android:orientation="horizontal"
     android:padding="12dp"
     android:gravity="center_vertical"
-    android:id="@+id/databaseactivity_toolbar">
+    android:id="@+id/databaseactivity_toolbar"
+    android:background="@color/colorBlack">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:onClick="ClickMenu"
         android:src="@drawable/ic_menu"/>
 
     <TextView
         android:id="@+id/problem_count"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="@string/problem_count"
-        android:textAlignment="center"
-        android:textColor="#000000"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        style="@style/WhiteText"/>
 
     <SearchView
         android:id="@+id/search_menu"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_round_search_menu"/>
+        android:layout_height="50dp"
+        android:src="@drawable/ic_round_search_menu"
+        android:background="@drawable/customborder_full"
+        android:layout_margin="10dp"/>
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:onClick="FilterOptions"
         android:src="@drawable/ic_outline_filter"/>
 

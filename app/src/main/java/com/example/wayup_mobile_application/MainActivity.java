@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity{
     String[] height = {"15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
     HashMap<String,String> current_sequence_data = new HashMap<String,String>(); // global variable for holding sequence information
     HashMap<String,Integer> hold_led_numbers = new HashMap<String,Integer>(); // global variable for holding sequence information
+    boolean database_empty = true;
 
     // variable for turning off lights when application is closed
     boolean opened = true;
@@ -102,21 +103,25 @@ public class MainActivity extends AppCompatActivity{
                 switch (menuItem.getItemId()){
                     // load problem from Database
                     case R.id.load_problem:
-
-                        Problem current_problem = allProblems.get(current_problem_index);
-                        System.out.println(current_problem.getSequence());
-                        current_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
-                        current_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
-                        current_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
-                        selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
-
-                        // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
-                        if(current_problem_index < allProblems.size()-1){
-                            current_problem_index ++; // increment the index to show new problem when load_problem is pressed again
+                        if(database_empty){
+                            Toast.makeText(getApplicationContext(),"ERROR: There are no problems in Database! You can add some." , Toast.LENGTH_LONG).show();
                         }
-                        // if the problem_index is equal to array size, reset it to zero - that way you start showing problems from the beginning again
                         else{
-                            current_problem_index = 0;
+                            Problem current_problem = allProblems.get(current_problem_index);
+                            System.out.println(current_problem.getSequence());
+                            current_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
+                            selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
+
+                            // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
+                            if(current_problem_index < allProblems.size()-1){
+                                current_problem_index ++; // increment the index to show new problem when load_problem is pressed again
+                            }
+                            // if the problem_index is equal to array size, reset it to zero - that way you start showing problems from the beginning again
+                            else{
+                                current_problem_index = 0;
+                            }
                         }
                         return true;
                     // send the Problem sequence via WiFi to Arduino, which then lights the correct LEDs
@@ -250,6 +255,7 @@ public class MainActivity extends AppCompatActivity{
             Toast.makeText(getApplicationContext(),"ERROR: Empty Database." , Toast.LENGTH_LONG).show();
         }
         else{
+            database_empty = false;
             while(cursor.moveToNext()){
                 Problem new_problem = new Problem(cursor.getInt(0), cursor.getString(1),cursor.getString(2),cursor.getString(3),
                         cursor.getString(4), cursor.getString(5),
