@@ -58,10 +58,9 @@
     <LinearLayout
         android:id="@+id/set_problem_wall"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="720dp"
         android:gravity="center"
-        android:orientation="vertical"
-        android:background="@color/colorClimbingWall">
+        android:orientation="vertical">
 
         <include layout="@layout/hold_row_setproblem" />
 

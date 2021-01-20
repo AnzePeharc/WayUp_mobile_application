@@ -19,12 +19,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import java.util.ArrayList;
 
-public class DatabaseActivity extends Activity {
+public class DatabaseActivity extends AppCompatActivity{
 
     DrawerLayout drawerLayout;
     ListView problemTable;

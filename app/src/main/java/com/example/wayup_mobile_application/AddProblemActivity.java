@@ -11,11 +11,12 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class AddProblemActivity extends Activity implements AdapterView.OnItemSelectedListener{
+public class AddProblemActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     // Array with Dropdown values
     String[] grades = {"5a", "5a+", "5b", "5b+", "5c", "5c+", "6a", "6a+", "6b", "6b+", "6c", "6c+",

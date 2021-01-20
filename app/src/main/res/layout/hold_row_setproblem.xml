@@ -5,8 +5,9 @@
     android:layout_gravity="center_horizontal"
     android:columnCount="12"
     android:rowCount="16"
-    android:padding="10dp"
-    android:id="@+id/gridlayout_setproblem">
+    android:padding="15dp"
+    android:id="@+id/gridlayout_setproblem"
+    android:background="@drawable/climbing_wall">
 
     <!-- 0 Row -->
     <TextView
@@ -16,7 +17,8 @@
         android:paddingBottom="10dp"
         android:text=""
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -24,7 +26,8 @@
         android:paddingBottom="10dp"
         android:text="A"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -32,7 +35,8 @@
         android:paddingBottom="10dp"
         android:text="B"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -40,7 +44,8 @@
         android:paddingBottom="10dp"
         android:text="C"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -48,7 +53,8 @@
         android:paddingBottom="10dp"
         android:text="D"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -56,7 +62,8 @@
         android:paddingBottom="10dp"
         android:text="E"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -64,7 +71,8 @@
         android:paddingBottom="10dp"
         android:text="F"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -72,7 +80,8 @@
         android:paddingBottom="10dp"
         android:text="G"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -80,7 +89,8 @@
         android:paddingBottom="10dp"
         android:text="H"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -88,7 +98,8 @@
         android:paddingBottom="10dp"
         android:text="I"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -96,7 +107,8 @@
         android:paddingBottom="10dp"
         android:text="J"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -104,7 +116,8 @@
         android:paddingBottom="10dp"
         android:text="K"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
 
 
     <!-- 1 Row -->
@@ -112,9 +125,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="15"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="XV"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A15"
         android:layout_width="wrap_content"
@@ -130,7 +144,8 @@
             android:id="@+id/A15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -140,7 +155,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B15"
@@ -157,7 +172,8 @@
             android:id="@+id/B15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -167,7 +183,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C15"
@@ -184,7 +200,8 @@
             android:id="@+id/C15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -194,7 +211,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D15"
@@ -211,7 +228,8 @@
             android:id="@+id/D15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -221,7 +239,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E15"
@@ -238,7 +256,8 @@
             android:id="@+id/E15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -248,7 +267,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F15"
@@ -265,7 +284,8 @@
             android:id="@+id/F15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -275,7 +295,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G15"
@@ -292,7 +312,8 @@
             android:id="@+id/G15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -302,7 +323,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H15"
@@ -319,7 +340,8 @@
             android:id="@+id/H15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -329,7 +351,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I15"
@@ -346,7 +368,8 @@
             android:id="@+id/I15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -356,7 +379,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J15"
@@ -373,7 +396,8 @@
             android:id="@+id/J15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -383,7 +407,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K15"
@@ -400,7 +424,8 @@
             android:id="@+id/K15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -410,16 +435,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 2 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="14"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="XIV"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A14"
         android:layout_width="wrap_content"
@@ -435,7 +461,8 @@
             android:id="@+id/A14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -445,7 +472,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B14"
@@ -462,7 +489,8 @@
             android:id="@+id/B14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -472,7 +500,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C14"
@@ -489,7 +517,8 @@
             android:id="@+id/C14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -499,7 +528,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D14"
@@ -516,7 +545,8 @@
             android:id="@+id/D14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -526,7 +556,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E14"
@@ -543,7 +573,8 @@
             android:id="@+id/E14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -553,7 +584,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F14"
@@ -570,7 +601,8 @@
             android:id="@+id/F14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -580,7 +612,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G14"
@@ -597,7 +629,8 @@
             android:id="@+id/G14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -607,7 +640,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H14"
@@ -624,7 +657,8 @@
             android:id="@+id/H14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -634,7 +668,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I14"
@@ -651,7 +685,8 @@
             android:id="@+id/I14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -661,7 +696,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J14"
@@ -678,7 +713,8 @@
             android:id="@+id/J14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -688,7 +724,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K14"
@@ -705,7 +741,8 @@
             android:id="@+id/K14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -715,16 +752,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 3 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="13"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="XIII"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A13"
         android:layout_width="wrap_content"
@@ -740,7 +778,8 @@
             android:id="@+id/A13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -750,7 +789,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B13"
@@ -767,7 +806,8 @@
             android:id="@+id/B13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -777,7 +817,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C13"
@@ -794,7 +834,8 @@
             android:id="@+id/C13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -804,7 +845,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D13"
@@ -821,7 +862,8 @@
             android:id="@+id/D13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -831,7 +873,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E13"
@@ -848,7 +890,8 @@
             android:id="@+id/E13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -858,7 +901,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F13"
@@ -875,7 +918,8 @@
             android:id="@+id/F13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -885,7 +929,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G13"
@@ -902,7 +946,8 @@
             android:id="@+id/G13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -912,7 +957,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H13"
@@ -929,7 +974,8 @@
             android:id="@+id/H13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -939,7 +985,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I13"
@@ -956,7 +1002,8 @@
             android:id="@+id/I13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -966,7 +1013,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J13"
@@ -983,7 +1030,8 @@
             android:id="@+id/J13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -993,7 +1041,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K13"
@@ -1010,7 +1058,8 @@
             android:id="@+id/K13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1020,16 +1069,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 4 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="12"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="XII"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A12"
         android:layout_width="wrap_content"
@@ -1045,7 +1095,8 @@
             android:id="@+id/A12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1055,7 +1106,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B12"
@@ -1072,7 +1123,8 @@
             android:id="@+id/B12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1082,7 +1134,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C12"
@@ -1099,7 +1151,8 @@
             android:id="@+id/C12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1109,7 +1162,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D12"
@@ -1126,7 +1179,8 @@
             android:id="@+id/D12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1136,7 +1190,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E12"
@@ -1153,7 +1207,8 @@
             android:id="@+id/E12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1163,7 +1218,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F12"
@@ -1180,7 +1235,8 @@
             android:id="@+id/F12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1190,7 +1246,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G12"
@@ -1207,7 +1263,8 @@
             android:id="@+id/G12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1217,7 +1274,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H12"
@@ -1234,7 +1291,8 @@
             android:id="@+id/H12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1244,7 +1302,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I12"
@@ -1261,7 +1319,8 @@
             android:id="@+id/I12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1271,7 +1330,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J12"
@@ -1288,7 +1347,8 @@
             android:id="@+id/J12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1298,7 +1358,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K12"
@@ -1315,7 +1375,8 @@
             android:id="@+id/K12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1325,16 +1386,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 5 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="11"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="XI"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A11"
         android:layout_width="wrap_content"
@@ -1350,7 +1412,8 @@
             android:id="@+id/A11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1360,7 +1423,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B11"
@@ -1377,7 +1440,8 @@
             android:id="@+id/B11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1387,7 +1451,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C11"
@@ -1404,7 +1468,8 @@
             android:id="@+id/C11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1414,7 +1479,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D11"
@@ -1431,7 +1496,8 @@
             android:id="@+id/D11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1441,7 +1507,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E11"
@@ -1458,7 +1524,8 @@
             android:id="@+id/E11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1468,7 +1535,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F11"
@@ -1485,7 +1552,8 @@
             android:id="@+id/F11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1495,7 +1563,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G11"
@@ -1512,7 +1580,8 @@
             android:id="@+id/G11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1522,7 +1591,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H11"
@@ -1539,7 +1608,8 @@
             android:id="@+id/H11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1549,7 +1619,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I11"
@@ -1566,7 +1636,8 @@
             android:id="@+id/I11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1576,7 +1647,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J11"
@@ -1593,7 +1664,8 @@
             android:id="@+id/J11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1603,7 +1675,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K11"
@@ -1620,7 +1692,8 @@
             android:id="@+id/K11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1630,16 +1703,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 6 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="10"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="X"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A10"
         android:layout_width="wrap_content"
@@ -1655,7 +1729,8 @@
             android:id="@+id/A10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1665,7 +1740,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B10"
@@ -1682,7 +1757,8 @@
             android:id="@+id/B10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1692,7 +1768,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C10"
@@ -1709,7 +1785,8 @@
             android:id="@+id/C10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1719,7 +1796,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D10"
@@ -1736,7 +1813,8 @@
             android:id="@+id/D10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1746,7 +1824,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E10"
@@ -1763,7 +1841,8 @@
             android:id="@+id/E10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1773,7 +1852,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F10"
@@ -1790,7 +1869,8 @@
             android:id="@+id/F10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1800,7 +1880,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G10"
@@ -1817,7 +1897,8 @@
             android:id="@+id/G10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1827,7 +1908,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H10"
@@ -1844,7 +1925,8 @@
             android:id="@+id/H10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1854,7 +1936,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I10"
@@ -1871,7 +1953,8 @@
             android:id="@+id/I10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1881,7 +1964,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J10"
@@ -1898,7 +1981,8 @@
             android:id="@+id/J10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1908,7 +1992,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K10"
@@ -1925,7 +2009,8 @@
             android:id="@+id/K10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1935,16 +2020,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 7 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="9"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="IX"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A9"
         android:layout_width="wrap_content"
@@ -1960,7 +2046,8 @@
             android:id="@+id/A9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1970,7 +2057,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B9"
@@ -1987,7 +2074,8 @@
             android:id="@+id/B9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -1997,7 +2085,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C9"
@@ -2014,7 +2102,8 @@
             android:id="@+id/C9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2024,7 +2113,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D9"
@@ -2041,7 +2130,8 @@
             android:id="@+id/D9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2051,7 +2141,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E9"
@@ -2068,7 +2158,8 @@
             android:id="@+id/E9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2078,7 +2169,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F9"
@@ -2095,7 +2186,8 @@
             android:id="@+id/F9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2105,7 +2197,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G9"
@@ -2122,7 +2214,8 @@
             android:id="@+id/G9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2132,7 +2225,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H9"
@@ -2149,7 +2242,8 @@
             android:id="@+id/H9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2159,7 +2253,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I9"
@@ -2176,7 +2270,8 @@
             android:id="@+id/I9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2186,7 +2281,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J9"
@@ -2203,7 +2298,8 @@
             android:id="@+id/J9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2213,7 +2309,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K9"
@@ -2230,7 +2326,8 @@
             android:id="@+id/K9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2240,16 +2337,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 8 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="8"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="VIII"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A8"
         android:layout_width="wrap_content"
@@ -2265,7 +2363,8 @@
             android:id="@+id/A8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2275,7 +2374,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B8"
@@ -2292,7 +2391,8 @@
             android:id="@+id/B8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2302,7 +2402,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C8"
@@ -2319,7 +2419,8 @@
             android:id="@+id/C8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2329,7 +2430,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D8"
@@ -2346,7 +2447,8 @@
             android:id="@+id/D8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2356,7 +2458,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E8"
@@ -2373,7 +2475,8 @@
             android:id="@+id/E8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2383,7 +2486,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F8"
@@ -2400,7 +2503,8 @@
             android:id="@+id/F8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2410,7 +2514,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G8"
@@ -2427,7 +2531,8 @@
             android:id="@+id/G8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2437,7 +2542,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H8"
@@ -2454,7 +2559,8 @@
             android:id="@+id/H8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2464,7 +2570,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I8"
@@ -2481,7 +2587,8 @@
             android:id="@+id/I8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2491,7 +2598,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J8"
@@ -2508,7 +2615,8 @@
             android:id="@+id/J8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2518,7 +2626,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K8"
@@ -2535,7 +2643,8 @@
             android:id="@+id/K8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2545,16 +2654,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 9 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="7"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="VII"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A7"
         android:layout_width="wrap_content"
@@ -2570,7 +2680,8 @@
             android:id="@+id/A7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2580,7 +2691,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B7"
@@ -2597,7 +2708,8 @@
             android:id="@+id/B7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2607,7 +2719,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C7"
@@ -2624,7 +2736,8 @@
             android:id="@+id/C7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2634,7 +2747,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D7"
@@ -2651,7 +2764,8 @@
             android:id="@+id/D7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2661,7 +2775,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E7"
@@ -2678,7 +2792,8 @@
             android:id="@+id/E7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2688,7 +2803,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F7"
@@ -2705,7 +2820,8 @@
             android:id="@+id/F7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2715,7 +2831,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G7"
@@ -2732,7 +2848,8 @@
             android:id="@+id/G7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2742,7 +2859,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H7"
@@ -2759,7 +2876,8 @@
             android:id="@+id/H7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2769,7 +2887,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I7"
@@ -2786,7 +2904,8 @@
             android:id="@+id/I7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2796,7 +2915,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J7"
@@ -2813,7 +2932,8 @@
             android:id="@+id/J7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2823,7 +2943,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K7"
@@ -2840,7 +2960,8 @@
             android:id="@+id/K7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2850,16 +2971,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 10 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="6"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="VI"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A6"
         android:layout_width="wrap_content"
@@ -2875,7 +2997,8 @@
             android:id="@+id/A6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2885,7 +3008,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B6"
@@ -2902,7 +3025,8 @@
             android:id="@+id/B6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2912,7 +3036,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C6"
@@ -2929,7 +3053,8 @@
             android:id="@+id/C6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2939,7 +3064,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D6"
@@ -2956,7 +3081,8 @@
             android:id="@+id/D6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2966,7 +3092,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E6"
@@ -2983,7 +3109,8 @@
             android:id="@+id/E6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -2993,7 +3120,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F6"
@@ -3010,7 +3137,8 @@
             android:id="@+id/F6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3020,7 +3148,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G6"
@@ -3037,7 +3165,8 @@
             android:id="@+id/G6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3047,7 +3176,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H6"
@@ -3064,7 +3193,8 @@
             android:id="@+id/H6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3074,7 +3204,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I6"
@@ -3091,7 +3221,8 @@
             android:id="@+id/I6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3101,7 +3232,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J6"
@@ -3118,7 +3249,8 @@
             android:id="@+id/J6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3128,7 +3260,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K6"
@@ -3145,7 +3277,8 @@
             android:id="@+id/K6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3155,16 +3288,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 11 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="5"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="V"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A5"
         android:layout_width="wrap_content"
@@ -3180,7 +3314,8 @@
             android:id="@+id/A5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3190,7 +3325,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B5"
@@ -3207,7 +3342,8 @@
             android:id="@+id/B5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3217,7 +3353,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C5"
@@ -3234,7 +3370,8 @@
             android:id="@+id/C5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3244,7 +3381,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D5"
@@ -3261,7 +3398,8 @@
             android:id="@+id/D5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3271,7 +3409,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E5"
@@ -3288,7 +3426,8 @@
             android:id="@+id/E5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3298,7 +3437,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F5"
@@ -3315,7 +3454,8 @@
             android:id="@+id/F5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3325,7 +3465,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G5"
@@ -3342,7 +3482,8 @@
             android:id="@+id/G5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3352,7 +3493,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H5"
@@ -3369,7 +3510,8 @@
             android:id="@+id/H5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3379,7 +3521,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I5"
@@ -3396,7 +3538,8 @@
             android:id="@+id/I5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3406,7 +3549,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J5"
@@ -3423,7 +3566,8 @@
             android:id="@+id/J5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3433,7 +3577,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K5"
@@ -3450,7 +3594,8 @@
             android:id="@+id/K5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3460,16 +3605,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 12 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="4"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="IV"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A4"
         android:layout_width="wrap_content"
@@ -3485,7 +3631,8 @@
             android:id="@+id/A4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3495,7 +3642,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B4"
@@ -3512,7 +3659,8 @@
             android:id="@+id/B4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3522,7 +3670,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C4"
@@ -3539,7 +3687,8 @@
             android:id="@+id/C4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3549,7 +3698,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D4"
@@ -3566,7 +3715,8 @@
             android:id="@+id/D4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3576,7 +3726,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E4"
@@ -3593,7 +3743,8 @@
             android:id="@+id/E4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3603,7 +3754,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F4"
@@ -3620,7 +3771,8 @@
             android:id="@+id/F4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3630,7 +3782,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G4"
@@ -3647,7 +3799,8 @@
             android:id="@+id/G4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3657,7 +3810,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H4"
@@ -3674,7 +3827,8 @@
             android:id="@+id/H4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3684,7 +3838,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I4"
@@ -3701,7 +3855,8 @@
             android:id="@+id/I4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3711,7 +3866,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J4"
@@ -3728,7 +3883,8 @@
             android:id="@+id/J4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3738,7 +3894,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K4"
@@ -3755,7 +3911,8 @@
             android:id="@+id/K4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3765,16 +3922,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 13 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="3"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="III"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A3"
         android:layout_width="wrap_content"
@@ -3790,7 +3948,8 @@
             android:id="@+id/A3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3800,7 +3959,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B3"
@@ -3817,7 +3976,8 @@
             android:id="@+id/B3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3827,7 +3987,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C3"
@@ -3844,7 +4004,8 @@
             android:id="@+id/C3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3854,7 +4015,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D3"
@@ -3871,7 +4032,8 @@
             android:id="@+id/D3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3881,7 +4043,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E3"
@@ -3898,7 +4060,8 @@
             android:id="@+id/E3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3908,7 +4071,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F3"
@@ -3925,7 +4088,8 @@
             android:id="@+id/F3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3935,7 +4099,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G3"
@@ -3952,7 +4116,8 @@
             android:id="@+id/G3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3962,7 +4127,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H3"
@@ -3979,7 +4144,8 @@
             android:id="@+id/H3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -3989,7 +4155,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I3"
@@ -4006,7 +4172,8 @@
             android:id="@+id/I3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4016,7 +4183,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J3"
@@ -4033,7 +4200,8 @@
             android:id="@+id/J3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4043,7 +4211,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K3"
@@ -4060,7 +4228,8 @@
             android:id="@+id/K3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4070,16 +4239,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 14 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="2"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="II"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A2"
         android:layout_width="wrap_content"
@@ -4095,7 +4265,8 @@
             android:id="@+id/A2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4105,7 +4276,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B2"
@@ -4122,7 +4293,8 @@
             android:id="@+id/B2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4132,7 +4304,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C2"
@@ -4149,7 +4321,8 @@
             android:id="@+id/C2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4159,7 +4332,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D2"
@@ -4176,7 +4349,8 @@
             android:id="@+id/D2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4186,7 +4360,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E2"
@@ -4203,7 +4377,8 @@
             android:id="@+id/E2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4213,7 +4388,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F2"
@@ -4230,7 +4405,8 @@
             android:id="@+id/F2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4240,7 +4416,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G2"
@@ -4257,7 +4433,8 @@
             android:id="@+id/G2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4267,7 +4444,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H2"
@@ -4284,7 +4461,8 @@
             android:id="@+id/H2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4294,7 +4472,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I2"
@@ -4311,7 +4489,8 @@
             android:id="@+id/I2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4321,7 +4500,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J2"
@@ -4338,7 +4517,8 @@
             android:id="@+id/J2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4348,7 +4528,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K2"
@@ -4365,7 +4545,8 @@
             android:id="@+id/K2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4375,16 +4556,17 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <!-- 15 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10dp"
-        android:text="1"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="I"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
     <LinearLayout
         android:id="@+id/layout_A1"
         android:layout_width="wrap_content"
@@ -4400,7 +4582,8 @@
             android:id="@+id/A1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4410,7 +4593,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_B1"
@@ -4427,7 +4610,8 @@
             android:id="@+id/B1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4437,7 +4621,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_C1"
@@ -4454,7 +4638,8 @@
             android:id="@+id/C1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4464,7 +4649,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_D1"
@@ -4481,7 +4666,8 @@
             android:id="@+id/D1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4491,7 +4677,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_E1"
@@ -4508,7 +4694,8 @@
             android:id="@+id/E1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4518,7 +4705,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_F1"
@@ -4535,7 +4722,8 @@
             android:id="@+id/F1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4545,7 +4733,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_G1"
@@ -4562,7 +4750,8 @@
             android:id="@+id/G1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4572,7 +4761,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_H1"
@@ -4589,7 +4778,8 @@
             android:id="@+id/H1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4599,7 +4789,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_I1"
@@ -4616,7 +4806,8 @@
             android:id="@+id/I1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4626,7 +4817,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_J1"
@@ -4643,7 +4834,8 @@
             android:id="@+id/J1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4653,7 +4845,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_K1"
@@ -4670,7 +4862,8 @@
             android:id="@+id/K1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_wall_hole"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
             android:tag="green"/>
 
         <TextView
@@ -4680,7 +4873,7 @@
             android:gravity="center"
             android:text=""
             android:textSize="10sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
 
 </GridLayout>

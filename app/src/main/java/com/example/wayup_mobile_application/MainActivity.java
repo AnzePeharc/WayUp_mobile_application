@@ -223,7 +223,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void ClickHome(View view){
-        recreate();
+        drawerLayout.closeDrawer((GravityCompat.START));
     }
 
     public void ClickDatabase(View view){
@@ -284,20 +284,37 @@ public class MainActivity extends AppCompatActivity{
             // select the correct color for the hold background
             switch (hold_tags[i]){
                 case "green":
-                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
+                    hold_image.setBackgroundResource(R.drawable.hold_background_green);
+
+                    /*first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
                             R.color.hold_green_background, null));
+
+                     */
                     break;
                 case "blue":
+                    hold_image.setBackgroundResource(R.drawable.hold_background_blue);
+
+                    /*
                     first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
                             R.color.hold_blue_background, null));
+
+                     */
                     break;
                 case "red":
+                    hold_image.setBackgroundResource(R.drawable.hold_background_red);
+
+                    /*
                     first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
                             R.color.hold_red_background, null));
+
+                     */
                     break;
             }
+            /*
             // apply color to the hold background
             hold_image.setBackground(first);
+
+             */
 
         }
 
@@ -311,6 +328,7 @@ public class MainActivity extends AppCompatActivity{
                 int hold_id = getResources().getIdentifier(width+height, "id", getPackageName());
                 ImageView selected_hold = (ImageView) mainWall.findViewById(hold_id);
 
+                /*
                 int vHeight = selected_hold.getHeight();
                 // set the background color of the ImageView
                 ShapeDrawable empty = new ShapeDrawable(new OvalShape());
@@ -319,6 +337,10 @@ public class MainActivity extends AppCompatActivity{
                 empty.getPaint().setColor(ResourcesCompat.getColor(getResources(),
                         R.color.colorClimbingWall, null));;
                 selected_hold.setBackground(empty);
+
+                 */
+                selected_hold.setBackgroundResource(R.drawable.hold_background_empty);
+
                 selected_hold.setTag("empty");
 
                 // get ID of the TextView

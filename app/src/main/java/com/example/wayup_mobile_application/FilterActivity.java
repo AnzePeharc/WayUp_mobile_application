@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.slider.LabelFormatter;
 import com.google.android.material.slider.RangeSlider;
@@ -17,7 +18,7 @@ import com.google.android.material.slider.RangeSlider;
 import java.util.Arrays;
 import java.util.List;
 
-public class FilterActivity extends Activity {
+public class FilterActivity extends AppCompatActivity {
 
     RangeSlider grade_slider;
     String[] grades = {"5a", "5a+", "5b", "5b+", "5c", "5c+", "6a", "6a+", "6b", "6b+", "6c", "6c+",

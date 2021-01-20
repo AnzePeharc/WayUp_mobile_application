@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -23,7 +24,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SetProblemActivity extends Activity{
+public class SetProblemActivity extends AppCompatActivity {
 
     Button cancel;
     Button next;
@@ -133,30 +134,44 @@ public class SetProblemActivity extends Activity{
             if(selected_holds.contains(selected_hold.getId())){
                 switch(String.valueOf(selected_hold.getTag())){
                     case "green":
+                        /*
                         ShapeDrawable blue = new ShapeDrawable(new OvalShape());
                         blue.setIntrinsicHeight(vHeight / 2);
                         blue.setIntrinsicWidth(vHeight / 2);
                         blue.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                                R.color.hold_blue_background, null));;
+                                R.color.hold_blue_background, null));
                         selected_hold.setBackground(blue);
+                        */
+                        //selected_hold.setImageResource(R.drawable.ic_wall_hole_blue);
+                        selected_hold.setBackgroundResource(R.drawable.hold_background_blue);
                         selected_hold.setTag("blue");
                         break;
                     case "blue":
+                        /*
                         ShapeDrawable red = new ShapeDrawable(new OvalShape());
                         red.setIntrinsicHeight(vHeight / 2);
                         red.setIntrinsicWidth(vHeight / 2);
                         red.getPaint().setColor(ResourcesCompat.getColor(getResources(),
                                 R.color.hold_red_background, null));;
                         selected_hold.setBackground(red);
+
+                         */
+                        //selected_hold.setImageResource(R.drawable.ic_wall_hole_red);
+                        selected_hold.setBackgroundResource(R.drawable.hold_background_red);
                         selected_hold.setTag("red");
                         break;
                     case "red":
+                        /*
                         ShapeDrawable empty = new ShapeDrawable(new OvalShape());
                         empty.setIntrinsicHeight(vHeight / 2);
                         empty.setIntrinsicWidth(vHeight / 2);
                         empty.getPaint().setColor(ResourcesCompat.getColor(getResources(),
                                 R.color.colorClimbingWall, null));;
                         selected_hold.setBackground(empty);
+
+                         */
+                        //selected_hold.setImageResource(R.drawable.ic_wall_hole_white);
+                        selected_hold.setBackgroundResource(R.drawable.hold_background_empty);
                         selected_hold.setTag("empty");
                         // remove the select_hold from the ArrayList
                         for(int i = 0; i < selected_holds.size(); i++){
@@ -181,12 +196,17 @@ public class SetProblemActivity extends Activity{
             }
             // Add new holds to the ArrayList
             else{
+                /*
                 ShapeDrawable next = new ShapeDrawable(new OvalShape());
                 next.setIntrinsicHeight(vHeight / 2);
                 next.setIntrinsicWidth(vHeight / 2);
                 next.getPaint().setColor(ResourcesCompat.getColor(getResources(),
                         R.color.hold_green_background, null));;
                 selected_hold.setBackground(next);
+
+                 */
+                //selected_hold.setImageResource(R.drawable.ic_wall_hole_green);
+                selected_hold.setBackgroundResource(R.drawable.hold_background_green);
                 selected_hold.setTag("green");
                 selected_holds.add(selected_hold.getId());
                 // add the selected TextView to the ArrayList - to keep track of counters
@@ -200,12 +220,17 @@ public class SetProblemActivity extends Activity{
         }
         // Add the first hold to the ArrayList
         else{
+            /*
             ShapeDrawable first = new ShapeDrawable(new OvalShape());
             first.setIntrinsicHeight(vHeight / 2);
             first.setIntrinsicWidth(vHeight / 2);
             first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
                     R.color.hold_green_background, null));;
             selected_hold.setBackground(first);
+
+             */
+            //selected_hold.setImageResource(R.drawable.ic_wall_hole_green);
+            selected_hold.setBackgroundResource(R.drawable.hold_background_green);
             selected_hold.setTag("green");
             // add the selected ImageView to the ArrayList
             selected_holds.add(selected_hold.getId());
