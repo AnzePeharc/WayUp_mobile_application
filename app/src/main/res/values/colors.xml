@@ -5,10 +5,12 @@
     <color name="colorAccent">#000000</color>
 
     <!-- WayUp color palette. -->
+
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorCyan">#00ffff</color>
     <color name="colorBlue">#0092d3</color>
+
     <!-- WayUp color palette. -->
 
     <color name="colorBackgroundButton">#000000</color>
@@ -18,6 +20,10 @@
     <color name="hold_red_background">#FF0000</color>
     <color name="hold_green_background">#00CC00</color>
     <color name="hold_empty_background">#000000</color>
+
+    <!-- WayUp launcher_icon color. -->
+
+    <color name="ic_launcher_background">#2D2D2D</color>
 
 
 

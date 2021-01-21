@@ -2,8 +2,13 @@ package com.example.wayup_mobile_application;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -19,6 +24,7 @@ public class SequenceSender extends AsyncTask<String, Void, Void> {
     String SERVER_IP = "192.168.0.110"; // this is the IPv4 address of the device you're trying to connect (for testing purpose use your computers address)
     int SERVER_PORT = 8080;
     final private Context mContext;
+    AlertDialog dialog;
 
     public SequenceSender (Context context){
         mContext = context;
@@ -49,6 +55,7 @@ public class SequenceSender extends AsyncTask<String, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         // Show toast messages here
-        Toast.makeText(mContext, "Connection with LED controller could not be established!",   Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, "Connection with LED controller could not be established. " +
+                "Make sure you're connected to the same wifi as controller.",   Toast.LENGTH_SHORT).show();
     }
 }

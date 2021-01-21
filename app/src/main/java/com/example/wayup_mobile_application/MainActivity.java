@@ -104,7 +104,16 @@ public class MainActivity extends AppCompatActivity{
                     // load problem from Database
                     case R.id.load_problem:
                         if(database_empty){
-                            Toast.makeText(getApplicationContext(),"ERROR: There are no problems in Database! You can add some." , Toast.LENGTH_LONG).show();
+                            final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+                            builder.setTitle("Try Again!");
+                            builder.setMessage("There are no problems in the Database. Please add some.");
+                            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                            dialog = builder.show();
                         }
                         else{
                             Problem current_problem = allProblems.get(current_problem_index);
