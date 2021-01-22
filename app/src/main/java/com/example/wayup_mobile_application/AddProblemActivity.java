@@ -105,9 +105,10 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
                     String problem_sequence = getIntent().getStringExtra("Problem_sequence"); // get the sequence from SetProblemActivity
                     String problem_sequence_counters = getIntent().getStringExtra("Problem_sequence_counters"); // get the sequence_counters from SetProblemActivity
                     String problem_sequence_tags = getIntent().getStringExtra("Problem_sequence_tags"); // get the sequence_tags from SetProblemActivity
+
                     // insert data into database
-                    boolean insert_status = databaseHelper.insertData(problem_sequence, problem_sequence_tags,problem_sequence_counters, name.getEditText().getText().toString(),
-                            spinner.getSelectedItem().toString(), setter.getEditText().getText().toString(), comment.getEditText().getText().toString());
+                    boolean insert_status = databaseHelper.insertData(problem_sequence, problem_sequence_tags,problem_sequence_counters, name.getEditText().getText().toString().trim(),
+                            spinner.getSelectedItem().toString(), setter.getEditText().getText().toString().trim(), comment.getEditText().getText().toString().trim());
 
                     // Alert user about the status of the added problem
                     if(insert_status){

@@ -108,8 +108,8 @@ public class DatabaseActivity extends AppCompatActivity{
     }
 
     public void ClickLogo(View view) {
-        // close Drawer
-        MainActivity.closeDrawer(drawerLayout);
+
+        MainActivity.redirectActivity(this, MainActivity.class);
 
     }
 

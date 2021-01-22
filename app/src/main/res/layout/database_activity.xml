@@ -23,7 +23,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:background="#ffffff"/>
+            android:background="@color/colorBlue"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +41,6 @@
             android:text="@string/database_activity_name"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="@color/colorWhite"
             style="@style/WhiteText"/>
 
         <TextView
@@ -51,7 +50,6 @@
             android:text="@string/database_activity_grade"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="@color/colorWhite"
             style="@style/WhiteText"/>
         <TextView
             android:layout_width="0dp"
@@ -60,7 +58,6 @@
             android:text="@string/database_activity_setter"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="@color/colorWhite"
             style="@style/WhiteText"/>
 
         <TextView
@@ -70,7 +67,6 @@
             android:text="@string/database_activity_comment"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="@color/colorWhite"
             style="@style/WhiteText"/>
 
         </LinearLayout>

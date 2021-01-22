@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void ClickHome(View view){
-        drawerLayout.closeDrawer((GravityCompat.START));
+        closeDrawer(drawerLayout);
     }
 
     public void ClickDatabase(View view){

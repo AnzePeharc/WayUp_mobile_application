@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:text="@string/table_item_name"
             android:gravity="center"
-            android:textColor="@color/colorWhite"/>
+            style="@style/WhiteText"/>
 
         <TextView
             android:id="@+id/problem_grade"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:text="@string/table_item_grade"
             android:gravity="center"
-            android:textColor="@color/colorWhite"/>
+            style="@style/WhiteText"/>
         <TextView
             android:id="@+id/problem_setter"
             android:layout_width="0dp"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="@string/table_item_setter"
             android:gravity="center"
-            android:textColor="@color/colorWhite"/>
+            style="@style/WhiteText"/>
 
         <TextView
             android:id="@+id/problem_comment"
@@ -38,5 +38,5 @@
             android:layout_height="wrap_content"
             android:text="@string/table_item_comment"
             android:gravity="center"
-            android:textColor="@color/colorWhite"/>
+            style="@style/WhiteText"/>
 </LinearLayout>
