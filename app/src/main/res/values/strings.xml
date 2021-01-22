@@ -84,4 +84,7 @@
     <string name="slider_info">
         Grade: %1$s - %2$s
     </string>
+
+    <!-- MainActivity strings. -->
+    <string name="selected_problem_info">%1$s, %2$s</string>
 </resources>

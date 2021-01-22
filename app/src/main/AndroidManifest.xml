@@ -15,18 +15,24 @@
         android:theme="@style/CustomTheme">
 
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SetProblemActivity"/>
-        <activity android:name=".DatabaseActivity"/>
-        <activity android:name=".FilterActivity"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SetProblemActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".DatabaseActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".FilterActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".AddProblemActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

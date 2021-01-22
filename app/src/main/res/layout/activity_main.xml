@@ -12,7 +12,7 @@
         android:id="@+id/main_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
+        android:padding="10dp"
         android:background="@color/colorBlack">
 
         <include
@@ -29,6 +29,20 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlue"/>
+
+            <TextView
+                android:id="@+id/selected_problem_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:padding="5dp"
+                style="@style/WhiteText"/>
+
             <include
                 layout="@layout/hold_row_mainscreen"
                 />
@@ -44,7 +58,7 @@
             app:itemIconTint="@color/colorWhite"
             app:itemTextColor="@color/colorWhite"
             app:menu="@menu/menu_navigation"
-            android:paddingTop="10dp"/>
+            android:paddingTop="5dp"/>
 
     </RelativeLayout>
     <RelativeLayout

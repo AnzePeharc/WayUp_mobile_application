@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity{
     HashMap<String,String> current_sequence_data = new HashMap<String,String>(); // global variable for holding sequence information
     HashMap<String,Integer> hold_led_numbers = new HashMap<String,Integer>(); // global variable for holding sequence information
     boolean database_empty = true;
+    TextView selected_problem_info;
+    boolean problem_displayed = false;
 
     // variable for turning off lights when application is closed
     boolean opened = true;
@@ -90,6 +92,7 @@ public class MainActivity extends AppCompatActivity{
         // TOP NAVIGATION CODE
         drawerLayout = findViewById(R.id.drawer_layout);
 
+        selected_problem_info = findViewById(R.id.selected_problem_info);
         // BOTTOM NAVIGATION CODE
         // Initialize bottomNavigation variable
         final BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -118,6 +121,9 @@ public class MainActivity extends AppCompatActivity{
                         else{
                             Problem current_problem = allProblems.get(current_problem_index);
                             System.out.println(current_problem.getSequence());
+                            // set the name and the grade of the problem
+                            selected_problem_info.setText(getString(R.string.selected_problem_info, current_problem.getName(), current_problem.getGrade()));
+                            // prepare other data to show the sequence of the problem on the climbing wall
                             current_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
                             current_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
                             current_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
@@ -131,6 +137,7 @@ public class MainActivity extends AppCompatActivity{
                             else{
                                 current_problem_index = 0;
                             }
+                            problem_displayed = true; // set the variable for checking if the problem is displayed on the wall
                         }
                         return true;
                     // send the Problem sequence via WiFi to Arduino, which then lights the correct LEDs
@@ -169,7 +176,8 @@ public class MainActivity extends AppCompatActivity{
 
 
     }
-
+    // TODO: Implement system for shutting down the lights, when the app is closed
+    /*
     @Override
     public void onDestroy()
     {
@@ -183,7 +191,7 @@ public class MainActivity extends AppCompatActivity{
         }
         super.onDestroy();
     }
-
+    */
     @Override
     protected void onStart() {
         super.onStart();
@@ -202,6 +210,12 @@ public class MainActivity extends AppCompatActivity{
             System.out.println("No data has been sent!");
         }
 
+    }
+
+    public void MoreInfo(View view){
+        if (problem_displayed){
+
+        }
     }
 
 
