@@ -87,4 +87,6 @@
 
     <!-- MainActivity strings. -->
     <string name="selected_problem_info">%1$s, %2$s</string>
+
+    <string name="selected_problem_more_info"><b>Setter:</b> %1$s \n<b>Comment:</b> %2$s</string>
 </resources>

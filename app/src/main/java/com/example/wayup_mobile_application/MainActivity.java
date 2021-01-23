@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 
 import android.annotation.SuppressLint;
@@ -56,13 +59,15 @@ public class MainActivity extends AppCompatActivity{
     HashMap<String,Integer> hold_led_numbers = new HashMap<String,Integer>(); // global variable for holding sequence information
     boolean database_empty = true;
     TextView selected_problem_info;
-    boolean problem_displayed = false;
-
+    boolean problem_displayed = false; // variable for checking if the problem is shown on the climbing wall
+    ProblemViewModel mViewModel;
     // variable for turning off lights when application is closed
     boolean opened = true;
 
     // variables for establishing socket connection
     SequenceSender sequenceSender;
+
+    private static final String PROBLEM_NAME = "name_key";
 
 
 
@@ -71,6 +76,8 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mViewModel = ViewModelProviders.of(this).get(ProblemViewModel.class);
+        //current_sequence_data.put("Sequence","The dictionary is empty");
         // assign default values to the HashMap
         mainWall = findViewById(R.id.gridlayout_mainscreen);
         // fill the HasHMap with hold led numbers. This is used then to send numbers of LED diodes that need to be lit up to Arduino
@@ -85,6 +92,7 @@ public class MainActivity extends AppCompatActivity{
         hold_led_numbers.put("I", 120);
         hold_led_numbers.put("J", 135);
         hold_led_numbers.put("K", 150);
+
         // Fill ArrayList with problems from Database, so you can show them with load_problem
         loadDatabase();
         current_problem_index = 0;
@@ -93,6 +101,9 @@ public class MainActivity extends AppCompatActivity{
         drawerLayout = findViewById(R.id.drawer_layout);
 
         selected_problem_info = findViewById(R.id.selected_problem_info);
+
+        selected_problem_info.setText(mViewModel.name);
+
         // BOTTOM NAVIGATION CODE
         // Initialize bottomNavigation variable
         final BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -127,6 +138,10 @@ public class MainActivity extends AppCompatActivity{
                             current_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
                             current_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
                             current_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_name",current_problem.getName());// add problem sequence_name to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_grade",current_problem.getGrade());// add problem sequence_grade to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_setter",current_problem.getSetter());// add problem sequence_setter to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_comment",current_problem.getComment());// add problem sequence_comment to the HashMap as the currently selected problem
                             selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
 
                             // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
@@ -176,6 +191,8 @@ public class MainActivity extends AppCompatActivity{
 
 
     }
+
+
     // TODO: Implement system for shutting down the lights, when the app is closed
     /*
     @Override
@@ -192,6 +209,7 @@ public class MainActivity extends AppCompatActivity{
         super.onDestroy();
     }
     */
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -202,6 +220,16 @@ public class MainActivity extends AppCompatActivity{
             current_sequence_data.put("Sequence",getIntent().getStringExtra("mainScreen_sequence"));// add problem sequence to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_counters",getIntent().getStringExtra("mainScreen_sequence_counters"));// add problem sequence_counters to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_tags",getIntent().getStringExtra("mainScreen_sequence_tags"));// add problem sequence_tags to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_name",getIntent().getStringExtra("mainScreen_sequence_name"));// add problem sequence_tags to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_grade",getIntent().getStringExtra("mainScreen_sequence_grade"));// add problem sequence_tags to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_setter",getIntent().getStringExtra("mainScreen_sequence_setter"));// add problem sequence_tags to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_comment",getIntent().getStringExtra("mainScreen_sequence_comment"));// add problem sequence_tags to the HashMap as the currently selected problem
+            // set the name and the grade of the problem
+            System.out.println(current_sequence_data.get("Sequence_name"));
+            System.out.println(current_sequence_data.get("Sequence_grade"));
+            mViewModel.name = getIntent().getStringExtra("mainScreen_sequence_name");
+            selected_problem_info.setText(getString(R.string.selected_problem_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade")));
+            problem_displayed = true; // set variable for checking if the problem is shown on the wall to true
             // call function for displaying the problem on the graphic wall
             selectDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
         }
@@ -212,9 +240,19 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+
     public void MoreInfo(View view){
         if (problem_displayed){
-
+            final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+            builder.setTitle("More info about the problem");
+            builder.setMessage(getString(R.string.selected_problem_more_info, current_sequence_data.get("Sequence_setter"), current_sequence_data.get("Sequence_comment")));
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            dialog = builder.show();
         }
     }
 
