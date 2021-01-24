@@ -51,7 +51,7 @@ public class SetProblemActivity extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                MainActivity.redirectActivity(SetProblemActivity.this, MainActivity.class);
+                finish(); // finish the activity and go back on the previous
             }
         });
 
@@ -94,20 +94,52 @@ public class SetProblemActivity extends AppCompatActivity {
                             selected_holdsString, selected_holds_tagsString, selected_holds_countersString);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),"No holds selected!" , Toast.LENGTH_LONG).show();
+                    AlertDialog.Builder builder =
+                            new AlertDialog.Builder(SetProblemActivity.this, R.style.AlertDialogCustom);
+                    builder.setTitle("Try Again!");
+                    builder.setMessage("You didn't select any holds. Please select some.");
+                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.show();
+                    /*
+                    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(SetProblemActivity.this, R.style.AlertDialogCustom);
+                    builder.setTitle("Try Again!");
+                    builder.setMessage("You didn't select any holds. Please select some.");
+                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog = builder.show();
+
+                     */
                 }
             }
         });
     }
 
-    public static void sendProblemSequence(Activity activity, Class aClass, String sequence, String sequence_tags, String counters) {
+    public void sendProblemSequence(Activity activity, Class aClass, String sequence, String sequence_tags, String counters) {
         // Initialize intent
         Intent intent = new Intent(activity, aClass);
         // Set Flag
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        // send set_problem_data to AddProblemActivity
         intent.putExtra("Problem_sequence", sequence);
         intent.putExtra("Problem_sequence_tags", sequence_tags);
         intent.putExtra("Problem_sequence_counters", counters);
+        // send current_problem_data to AddProblemActivity for maintaining mainScreen UI
+        intent.putExtra("addScreen_sequence", getIntent().getStringExtra("setScreen_sequence"));
+        intent.putExtra("addScreen_sequence_tags", getIntent().getStringExtra("setScreen_sequence_tags"));
+        intent.putExtra("addScreen_sequence_counters", getIntent().getStringExtra("setScreen_sequence_counters"));
+        intent.putExtra("addScreen_sequence_name", getIntent().getStringExtra("setScreen_sequence_name"));
+        intent.putExtra("addScreen_sequence_grade", getIntent().getStringExtra("setScreen_sequence_grade"));
+        intent.putExtra("addScreen_sequence_setter", getIntent().getStringExtra("setScreen_sequence_setter"));
+        intent.putExtra("addScreen_sequence_comment", getIntent().getStringExtra("setScreen_sequence_comment"));
         // Start the activity
         activity.startActivity(intent);
     }

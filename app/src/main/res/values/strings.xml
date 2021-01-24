@@ -5,6 +5,7 @@
     <!-- Toolbar strings. -->
     <string name="toolbar_home">Home</string>
     <string name="toolbar_database">Problem Library</string>
+    <string name="toolbar_reset_wall">Reset Wall</string>
 
     <!-- Set Problem strings. -->
     <string name="set_problem_cancel">Cancel</string>

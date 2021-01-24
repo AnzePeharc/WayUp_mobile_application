@@ -27,4 +27,22 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
     </style>
 
+    <!-- MaterialAlertDialog theme style. -->
+    <style name="DialogStyle" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">@color/colorBlack</item>
+        <item name="colorSecondary">@color/colorWhite</item>
+        <item name="colorSurface">@color/colorBlue</item>
+        <item name="colorOnSurface">@color/colorCyan</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/WhiteText</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Button</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Button</item>
+    </style>
+
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:background">@color/colorBlue</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+
+    </style>
 </resources>

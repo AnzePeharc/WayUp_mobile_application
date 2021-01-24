@@ -2,6 +2,7 @@ package com.example.wayup_mobile_application;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -60,7 +61,7 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
         back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                MainActivity.redirectActivity(AddProblemActivity.this, SetProblemActivity.class);
+                finish();
             }
         });
         // Popup window for discarding the problem and redirecting user back to MainScreen
@@ -74,7 +75,19 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
                 builder.setPositiveButton("Discard", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        MainActivity.redirectActivity(AddProblemActivity.this, MainActivity.class);
+                        Intent intent = new Intent(AddProblemActivity.this, MainActivity.class);
+                        // Set Flag
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        // send current_problem_data to MainActivity to update the UI
+                        intent.putExtra("mainScreen_sequence", getIntent().getStringExtra("addScreen_sequence"));
+                        intent.putExtra("mainScreen_sequence_tags", getIntent().getStringExtra("addScreen_sequence_tags"));
+                        intent.putExtra("mainScreen_sequence_counters", getIntent().getStringExtra("addScreen_sequence_counters"));
+                        intent.putExtra("mainScreen_sequence_name", getIntent().getStringExtra("addScreen_sequence_name"));
+                        intent.putExtra("mainScreen_sequence_grade", getIntent().getStringExtra("addScreen_sequence_grade"));
+                        intent.putExtra("mainScreen_sequence_setter", getIntent().getStringExtra("addScreen_sequence_setter"));
+                        intent.putExtra("mainScreen_sequence_comment", getIntent().getStringExtra("addScreen_sequence_comment"));
+                        // Start the activity
+                        startActivity(intent);
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

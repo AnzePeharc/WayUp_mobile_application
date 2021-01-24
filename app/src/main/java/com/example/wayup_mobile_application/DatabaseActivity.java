@@ -110,9 +110,7 @@ public class DatabaseActivity extends AppCompatActivity{
     }
 
     public void ClickLogo(View view) {
-
-        MainActivity.redirectActivity(this, MainActivity.class);
-
+        finish();
     }
 
     public static void closeDrawer(DrawerLayout drawerLayout) {
@@ -125,7 +123,7 @@ public class DatabaseActivity extends AppCompatActivity{
     }
 
     public void ClickHome(View view) {
-        MainActivity.redirectActivity(this, MainActivity.class);
+        finish();
     }
 
     public void ClickDatabase(View view) {

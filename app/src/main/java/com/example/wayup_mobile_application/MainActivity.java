@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mViewModel = ViewModelProviders.of(this).get(ProblemViewModel.class);
         //current_sequence_data.put("Sequence","The dictionary is empty");
         // assign default values to the HashMap
         mainWall = findViewById(R.id.gridlayout_mainscreen);
@@ -102,7 +101,6 @@ public class MainActivity extends AppCompatActivity{
 
         selected_problem_info = findViewById(R.id.selected_problem_info);
 
-        selected_problem_info.setText(mViewModel.name);
 
         // BOTTOM NAVIGATION CODE
         // Initialize bottomNavigation variable
@@ -181,8 +179,19 @@ public class MainActivity extends AppCompatActivity{
                         return true;
                     // add new Problem to the Database, which redirects the user to SetProblemActivity
                     case R.id.add_problem:
-
-                        startActivity(new Intent(getApplicationContext(), SetProblemActivity.class));
+                        Intent intent = new Intent(getApplicationContext(), SetProblemActivity.class);
+                        // Set Flag
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        // send current_problem_data to SetProblemActivity for maintaining mainScreen UI
+                        intent.putExtra("setScreen_sequence", current_sequence_data.get("Sequence"));
+                        intent.putExtra("setScreen_sequence_tags", current_sequence_data.get("Sequence_tags"));
+                        intent.putExtra("setScreen_sequence_counters", current_sequence_data.get("Sequence_counters"));
+                        intent.putExtra("setScreen_sequence_name", current_sequence_data.get("Sequence_name"));
+                        intent.putExtra("setScreen_sequence_grade", current_sequence_data.get("Sequence_grade"));
+                        intent.putExtra("setScreen_sequence_setter", current_sequence_data.get("Sequence_setter"));
+                        intent.putExtra("setScreen_sequence_comment", current_sequence_data.get("Sequence_comment"));
+                        // Start the activity
+                        startActivity(intent);
                         return true;
                 }
                 return false;
@@ -214,20 +223,19 @@ public class MainActivity extends AppCompatActivity{
     protected void onStart() {
         super.onStart();
 
-        // check if you were redirected from DatabaseActivity. If the extra data in Intent is not empty, you show the Problem sequence on the wall
+        // check if you were redirected from DatabaseActivity or AddProblemActivity. If the extra data in Intent is not empty, you show the Problem sequence on the wall
         if(getIntent().getStringExtra("mainScreen_sequence") != null){
             System.out.println(getIntent().getStringExtra("mainScreen_sequence"));
             current_sequence_data.put("Sequence",getIntent().getStringExtra("mainScreen_sequence"));// add problem sequence to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_counters",getIntent().getStringExtra("mainScreen_sequence_counters"));// add problem sequence_counters to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_tags",getIntent().getStringExtra("mainScreen_sequence_tags"));// add problem sequence_tags to the HashMap as the currently selected problem
-            current_sequence_data.put("Sequence_name",getIntent().getStringExtra("mainScreen_sequence_name"));// add problem sequence_tags to the HashMap as the currently selected problem
-            current_sequence_data.put("Sequence_grade",getIntent().getStringExtra("mainScreen_sequence_grade"));// add problem sequence_tags to the HashMap as the currently selected problem
-            current_sequence_data.put("Sequence_setter",getIntent().getStringExtra("mainScreen_sequence_setter"));// add problem sequence_tags to the HashMap as the currently selected problem
-            current_sequence_data.put("Sequence_comment",getIntent().getStringExtra("mainScreen_sequence_comment"));// add problem sequence_tags to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_name",getIntent().getStringExtra("mainScreen_sequence_name"));// add problem sequence_name to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_grade",getIntent().getStringExtra("mainScreen_sequence_grade"));// add problem sequence_grade to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_setter",getIntent().getStringExtra("mainScreen_sequence_setter"));// add problem sequence_setter to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_comment",getIntent().getStringExtra("mainScreen_sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
             // set the name and the grade of the problem
             System.out.println(current_sequence_data.get("Sequence_name"));
             System.out.println(current_sequence_data.get("Sequence_grade"));
-            mViewModel.name = getIntent().getStringExtra("mainScreen_sequence_name");
             selected_problem_info.setText(getString(R.string.selected_problem_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade")));
             problem_displayed = true; // set variable for checking if the problem is shown on the wall to true
             // call function for displaying the problem on the graphic wall
@@ -291,6 +299,7 @@ public class MainActivity extends AppCompatActivity{
         redirectActivity(this, DatabaseActivity.class);
     }
 
+    // helper function for managing redirection between activities
     public static void redirectActivity(Activity activity, Class aClass) {
         // Initialize intent
         Intent intent = new Intent(activity, aClass);
@@ -298,6 +307,16 @@ public class MainActivity extends AppCompatActivity{
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         // Start the activity
         activity.startActivity(intent);
+    }
+
+
+    public void ResetWall(View view){
+        clearWall(); // clear the climbing wall
+        selected_problem_info.setText(""); // reset selected problem name and grade
+        problem_displayed = false; // set that there is not problem selected
+        current_sequence_data = new HashMap<String,String>(); // reset the dictionary for the selected problem
+        current_problem_index = 0; // set the problem index to default value
+        closeDrawer(drawerLayout); // close the drawer
     }
 
 
