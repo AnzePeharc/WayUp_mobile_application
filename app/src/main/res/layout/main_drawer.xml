@@ -95,6 +95,38 @@
     </LinearLayout>
     <View
         android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="10dp"
+        android:background="#ffffff"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:onClick="ClickHome"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp">
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/two_problems_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            style="@style/WhiteText"
+            android:text="@string/toolbar_two_problems" /> <!--displayed text of switch-->
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
