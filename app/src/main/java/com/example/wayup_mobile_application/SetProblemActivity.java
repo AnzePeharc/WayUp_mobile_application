@@ -94,19 +94,8 @@ public class SetProblemActivity extends AppCompatActivity {
                             selected_holdsString, selected_holds_tagsString, selected_holds_countersString);
                 }
                 else{
-                    AlertDialog.Builder builder =
-                            new AlertDialog.Builder(SetProblemActivity.this, R.style.AlertDialogCustom);
-                    builder.setTitle("Try Again!");
-                    builder.setMessage("You didn't select any holds. Please select some.");
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-                    builder.show();
-                    /*
-                    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(SetProblemActivity.this, R.style.AlertDialogCustom);
+
+                    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(SetProblemActivity.this);
                     builder.setTitle("Try Again!");
                     builder.setMessage("You didn't select any holds. Please select some.");
                     builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -117,7 +106,6 @@ public class SetProblemActivity extends AppCompatActivity {
                     });
                     dialog = builder.show();
 
-                     */
                 }
             }
         });

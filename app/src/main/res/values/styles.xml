@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorBlue</item>
         <item name="colorPrimaryDark">@color/colorBlack</item>
         <item name="colorAccent">@color/colorCyan</item>
+        <item name="materialAlertDialogTheme">@style/AlertDialogTheme</item>
     </style>
 
     <style name="Button" parent="Widget.AppCompat.Button">
@@ -27,22 +28,35 @@
         <item name="android:fontFamily">@font/opensans_regular</item>
     </style>
 
+
     <!-- MaterialAlertDialog theme style. -->
-    <style name="DialogStyle" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="colorPrimary">@color/colorBlack</item>
-        <item name="colorSecondary">@color/colorWhite</item>
-        <item name="colorSurface">@color/colorBlue</item>
-        <item name="colorOnSurface">@color/colorCyan</item>
-        <item name="materialAlertDialogTitleTextStyle">@style/WhiteText</item>
-        <item name="buttonBarPositiveButtonStyle">@style/Button</item>
-        <item name="buttonBarNeutralButtonStyle">@style/Button</item>
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorSurface">@color/colorWhite</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/BodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
     </style>
-
-
-    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:textColorPrimary">#FFFFFF</item>
-        <item name="android:background">@color/colorBlue</item>
+    <style name="TitleTextStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/opensans_regular</item>
-
     </style>
+    <style name="BodyTextStyle" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">#575757</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">#757575</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+
+
+
+
 </resources>
