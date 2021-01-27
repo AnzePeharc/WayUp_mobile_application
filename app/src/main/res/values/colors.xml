@@ -20,6 +20,9 @@
     <color name="hold_red_background">#FF0000</color>
     <color name="hold_green_background">#00CC00</color>
     <color name="hold_empty_background">#000000</color>
+    <color name="hold_cyan_background">#00ffff</color>
+    <color name="hold_magenta_background">#FF00FF</color>
+    <color name="hold_yellow_background">#FFFF00</color>
 
     <!-- WayUp launcher_icon color. -->
 

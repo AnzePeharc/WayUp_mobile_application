@@ -32,6 +32,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -60,7 +61,8 @@ public class MainActivity extends AppCompatActivity{
     boolean database_empty = true;
     TextView selected_problem_info;
     boolean problem_displayed = false; // variable for checking if the problem is shown on the climbing wall
-    ProblemViewModel mViewModel;
+    SwitchMaterial two_problem_option;
+    ProblemViewModel mViewModel; // viewModel which can be used for keeping score of some values that change - currently not used
     // variable for turning off lights when application is closed
     boolean opened = true;
 
@@ -99,8 +101,8 @@ public class MainActivity extends AppCompatActivity{
         // TOP NAVIGATION CODE
         drawerLayout = findViewById(R.id.drawer_layout);
 
-        selected_problem_info = findViewById(R.id.selected_problem_info);
-
+        selected_problem_info = findViewById(R.id.selected_problem_info); // Initialize problem textView
+        two_problem_option = findViewById(R.id.two_problems_switch);
 
         // BOTTOM NAVIGATION CODE
         // Initialize bottomNavigation variable
@@ -128,6 +130,9 @@ public class MainActivity extends AppCompatActivity{
                             dialog = builder.show();
                         }
                         else{
+                            if(problem_displayed & two_problem_option.isChecked()){
+                                System.out.println("Uporabnik želi prikazati dva problema istočasno!");
+                            }
                             Problem current_problem = allProblems.get(current_problem_index);
                             System.out.println(current_problem.getSequence());
                             // set the name and the grade of the problem
