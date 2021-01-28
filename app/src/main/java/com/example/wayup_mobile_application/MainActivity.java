@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity{
     String[] width = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
     String[] height = {"15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
     HashMap<String,String> current_sequence_data = new HashMap<String,String>(); // global variable for holding sequence information
+    HashMap<String,String> second_sequence_data = new HashMap<String,String>(); // global variable for holding sequence information
     HashMap<String,Integer> hold_led_numbers = new HashMap<String,Integer>(); // global variable for holding sequence information
     boolean database_empty = true;
     TextView selected_problem_info;

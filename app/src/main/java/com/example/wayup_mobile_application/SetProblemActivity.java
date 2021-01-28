@@ -37,6 +37,7 @@ public class SetProblemActivity extends AppCompatActivity {
     // variables for interactive climbing wall
     ArrayList<Integer> selected_holds = new ArrayList<>();
     ArrayList<Integer> selected_holds_counters = new ArrayList<>();
+    String[] selected_colors = new String[100];
     ImageView selected_hold;
     TextView selected_hold_counter;
 
@@ -89,6 +90,8 @@ public class SetProblemActivity extends AppCompatActivity {
 
                         prefix = ",";
                     }
+                    Toast.makeText(getApplicationContext(),Arrays.toString(selected_colors), Toast.LENGTH_LONG).show();
+
                     String selected_holds_countersString = sb_text.toString();
                     sendProblemSequence(SetProblemActivity.this, AddProblemActivity.class,
                             selected_holdsString, selected_holds_tagsString, selected_holds_countersString);
@@ -154,43 +157,21 @@ public class SetProblemActivity extends AppCompatActivity {
             if(selected_holds.contains(selected_hold.getId())){
                 switch(String.valueOf(selected_hold.getTag())){
                     case "green":
-                        /*
-                        ShapeDrawable blue = new ShapeDrawable(new OvalShape());
-                        blue.setIntrinsicHeight(vHeight / 2);
-                        blue.setIntrinsicWidth(vHeight / 2);
-                        blue.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                                R.color.hold_blue_background, null));
-                        selected_hold.setBackground(blue);
-                        */
-                        //selected_hold.setImageResource(R.drawable.ic_wall_hole_blue);
+
                         selected_hold.setBackgroundResource(R.drawable.hold_background_blue);
                         selected_hold.setTag("blue");
+                        // add the selected color to the array
+                        selected_colors[counter] = "blue";
                         break;
                     case "blue":
-                        /*
-                        ShapeDrawable red = new ShapeDrawable(new OvalShape());
-                        red.setIntrinsicHeight(vHeight / 2);
-                        red.setIntrinsicWidth(vHeight / 2);
-                        red.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                                R.color.hold_red_background, null));;
-                        selected_hold.setBackground(red);
 
-                         */
-                        //selected_hold.setImageResource(R.drawable.ic_wall_hole_red);
                         selected_hold.setBackgroundResource(R.drawable.hold_background_red);
                         selected_hold.setTag("red");
+                        // add the selected color to the array
+                        selected_colors[counter] = "red";
                         break;
                     case "red":
-                        /*
-                        ShapeDrawable empty = new ShapeDrawable(new OvalShape());
-                        empty.setIntrinsicHeight(vHeight / 2);
-                        empty.setIntrinsicWidth(vHeight / 2);
-                        empty.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                                R.color.colorClimbingWall, null));;
-                        selected_hold.setBackground(empty);
 
-                         */
-                        //selected_hold.setImageResource(R.drawable.ic_wall_hole_white);
                         selected_hold.setBackgroundResource(R.drawable.hold_background_empty);
                         selected_hold.setTag("empty");
                         // remove the select_hold from the ArrayList
@@ -209,6 +190,8 @@ public class SetProblemActivity extends AppCompatActivity {
                                 break;
                             }
                         }
+                        // add the selected color to the array
+                        selected_colors[counter] = null;
                         counter --; // decrease the counter
                         break;
 
@@ -216,16 +199,7 @@ public class SetProblemActivity extends AppCompatActivity {
             }
             // Add new holds to the ArrayList
             else{
-                /*
-                ShapeDrawable next = new ShapeDrawable(new OvalShape());
-                next.setIntrinsicHeight(vHeight / 2);
-                next.setIntrinsicWidth(vHeight / 2);
-                next.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                        R.color.hold_green_background, null));;
-                selected_hold.setBackground(next);
 
-                 */
-                //selected_hold.setImageResource(R.drawable.ic_wall_hole_green);
                 selected_hold.setBackgroundResource(R.drawable.hold_background_green);
                 selected_hold.setTag("green");
                 selected_holds.add(selected_hold.getId());
@@ -235,21 +209,14 @@ public class SetProblemActivity extends AppCompatActivity {
                 selected_hold_counter.setText(Integer.toString(counter));
                 // set the tag to the value of the counter, so it can be shown in the mainScreen after selected from DatabaseActivity
                 selected_hold_counter.setTag(Integer.toString(counter));
+                // add the selected color to the array
+                selected_colors[counter - 1] = "green";
                 counter ++; // increase counter by 1
             }
         }
         // Add the first hold to the ArrayList
         else{
-            /*
-            ShapeDrawable first = new ShapeDrawable(new OvalShape());
-            first.setIntrinsicHeight(vHeight / 2);
-            first.setIntrinsicWidth(vHeight / 2);
-            first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                    R.color.hold_green_background, null));;
-            selected_hold.setBackground(first);
 
-             */
-            //selected_hold.setImageResource(R.drawable.ic_wall_hole_green);
             selected_hold.setBackgroundResource(R.drawable.hold_background_green);
             selected_hold.setTag("green");
             // add the selected ImageView to the ArrayList
@@ -260,6 +227,8 @@ public class SetProblemActivity extends AppCompatActivity {
             selected_hold_counter.setText(Integer.toString(counter));
             // set the tag to the value of the counter, so it can be shown in the mainScreen after selected from DatabaseActivity
             selected_hold_counter.setTag(Integer.toString(counter));
+            // add the selected color to the array
+            selected_colors[counter - 1] = "green";
             counter ++; // increase counter by 1
         }
 
