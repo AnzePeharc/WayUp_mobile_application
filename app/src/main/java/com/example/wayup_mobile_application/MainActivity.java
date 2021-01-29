@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -57,11 +58,13 @@ public class MainActivity extends AppCompatActivity{
     String[] width = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
     String[] height = {"15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
     HashMap<String,String> current_sequence_data = new HashMap<String,String>(); // global variable for holding sequence information
-    HashMap<String,String> second_sequence_data = new HashMap<String,String>(); // global variable for holding sequence information
+    HashMap<String,String> second_sequence_data = new HashMap<String,String>(); // global variable for holding second sequence information
     HashMap<String,Integer> hold_led_numbers = new HashMap<String,Integer>(); // global variable for holding sequence information
     boolean database_empty = true;
     TextView selected_problem_info;
-    boolean problem_displayed = false; // variable for checking if the problem is shown on the climbing wall
+    boolean problem_displayed = false; // variable for checking if the problem is displayed on the climbing wall
+    boolean second_problem_displayed = false; // variable for checking if the second_problem is displayed on the climbing wall
+    boolean primary_problem_color = true; // currently used color to display the problem. This is used in case that there are displayed two problems
     SwitchMaterial two_problem_option;
     ProblemViewModel mViewModel; // viewModel which can be used for keeping score of some values that change - currently not used
     // variable for turning off lights when application is closed
@@ -103,7 +106,23 @@ public class MainActivity extends AppCompatActivity{
         drawerLayout = findViewById(R.id.drawer_layout);
 
         selected_problem_info = findViewById(R.id.selected_problem_info); // Initialize problem textView
-        two_problem_option = findViewById(R.id.two_problems_switch);
+        two_problem_option = findViewById(R.id.two_problems_switch); // Initialize problem Switch
+        two_problem_option.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // check if the switch has been turned of and display only the current problem
+                if(!isChecked){
+                    clearWall();
+                    second_problem_displayed = false;
+                    // check if HashMap is not empty
+                    if(!second_sequence_data.isEmpty()){
+                        // set the name and the grade of the problem
+                        selected_problem_info.setText(getString(R.string.selected_problem_info, second_sequence_data.get("Sequence_name"), second_sequence_data.get("Sequence_grade")));
+                        selectDatabaseProblem(second_sequence_data.get("Sequence"), second_sequence_data.get("Sequence_counters"), second_sequence_data.get("Sequence_tags")); // call function for displaying the problem on the graphic wall
+                    }
+                }
+                closeDrawer(drawerLayout);
+            }
+        });
 
         // BOTTOM NAVIGATION CODE
         // Initialize bottomNavigation variable
@@ -121,7 +140,7 @@ public class MainActivity extends AppCompatActivity{
                         if(database_empty){
                             final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
                             builder.setTitle("Try Again!");
-                            builder.setMessage("There are no problems in the Database. Please add some.");
+                            builder.setMessage("There are no problems in the Library. Please add some.");
                             builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -131,32 +150,77 @@ public class MainActivity extends AppCompatActivity{
                             dialog = builder.show();
                         }
                         else{
+                            // check if there is a problem displayed and check if switch is checked
                             if(problem_displayed & two_problem_option.isChecked()){
-                                System.out.println("Uporabnik želi prikazati dva problema istočasno!");
-                            }
-                            Problem current_problem = allProblems.get(current_problem_index);
-                            System.out.println(current_problem.getSequence());
-                            // set the name and the grade of the problem
-                            selected_problem_info.setText(getString(R.string.selected_problem_info, current_problem.getName(), current_problem.getGrade()));
-                            // prepare other data to show the sequence of the problem on the climbing wall
-                            current_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
-                            current_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
-                            current_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
-                            current_sequence_data.put("Sequence_name",current_problem.getName());// add problem sequence_name to the HashMap as the currently selected problem
-                            current_sequence_data.put("Sequence_grade",current_problem.getGrade());// add problem sequence_grade to the HashMap as the currently selected problem
-                            current_sequence_data.put("Sequence_setter",current_problem.getSetter());// add problem sequence_setter to the HashMap as the currently selected problem
-                            current_sequence_data.put("Sequence_comment",current_problem.getComment());// add problem sequence_comment to the HashMap as the currently selected problem
-                            selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
+                                Problem current_problem = allProblems.get(current_problem_index);
+                                System.out.println(second_problem_displayed);
+                                if(second_problem_displayed){
+                                    clearSpecificProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags"));
+                                    // replace the values for the current problem and with the second_sequence_data
+                                    current_sequence_data.put("Sequence",second_sequence_data.get("Sequence"));// add problem sequence to the HashMap as the currently selected problem
+                                    current_sequence_data.put("Sequence_counters",second_sequence_data.get("Sequence_counters"));// add problem sequence_counters to the HashMap as the currently selected problem
+                                    current_sequence_data.put("Sequence_tags",second_sequence_data.get("Sequence_tags"));// add problem sequence_tags to the HashMap as the currently selected problem
+                                    current_sequence_data.put("Sequence_name",second_sequence_data.get("Sequence_name"));// add problem sequence_name to the HashMap as the currently selected problem
+                                    current_sequence_data.put("Sequence_grade",second_sequence_data.get("Sequence_grade"));// add problem sequence_grade to the HashMap as the currently selected problem
+                                    current_sequence_data.put("Sequence_setter",second_sequence_data.get("Sequence_setter"));// add problem sequence_setter to the HashMap as the currently selected problem
+                                    current_sequence_data.put("Sequence_comment",second_sequence_data.get("Sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
+                                    // Clear the previously displayed problem
+                                }
+                                // set the name and the grade of the problem
+                                //selected_problem_info.setText(getString(R.string.selected_problem_info, current_problem.getName(), current_problem.getGrade()));
+                                // prepare other data to show the second_sequence of the problem on the climbing wall
+                                second_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
+                                second_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
+                                second_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
+                                second_sequence_data.put("Sequence_name",current_problem.getName());// add problem sequence_name to the HashMap as the currently selected problem
+                                second_sequence_data.put("Sequence_grade",current_problem.getGrade());// add problem sequence_grade to the HashMap as the currently selected problem
+                                second_sequence_data.put("Sequence_setter",current_problem.getSetter());// add problem sequence_setter to the HashMap as the currently selected problem
+                                second_sequence_data.put("Sequence_comment",current_problem.getComment());// add problem sequence_comment to the HashMap as the currently selected problem
+                                // use the secondary colors for displaying the problem
+                                if(primary_problem_color){
+                                    selectSecondDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
+                                }
+                                // use the primary colors for displaying the problem
+                                if(!primary_problem_color){
+                                    selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
+                                }
 
-                            // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
-                            if(current_problem_index < allProblems.size()-1){
-                                current_problem_index ++; // increment the index to show new problem when load_problem is pressed again
+                                // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
+                                if(current_problem_index < allProblems.size()-1){
+                                    current_problem_index ++; // increment the index to show new problem when load_problem is pressed again
+                                }
+                                // if the problem_index is equal to array size, reset it to zero - that way you start showing problems from the beginning again
+                                else{
+                                    current_problem_index = 0;
+                                }
+                                primary_problem_color = !primary_problem_color;
+                                second_problem_displayed = true;
                             }
-                            // if the problem_index is equal to array size, reset it to zero - that way you start showing problems from the beginning again
                             else{
-                                current_problem_index = 0;
+                                Problem current_problem = allProblems.get(current_problem_index);
+                                // set the name and the grade of the problem
+                                selected_problem_info.setText(getString(R.string.selected_problem_info, current_problem.getName(), current_problem.getGrade()));
+                                // prepare other data to show the sequence of the problem on the climbing wall
+                                current_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
+                                current_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
+                                current_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
+                                current_sequence_data.put("Sequence_name",current_problem.getName());// add problem sequence_name to the HashMap as the currently selected problem
+                                current_sequence_data.put("Sequence_grade",current_problem.getGrade());// add problem sequence_grade to the HashMap as the currently selected problem
+                                current_sequence_data.put("Sequence_setter",current_problem.getSetter());// add problem sequence_setter to the HashMap as the currently selected problem
+                                current_sequence_data.put("Sequence_comment",current_problem.getComment());// add problem sequence_comment to the HashMap as the currently selected problem
+                                selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
+
+                                // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
+                                if(current_problem_index < allProblems.size()-1){
+                                    current_problem_index ++; // increment the index to show new problem when load_problem is pressed again
+                                }
+                                // if the problem_index is equal to array size, reset it to zero - that way you start showing problems from the beginning again
+                                else{
+                                    current_problem_index = 0;
+                                }
+                                problem_displayed = true; // set the variable for checking if the problem is displayed on the wall
                             }
-                            problem_displayed = true; // set the variable for checking if the problem is displayed on the wall
+
                         }
                         return true;
                     // send the Problem sequence via WiFi to Arduino, which then lights the correct LEDs
@@ -354,7 +418,9 @@ public class MainActivity extends AppCompatActivity{
 
     public void selectDatabaseProblem(String sequence, String sequence_counters, String sequence_tags){
 
-        clearWall(); // clear GridLayout
+        if(!second_problem_displayed){
+            clearWall(); // clear GridLayout
+        }
 
         String[] holds = sequence.split(",");
         String[] hold_counters = sequence_counters.split(",");
@@ -364,48 +430,65 @@ public class MainActivity extends AppCompatActivity{
             ImageView hold_image = (ImageView) mainWall.findViewById(Integer.parseInt(holds[i]));
             TextView hold_text = (TextView) mainWall.findViewById(Integer.parseInt(hold_counters[i]));
             hold_text.setText(String.valueOf(i +1));
-            ShapeDrawable first = new ShapeDrawable(new OvalShape());
-            first.setIntrinsicHeight(hold_image.getHeight() / 2);
-            first.setIntrinsicWidth(hold_image.getHeight() / 2);
             // select the correct color for the hold background
             switch (hold_tags[i]){
                 case "green":
                     hold_image.setBackgroundResource(R.drawable.hold_background_green);
 
-                    /*first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                            R.color.hold_green_background, null));
-
-                     */
                     break;
                 case "blue":
                     hold_image.setBackgroundResource(R.drawable.hold_background_blue);
 
-                    /*
-                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                            R.color.hold_blue_background, null));
-
-                     */
                     break;
                 case "red":
                     hold_image.setBackgroundResource(R.drawable.hold_background_red);
 
-                    /*
-                    first.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                            R.color.hold_red_background, null));
-
-                     */
                     break;
             }
-            /*
-            // apply color to the hold background
-            hold_image.setBackground(first);
-
-             */
-
         }
-
-
     }
+    public void selectSecondDatabaseProblem(String sequence, String sequence_counters, String sequence_tags){
+
+        String[] holds = sequence.split(",");
+        String[] hold_counters = sequence_counters.split(",");
+        String[] hold_tags = sequence_tags.split(",");
+
+        for (int i = 0; i < holds.length; i ++){
+            ImageView hold_image = (ImageView) mainWall.findViewById(Integer.parseInt(holds[i]));
+            TextView hold_text = (TextView) mainWall.findViewById(Integer.parseInt(hold_counters[i]));
+            hold_text.setText(String.valueOf(i +1));
+            // select the correct color for the hold background
+            switch (hold_tags[i]){
+                case "green":
+                    hold_image.setBackgroundResource(R.drawable.hold_background_yellow);
+
+                    break;
+                case "blue":
+                    hold_image.setBackgroundResource(R.drawable.hold_background_cyan);
+
+                    break;
+                case "red":
+                    hold_image.setBackgroundResource(R.drawable.hold_background_magenta);
+
+                    break;
+            }
+        }
+    }
+
+    public void clearSpecificProblem(String sequence, String sequence_counters, String sequence_tags){
+        String[] holds = sequence.split(",");
+        String[] hold_counters = sequence_counters.split(",");
+        String[] hold_tags = sequence_tags.split(",");
+
+        for (int i = 0; i < holds.length; i ++){
+            ImageView hold_image = (ImageView) mainWall.findViewById(Integer.parseInt(holds[i]));
+            TextView hold_text = (TextView) mainWall.findViewById(Integer.parseInt(hold_counters[i]));
+            hold_text.setText(""); // reset the hold counter
+            hold_image.setTag("empty"); // reset the hold tag
+            hold_image.setBackgroundResource(R.drawable.hold_background_empty);; // reset the hold background
+        }
+    }
+
     public void clearWall(){
 
         for(String width: width){
@@ -414,17 +497,6 @@ public class MainActivity extends AppCompatActivity{
                 int hold_id = getResources().getIdentifier(width+height, "id", getPackageName());
                 ImageView selected_hold = (ImageView) mainWall.findViewById(hold_id);
 
-                /*
-                int vHeight = selected_hold.getHeight();
-                // set the background color of the ImageView
-                ShapeDrawable empty = new ShapeDrawable(new OvalShape());
-                empty.setIntrinsicHeight(vHeight / 2);
-                empty.setIntrinsicWidth(vHeight / 2);
-                empty.getPaint().setColor(ResourcesCompat.getColor(getResources(),
-                        R.color.colorClimbingWall, null));;
-                selected_hold.setBackground(empty);
-
-                 */
                 selected_hold.setBackgroundResource(R.drawable.hold_background_empty);
 
                 selected_hold.setTag("empty");

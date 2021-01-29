@@ -5,7 +5,7 @@
     android:layout_gravity="center_horizontal"
     android:columnCount="12"
     android:rowCount="16"
-    android:padding="15dp"
+    android:padding="10dp"
     android:id="@+id/gridlayout_setproblem"
     android:background="@drawable/climbing_wall">
 

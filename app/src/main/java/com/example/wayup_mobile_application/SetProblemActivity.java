@@ -37,6 +37,10 @@ public class SetProblemActivity extends AppCompatActivity {
     // variables for interactive climbing wall
     ArrayList<Integer> selected_holds = new ArrayList<>();
     ArrayList<Integer> selected_holds_counters = new ArrayList<>();
+    /*array that hold the colors of the selected holds.
+    It starts at integer 1, because counter goes from 1 onwards. This array is used top check if
+    the selected sequence contains the starting and ending hold.
+     */
     String[] selected_colors = new String[100];
     ImageView selected_hold;
     TextView selected_hold_counter;
@@ -60,7 +64,7 @@ public class SetProblemActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // check if the sequence is not empty
-                if(!selected_holds.isEmpty()){
+                if(!selected_holds.isEmpty() && Arrays.asList(selected_colors).contains("green") && Arrays.asList(selected_colors).contains("red")){
                     // convert ArrayList with TextView ids into comma separated string
                     StringBuilder sb_image = new StringBuilder();
                     StringBuilder sb_image_tags = new StringBuilder();
@@ -90,26 +94,51 @@ public class SetProblemActivity extends AppCompatActivity {
 
                         prefix = ",";
                     }
-                    Toast.makeText(getApplicationContext(),Arrays.toString(selected_colors), Toast.LENGTH_LONG).show();
-
                     String selected_holds_countersString = sb_text.toString();
                     sendProblemSequence(SetProblemActivity.this, AddProblemActivity.class,
                             selected_holdsString, selected_holds_tagsString, selected_holds_countersString);
                 }
-                else{
+                else {
+                    if(selected_holds.isEmpty()){
+                        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(SetProblemActivity.this);
+                        builder.setTitle("Try Again!");
+                        builder.setMessage("You didn't choose any holds. Please choose some.");
+                        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog = builder.show();
+                    }
+                    else if(!Arrays.asList(selected_colors).contains("green")){
+                        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(SetProblemActivity.this);
+                        builder.setTitle("Try Again!");
+                        builder.setMessage("You didn't choose a starting hold. Please choose one.");
+                        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog = builder.show();
+                    }
+                    else if(!Arrays.asList(selected_colors).contains("red")){
+                        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(SetProblemActivity.this);
+                        builder.setTitle("Try Again!");
+                        builder.setMessage("You didn't choose a top hold. Please choose one.");
+                        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog = builder.show();
+                    }
 
-                    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(SetProblemActivity.this);
-                    builder.setTitle("Try Again!");
-                    builder.setMessage("You didn't select any holds. Please select some.");
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-                    dialog = builder.show();
 
                 }
+
             }
         });
     }
@@ -160,15 +189,17 @@ public class SetProblemActivity extends AppCompatActivity {
 
                         selected_hold.setBackgroundResource(R.drawable.hold_background_blue);
                         selected_hold.setTag("blue");
-                        // add the selected color to the array
-                        selected_colors[counter] = "blue";
+                        // assign the selected color to the array
+                        selected_colors[counter - 1] = "blue";
+
                         break;
                     case "blue":
 
                         selected_hold.setBackgroundResource(R.drawable.hold_background_red);
                         selected_hold.setTag("red");
-                        // add the selected color to the array
-                        selected_colors[counter] = "red";
+                        // assign the selected color to the array
+                        selected_colors[counter - 1] = "red";
+
                         break;
                     case "red":
 
@@ -190,8 +221,8 @@ public class SetProblemActivity extends AppCompatActivity {
                                 break;
                             }
                         }
-                        // add the selected color to the array
-                        selected_colors[counter] = null;
+                        // assign the selected color to the array
+                        selected_colors[counter - 1] = null;
                         counter --; // decrease the counter
                         break;
 
@@ -209,9 +240,11 @@ public class SetProblemActivity extends AppCompatActivity {
                 selected_hold_counter.setText(Integer.toString(counter));
                 // set the tag to the value of the counter, so it can be shown in the mainScreen after selected from DatabaseActivity
                 selected_hold_counter.setTag(Integer.toString(counter));
-                // add the selected color to the array
-                selected_colors[counter - 1] = "green";
+                // assign the selected color to the array
+                selected_colors[counter] = "green";
                 counter ++; // increase counter by 1
+
+
             }
         }
         // Add the first hold to the ArrayList
@@ -227,8 +260,8 @@ public class SetProblemActivity extends AppCompatActivity {
             selected_hold_counter.setText(Integer.toString(counter));
             // set the tag to the value of the counter, so it can be shown in the mainScreen after selected from DatabaseActivity
             selected_hold_counter.setTag(Integer.toString(counter));
-            // add the selected color to the array
-            selected_colors[counter - 1] = "green";
+            // assign the selected color to the array
+            selected_colors[counter] = "green";
             counter ++; // increase counter by 1
         }
 

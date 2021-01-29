@@ -120,7 +120,7 @@
             android:padding="12dp"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
-            android:checked="true"
+            android:checked="false"
             style="@style/WhiteText"
             android:text="@string/toolbar_two_problems" />
 
