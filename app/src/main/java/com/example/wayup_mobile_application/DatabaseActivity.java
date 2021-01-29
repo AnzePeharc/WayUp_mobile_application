@@ -67,7 +67,7 @@ public class DatabaseActivity extends AppCompatActivity{
                 //Toast.makeText(getApplicationContext(), selected_problem.getSequence(), Toast.LENGTH_LONG).show();
                 sendProblemSequence(DatabaseActivity.this, MainActivity.class,
                         selected_problem.getSequence(), selected_problem.getSequence_tags(),
-                        selected_problem.getSequence_counters(), selected_problem.getName(), selected_problem.getGrade(), selected_problem.getSetter(), selected_problem.getComment());
+                        selected_problem.getSequence_counters(), selected_problem.getName(), selected_problem.getGrade(), selected_problem.getSetter(), selected_problem.getComment(), String.valueOf(position));
 
             }
         });
@@ -195,7 +195,7 @@ public class DatabaseActivity extends AppCompatActivity{
 
     }
 
-    public static void sendProblemSequence(Activity activity, Class aClass, String sequence, String sequence_tags, String sequence_counters, String sequence_name, String sequence_grade, String sequence_setter, String sequence_comment) {
+    public static void sendProblemSequence(Activity activity, Class aClass, String sequence, String sequence_tags, String sequence_counters, String sequence_name, String sequence_grade, String sequence_setter, String sequence_comment, String position) {
         // Initialize intent
         Intent intent = new Intent(activity, aClass);
         // Set Flag
@@ -207,6 +207,7 @@ public class DatabaseActivity extends AppCompatActivity{
         intent.putExtra("mainScreen_sequence_grade", sequence_grade);
         intent.putExtra("mainScreen_sequence_setter", sequence_setter);
         intent.putExtra("mainScreen_sequence_comment", sequence_comment);
+        intent.putExtra("mainScreen_sequence_position", position);
         // Start the activity
         activity.startActivity(intent);
     }

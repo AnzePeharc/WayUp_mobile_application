@@ -306,7 +306,14 @@ public class MainActivity extends AppCompatActivity{
 
         // check if you were redirected from DatabaseActivity or AddProblemActivity. If the extra data in Intent is not empty, you show the Problem sequence on the wall
         if(getIntent().getStringExtra("mainScreen_sequence") != null){
-            System.out.println(getIntent().getStringExtra("mainScreen_sequence"));
+            // check if the selected problem is already displayed on the wall
+            if(current_problem_index == Integer.parseInt(getIntent().getStringExtra("mainScreen_sequence_position"))){
+                Toast.makeText(getApplicationContext(),"Selected problem is already displayed on the climbing wall!" , Toast.LENGTH_LONG).show();
+            }
+            // if not then display it
+            else{
+                // TODO: correctly display the problem from the database if two_problem option is checked
+            }
             current_sequence_data.put("Sequence",getIntent().getStringExtra("mainScreen_sequence"));// add problem sequence to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_counters",getIntent().getStringExtra("mainScreen_sequence_counters"));// add problem sequence_counters to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_tags",getIntent().getStringExtra("mainScreen_sequence_tags"));// add problem sequence_tags to the HashMap as the currently selected problem
@@ -314,11 +321,11 @@ public class MainActivity extends AppCompatActivity{
             current_sequence_data.put("Sequence_grade",getIntent().getStringExtra("mainScreen_sequence_grade"));// add problem sequence_grade to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_setter",getIntent().getStringExtra("mainScreen_sequence_setter"));// add problem sequence_setter to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_comment",getIntent().getStringExtra("mainScreen_sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
+            System.out.println(getIntent().getStringExtra("mainScreen_sequence_position"));
             // set the name and the grade of the problem
-            System.out.println(current_sequence_data.get("Sequence_name"));
-            System.out.println(current_sequence_data.get("Sequence_grade"));
             selected_problem_info.setText(getString(R.string.selected_problem_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade")));
             problem_displayed = true; // set variable for checking if the problem is shown on the wall to true
+            primary_problem_color = false;
             // call function for displaying the problem on the graphic wall
             selectDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
         }
