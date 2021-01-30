@@ -21,19 +21,25 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="@string/problem_count"
-        android:gravity="center"
+        android:gravity="fill_vertical"
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:textSize="12sp"
         android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
         style="@style/WhiteText"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:onClick="ShowTwoProblems"
+        android:src="@drawable/ic_database_activity_show"/>
 
     <SearchView
         android:id="@+id/search_menu"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:src="@drawable/ic_round_search_menu"
-        android:background="@drawable/customborder_full"
+        android:background="@drawable/customborder_white_full"
         android:layout_margin="10dp"/>
     <ImageView
         android:layout_width="50dp"

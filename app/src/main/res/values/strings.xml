@@ -92,4 +92,5 @@
     <string name="two_selected_problems_info">%1$s, %2$s | %3$s, %4$s</string>
 
     <string name="selected_problem_more_info"><b>Setter:</b> %1$s \n<b>Comment:</b> %2$s</string>
+    <string name="two_problems_selected_more_info"><b>Problem: %1$s \n</b>\n<b>Setter:</b> %2$s \n<b>Comment:</b> %3$s \n<b>--------------------------</b>\n<b>Problem: %4$s \n</b>\n<b>Setter:</b> %5$s \n<b>Comment:</b> %6$s</string>
 </resources>

@@ -2,33 +2,41 @@ package com.example.wayup_mobile_application;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class DatabaseActivity extends AppCompatActivity{
 
     DrawerLayout drawerLayout;
     ListView problemTable;
+    SwitchMaterial two_problem_option;
+    // variable for alert PopUp
+    AlertDialog dialog;
     // variable for interacting with DatabaseHelper
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
@@ -39,6 +47,8 @@ public class DatabaseActivity extends AppCompatActivity{
     ProblemAdapter problemAdapter; // adapter that displays the problems from database in ListView
     SearchView search_problems; // SearchView that allows filtering of the problems by name
     TextView problem_count; // TextView to display number of problems in database
+    ArrayList<Integer> selected_problem_positions = new ArrayList<Integer>(); // arrayList for holding the two selected problems
+    ArrayList<Problem> selected_problems = new ArrayList<Problem>(); // arrayList for holding the two selected problems
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +64,20 @@ public class DatabaseActivity extends AppCompatActivity{
         fillTable(this);
         // fill the table with database content
         problemAdapter =  new ProblemAdapter(this, arrayOfProblems);
+        // Initialize problem Switch
+        two_problem_option = findViewById(R.id.two_problems_switch);
+        two_problem_option.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // check if the switch has been turned of and reset the adapter of the problems
+                if(!isChecked){
+                    problemAdapter =  new ProblemAdapter(getApplicationContext(), arrayOfProblems);
+                    problemTable.setAdapter(problemAdapter); // reset the problemAdapter in order to restore the basic colors of background
+                    selected_problem_positions = new ArrayList<Integer>(); // reset arrayList for holding currently selected two problems
+                    selected_problems = new ArrayList<Problem>(); // reset arrayList for holding instances of selected problems
+                }
+                closeDrawer(drawerLayout); // close the drawer
+            }
+        });
         problemTable = (ListView) findViewById(R.id.problem_table);
         problemTable.setAdapter(problemAdapter); // bind the adapter to the arrayList
         // Add OnItemClickListener for ListView
@@ -63,11 +87,44 @@ public class DatabaseActivity extends AppCompatActivity{
             public void onItemClick(AdapterView<?> adapter, View v, int position,
                                     long arg3)
             {
-                Problem selected_problem = (Problem) adapter.getItemAtPosition(position);
-                //Toast.makeText(getApplicationContext(), selected_problem.getSequence(), Toast.LENGTH_LONG).show();
-                sendProblemSequence(DatabaseActivity.this, MainActivity.class,
-                        selected_problem.getSequence(), selected_problem.getSequence_tags(),
-                        selected_problem.getSequence_counters(), selected_problem.getName(), selected_problem.getGrade(), selected_problem.getSetter(), selected_problem.getComment(), String.valueOf(position));
+                // if the switch is checked let the user pick two problems and then showing them on the wall at the same time
+                if(two_problem_option.isChecked()){
+                    // change the background of selected table_item back to normal  to indicate de-selection
+                    if(Objects.equals(problemTable.getChildAt(position).getBackground().getConstantState(), getResources().getDrawable(R.drawable.customborder_blue_full).getConstantState())){
+                        problemTable.getChildAt(position).setBackgroundResource(R.drawable.customborder_blue); // set the background color to blue border
+                        for (int i = 0; i < selected_problem_positions.size(); i++) {
+                            if(selected_problem_positions.get(i) == position){
+                                selected_problem_positions.remove(i);
+                                selected_problems.remove(i);
+
+                            }
+                        }
+                    }
+                    // change the background of selected table_item to blue to indicate selection
+                    else{
+                        if(selected_problem_positions.size() < 2){
+                            problemTable.getChildAt(position).setBackgroundResource(R.drawable.customborder_blue_full); // set the background color to blue
+                            selected_problem_positions.add(position);
+                            selected_problems.add((Problem) adapter.getItemAtPosition(position));
+                        }
+                        else{
+                            problemTable.getChildAt(selected_problem_positions.get(0)).setBackgroundResource(R.drawable.customborder_blue); // reset the background color of the first added problem
+                            selected_problem_positions.remove(0); // remove the first problem from arrayList, because there can only be two problems selected at once
+                            selected_problems.remove(0);
+                            selected_problem_positions.add(position); // add the next problem to the arrayList
+                            selected_problems.add((Problem) adapter.getItemAtPosition(position));
+                            problemTable.getChildAt(selected_problem_positions.get(1)).setBackgroundResource(R.drawable.customborder_blue_full); // set the background color to blue of the last selected problem
+                        }
+
+                    }
+                }
+                else{
+                    Problem selected_problem = (Problem) adapter.getItemAtPosition(position);
+                    //Toast.makeText(getApplicationContext(), selected_problem.getSequence(), Toast.LENGTH_LONG).show();
+                    sendProblemSequence(DatabaseActivity.this, MainActivity.class,
+                            selected_problem.getSequence(), selected_problem.getSequence_tags(),
+                            selected_problem.getSequence_counters(), selected_problem.getName(), selected_problem.getGrade(), selected_problem.getSetter(), selected_problem.getComment(), String.valueOf(position));
+                }
 
             }
         });
@@ -89,8 +146,6 @@ public class DatabaseActivity extends AppCompatActivity{
             }
         });
 
-
-        //TODO: implement system for filtering the DataBase entries
     }
     @Override
     protected void onStart() {
@@ -191,6 +246,7 @@ public class DatabaseActivity extends AppCompatActivity{
         }
 
     }
+    //   function for updating the table of content
     public void updateTable(Context context){
 
     }
@@ -236,5 +292,46 @@ public class DatabaseActivity extends AppCompatActivity{
 
     public void FilterOptions(View view){
         MainActivity.redirectActivity(DatabaseActivity.this, FilterActivity.class);
+    }
+    public void ShowTwoProblems(View view){
+        if(selected_problems.size() == 2){
+            Problem first_problem = (Problem) selected_problems.get(0);
+            Problem second_problem = (Problem) selected_problems.get(1);
+
+            Intent intent = new Intent(DatabaseActivity.this, MainActivity.class);
+            // Set Flag
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            // send data for the first problem
+            intent.putExtra("mainScreen_sequence", first_problem.getSequence());
+            intent.putExtra("mainScreen_sequence_tags", first_problem.getSequence_tags());
+            intent.putExtra("mainScreen_sequence_counters", first_problem.getSequence_counters());
+            intent.putExtra("mainScreen_sequence_name", first_problem.getName());
+            intent.putExtra("mainScreen_sequence_grade", first_problem.getGrade());
+            intent.putExtra("mainScreen_sequence_setter", first_problem.getSetter());
+            intent.putExtra("mainScreen_sequence_comment", first_problem.getComment());
+
+            // send data for the second problem
+            intent.putExtra("mainScreen_second_sequence", second_problem.getSequence());
+            intent.putExtra("mainScreen_second_sequence_tags", second_problem.getSequence_tags());
+            intent.putExtra("mainScreen_second_sequence_counters", second_problem.getSequence_counters());
+            intent.putExtra("mainScreen_second_sequence_name", second_problem.getName());
+            intent.putExtra("mainScreen_second_sequence_grade", second_problem.getGrade());
+            intent.putExtra("mainScreen_second_sequence_setter", second_problem.getSetter());
+            intent.putExtra("mainScreen_second_sequence_comment", second_problem.getComment());
+            // Start the activity
+            DatabaseActivity.this.startActivity(intent);
+        }
+        else{
+            final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(DatabaseActivity.this);
+            builder.setTitle("Try Again!");
+            builder.setMessage("You need to select two problems.");
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            dialog = builder.show();
+        }
     }
 }

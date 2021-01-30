@@ -73,9 +73,6 @@ public class MainActivity extends AppCompatActivity{
     // variables for establishing socket connection
     SequenceSender sequenceSender;
 
-    private static final String PROBLEM_NAME = "name_key";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,13 +101,14 @@ public class MainActivity extends AppCompatActivity{
 
         // TOP NAVIGATION CODE
         drawerLayout = findViewById(R.id.drawer_layout);
-
-        selected_problem_info = findViewById(R.id.selected_problem_info); // Initialize problem textView
-        two_problem_option = findViewById(R.id.two_problems_switch); // Initialize problem Switch
+        // Initialize problem textView, which holds the name and grade
+        selected_problem_info = findViewById(R.id.selected_problem_info);
+        // Initialize problem Switch in the drawer, that allows user to display two problems at once
+        two_problem_option = findViewById(R.id.two_problems_switch);
         two_problem_option.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // check if the switch has been turned of and display only the current problem
-                if(!isChecked && second_problem_displayed){
+                if(!two_problem_option.isChecked() && second_problem_displayed){
                     clearSpecificProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags"));
                     // check if HashMap is not empty
                     if(!second_sequence_data.isEmpty()){
@@ -125,7 +123,13 @@ public class MainActivity extends AppCompatActivity{
                         // set the name and the grade of the problem
                         selected_problem_info.setText(getString(R.string.selected_problem_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade")));
                         second_sequence_data = new HashMap<String,String>();
-                        selectDatabaseProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags")); // call function for displaying the problem on the graphic wall
+                        // check which color was last used and keep the same color, when unchecking the switch
+                        if(!primary_problem_color){
+                            selectSecondDatabaseProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags")); // call function for displaying the problem on the graphic wall
+                        }
+                        else{
+                            selectDatabaseProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags")); // call function for displaying the problem on the graphic wall
+                        }
                     }
                     second_problem_displayed = false;
                     primary_problem_color = true;
@@ -305,15 +309,11 @@ public class MainActivity extends AppCompatActivity{
         super.onStart();
 
         // check if you were redirected from DatabaseActivity or AddProblemActivity. If the extra data in Intent is not empty, you show the Problem sequence on the wall
-        if(getIntent().getStringExtra("mainScreen_sequence") != null){
-            // check if the selected problem is already displayed on the wall
-            if(current_problem_index == Integer.parseInt(getIntent().getStringExtra("mainScreen_sequence_position"))){
-                Toast.makeText(getApplicationContext(),"Selected problem is already displayed on the climbing wall!" , Toast.LENGTH_LONG).show();
-            }
-            // if not then display it
-            else{
-                // TODO: correctly display the problem from the database if two_problem option is checked
-            }
+
+        // first check if there were two problems sent
+        if(getIntent().getStringExtra("mainScreen_second_sequence") != null){
+
+            //DISPLAY THE FIRST PROBLEM
             current_sequence_data.put("Sequence",getIntent().getStringExtra("mainScreen_sequence"));// add problem sequence to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_counters",getIntent().getStringExtra("mainScreen_sequence_counters"));// add problem sequence_counters to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_tags",getIntent().getStringExtra("mainScreen_sequence_tags"));// add problem sequence_tags to the HashMap as the currently selected problem
@@ -321,15 +321,41 @@ public class MainActivity extends AppCompatActivity{
             current_sequence_data.put("Sequence_grade",getIntent().getStringExtra("mainScreen_sequence_grade"));// add problem sequence_grade to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_setter",getIntent().getStringExtra("mainScreen_sequence_setter"));// add problem sequence_setter to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_comment",getIntent().getStringExtra("mainScreen_sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
-            System.out.println(getIntent().getStringExtra("mainScreen_sequence_position"));
+            problem_displayed = true; // set variable for checking if the problem is shown on the wall to true
+            // call function for displaying the problem on the graphic wall
+            selectDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
+            //DISPLAY THE SECOND PROBLEM
+            second_sequence_data.put("Sequence",getIntent().getStringExtra("mainScreen_second_sequence"));// add problem sequence to the HashMap as the currently selected problem
+            second_sequence_data.put("Sequence_counters",getIntent().getStringExtra("mainScreen_second_sequence_counters"));// add problem sequence_counters to the HashMap as the currently selected problem
+            second_sequence_data.put("Sequence_tags",getIntent().getStringExtra("mainScreen_second_sequence_tags"));// add problem sequence_tags to the HashMap as the currently selected problem
+            second_sequence_data.put("Sequence_name",getIntent().getStringExtra("mainScreen_second_sequence_name"));// add problem sequence_name to the HashMap as the currently selected problem
+            second_sequence_data.put("Sequence_grade",getIntent().getStringExtra("mainScreen_second_sequence_grade"));// add problem sequence_grade to the HashMap as the currently selected problem
+            second_sequence_data.put("Sequence_setter",getIntent().getStringExtra("mainScreen_second_sequence_setter"));// add problem sequence_setter to the HashMap as the currently selected problem
+            second_sequence_data.put("Sequence_comment",getIntent().getStringExtra("mainScreen_second_sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
+            second_problem_displayed = true; // set variable for checking if the second problem is shown on the wall to true
+            // call function for displaying the problem on the graphic wall
+            selectSecondDatabaseProblem(getIntent().getStringExtra("mainScreen_second_sequence"), getIntent().getStringExtra("mainScreen_second_sequence_counters"), getIntent().getStringExtra("mainScreen_second_sequence_tags"));
+            // set the name and the grade of the both problems
+            selected_problem_info.setText(getString(R.string.two_selected_problems_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade"),
+                    second_sequence_data.get("Sequence_name"), second_sequence_data.get("Sequence_grade")));
+        }
+        // otherwise no data has been sent
+        else if(getIntent().getStringExtra("mainScreen_sequence") != null){
+            current_sequence_data.put("Sequence",getIntent().getStringExtra("mainScreen_sequence"));// add problem sequence to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_counters",getIntent().getStringExtra("mainScreen_sequence_counters"));// add problem sequence_counters to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_tags",getIntent().getStringExtra("mainScreen_sequence_tags"));// add problem sequence_tags to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_name",getIntent().getStringExtra("mainScreen_sequence_name"));// add problem sequence_name to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_grade",getIntent().getStringExtra("mainScreen_sequence_grade"));// add problem sequence_grade to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_setter",getIntent().getStringExtra("mainScreen_sequence_setter"));// add problem sequence_setter to the HashMap as the currently selected problem
+            current_sequence_data.put("Sequence_comment",getIntent().getStringExtra("mainScreen_sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
             // set the name and the grade of the problem
             selected_problem_info.setText(getString(R.string.selected_problem_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade")));
             problem_displayed = true; // set variable for checking if the problem is shown on the wall to true
             primary_problem_color = false;
             // call function for displaying the problem on the graphic wall
             selectDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
+
         }
-        // otherwise no data has been sent
         else{
             System.out.println("No data has been sent!");
         }
@@ -338,20 +364,37 @@ public class MainActivity extends AppCompatActivity{
 
 
     public void MoreInfo(View view){
-        if (problem_displayed){
-            final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+        // show more_info alert dialog if problem is displayed
+        final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+        if(problem_displayed){
             builder.setTitle("More info about the problem");
-            builder.setMessage(getString(R.string.selected_problem_more_info, current_sequence_data.get("Sequence_setter"), current_sequence_data.get("Sequence_comment")));
+            if(second_problem_displayed){
+                builder.setMessage(getString(R.string.two_problems_selected_more_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_setter"),
+                        current_sequence_data.get("Sequence_comment"), second_sequence_data.get("Sequence_name"), second_sequence_data.get("Sequence_setter"), second_sequence_data.get("Sequence_comment")));
+            }
+            else{
+                builder.setMessage(getString(R.string.selected_problem_more_info, current_sequence_data.get("Sequence_setter"), current_sequence_data.get("Sequence_comment")));
+            }
             builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
                 }
             });
-            dialog = builder.show();
         }
+        // if problem is not displayed show error alertDialog
+        else{
+            builder.setTitle("Try Again!");
+            builder.setMessage("It seems that there is no problem selected.");
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+        }
+        dialog = builder.show();
     }
-
 
     public void ClickMenu(View view){
         // open Drawer

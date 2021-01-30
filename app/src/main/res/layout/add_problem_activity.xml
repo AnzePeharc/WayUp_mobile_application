@@ -98,7 +98,7 @@
             android:id="@+id/grade_spinner"
             android:textAlignment="center"
             android:gravity="center_horizontal"
-            android:background="@drawable/customborder_full"
+            android:background="@drawable/customborder_white_full"
             />
     </LinearLayout>
 
