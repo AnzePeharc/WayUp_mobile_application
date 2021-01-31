@@ -86,7 +86,7 @@ public class SetProblemActivity extends AppCompatActivity {
                     String selected_holds_tagsString = sb_image_tags.toString();
                     System.out.println(selected_holdsString);
                     // convert ArrayList with TextView ids into comma separated string
-                    StringBuffer sb_text = new StringBuffer();
+                    StringBuilder sb_text = new StringBuilder();
                     prefix = "";
                     for (Integer counter : selected_holds_counters) {
                         sb_text.append(prefix);

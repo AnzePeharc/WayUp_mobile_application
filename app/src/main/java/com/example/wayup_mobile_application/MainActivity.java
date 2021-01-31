@@ -43,6 +43,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -64,7 +65,8 @@ public class MainActivity extends AppCompatActivity{
     TextView selected_problem_info;
     boolean problem_displayed = false; // variable for checking if the problem is displayed on the climbing wall
     boolean second_problem_displayed = false; // variable for checking if the second_problem is displayed on the climbing wall
-    boolean primary_problem_color = true; // currently used color to display the problem. This is used in case that there are displayed two problems
+    boolean primary_problem_color = true; // color to used to display the problem. This is used in case that there are displayed two problems. True indicates that primary color should be used!
+    boolean loaded_from_library = false; // variable that tells us, if the current problem on the wall was from Problem Library
     SwitchMaterial two_problem_option;
     ProblemViewModel mViewModel; // viewModel which can be used for keeping score of some values that change - currently not used
     // variable for turning off lights when application is closed
@@ -122,6 +124,7 @@ public class MainActivity extends AppCompatActivity{
                         current_sequence_data.put("Sequence_comment",second_sequence_data.get("Sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
                         // set the name and the grade of the problem
                         selected_problem_info.setText(getString(R.string.selected_problem_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade")));
+                        // reset the second_sequence HashMap
                         second_sequence_data = new HashMap<String,String>();
                         // check which color was last used and keep the same color, when unchecking the switch
                         if(!primary_problem_color){
@@ -169,6 +172,7 @@ public class MainActivity extends AppCompatActivity{
                             if(problem_displayed & two_problem_option.isChecked()){
                                 Problem current_problem = allProblems.get(current_problem_index);
                                 if(second_problem_displayed){
+                                    // Clear the previously displayed problem
                                     clearSpecificProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags"));
                                     // replace the values for the current problem and with the second_sequence_data
                                     current_sequence_data.put("Sequence",second_sequence_data.get("Sequence"));// add problem sequence to the HashMap as the currently selected problem
@@ -178,7 +182,7 @@ public class MainActivity extends AppCompatActivity{
                                     current_sequence_data.put("Sequence_grade",second_sequence_data.get("Sequence_grade"));// add problem sequence_grade to the HashMap as the currently selected problem
                                     current_sequence_data.put("Sequence_setter",second_sequence_data.get("Sequence_setter"));// add problem sequence_setter to the HashMap as the currently selected problem
                                     current_sequence_data.put("Sequence_comment",second_sequence_data.get("Sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
-                                    // Clear the previously displayed problem
+
                                 }
                                 // prepare other data to show the second_sequence of the problem on the climbing wall
                                 second_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
@@ -212,6 +216,10 @@ public class MainActivity extends AppCompatActivity{
                                 second_problem_displayed = true;
                             }
                             else{
+                                if(loaded_from_library){
+                                    ResetWall(getCurrentFocus());
+                                    loaded_from_library = false;
+                                }
                                 Problem current_problem = allProblems.get(current_problem_index);
                                 // set the name and the grade of the problem
                                 selected_problem_info.setText(getString(R.string.selected_problem_info, current_problem.getName(), current_problem.getGrade()));
@@ -338,6 +346,7 @@ public class MainActivity extends AppCompatActivity{
             // set the name and the grade of the both problems
             selected_problem_info.setText(getString(R.string.two_selected_problems_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade"),
                     second_sequence_data.get("Sequence_name"), second_sequence_data.get("Sequence_grade")));
+            loaded_from_library = true;
         }
         // otherwise no data has been sent
         else if(getIntent().getStringExtra("mainScreen_sequence") != null){
@@ -354,7 +363,7 @@ public class MainActivity extends AppCompatActivity{
             primary_problem_color = false;
             // call function for displaying the problem on the graphic wall
             selectDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
-
+            loaded_from_library = true;
         }
         else{
             System.out.println("No data has been sent!");
@@ -492,19 +501,60 @@ public class MainActivity extends AppCompatActivity{
         for (int i = 0; i < holds.length; i ++){
             ImageView hold_image = (ImageView) mainWall.findViewById(Integer.parseInt(holds[i]));
             TextView hold_text = (TextView) mainWall.findViewById(Integer.parseInt(hold_counters[i]));
-            hold_text.setText(String.valueOf(i +1));
             // select the correct color for the hold background
             switch (hold_tags[i]){
                 case "green":
-                    hold_image.setBackgroundResource(R.drawable.hold_background_green);
+                    if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_yellow).getConstantState())){
+                        hold_image.setBackgroundResource(R.drawable.hold_background_overlap_start);
+                        // get the currently displayed TextView text as array. This way you can update the dual counter correctly
+                        String[] dual_counter = hold_text.getText().toString().split(" ");
+                        // get the last part of the array, because that is the counter of previous problem
+                        String previous_counter = dual_counter[dual_counter.length-1];
+                        hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
+                    }
+                    else if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_overlap_start).getConstantState())){
+                        hold_text.setText(String.valueOf(i +1));
+                    }
+                    else{
+                        hold_image.setBackgroundResource(R.drawable.hold_background_green);
+                        hold_text.setText(String.valueOf(i +1));
+                    }
 
                     break;
                 case "blue":
-                    hold_image.setBackgroundResource(R.drawable.hold_background_blue);
+                    if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_cyan).getConstantState())){
+                        hold_image.setBackgroundResource(R.drawable.hold_background_overlap_intermediate);
+                        // get the currently displayed TextView text as array. This way you can update the dual counter correctly
+                        String[] dual_counter = hold_text.getText().toString().split(" ");
+                        // get the last part of the array, because that is the counter of previous problem
+                        String previous_counter = dual_counter[dual_counter.length-1];
+                        hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
+                    }
+                    else if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_overlap_intermediate).getConstantState())){
+                        hold_text.setText(String.valueOf(i +1));
+                    }
+                    else{
+                        hold_image.setBackgroundResource(R.drawable.hold_background_blue);
+                        hold_text.setText(String.valueOf(i +1));
+                    }
 
                     break;
                 case "red":
-                    hold_image.setBackgroundResource(R.drawable.hold_background_red);
+                    if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_magenta).getConstantState())){
+                        hold_image.setBackgroundResource(R.drawable.hold_background_overlap_top);
+                        // get the currently displayed TextView text as array. This way you can update the dual counter correctly
+                        String[] dual_counter = hold_text.getText().toString().split(" ");
+                        // get the last part of the array, because that is the counter of previous problem
+                        String previous_counter = dual_counter[dual_counter.length-1];
+                        hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
+                    }
+                    else if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_overlap_top).getConstantState())){
+                        hold_text.setText(String.valueOf(i +1));
+                    }
+                    else{
+                        hold_image.setBackgroundResource(R.drawable.hold_background_red);
+                        hold_text.setText(String.valueOf(i +1));
+                    }
 
                     break;
             }
@@ -519,19 +569,61 @@ public class MainActivity extends AppCompatActivity{
         for (int i = 0; i < holds.length; i ++){
             ImageView hold_image = (ImageView) mainWall.findViewById(Integer.parseInt(holds[i]));
             TextView hold_text = (TextView) mainWall.findViewById(Integer.parseInt(hold_counters[i]));
-            hold_text.setText(String.valueOf(i +1));
             // select the correct color for the hold background
             switch (hold_tags[i]){
                 case "green":
-                    hold_image.setBackgroundResource(R.drawable.hold_background_yellow);
+                    if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_green).getConstantState())){
+                        hold_image.setBackgroundResource(R.drawable.hold_background_overlap_start);
+                        // get the currently displayed TextView text as array. This way you can update the dual counter correctly
+                        String[] dual_counter = hold_text.getText().toString().split(" ");
+                        // get the last part of the array, because that is the counter of previous problem
+                        String previous_counter = dual_counter[dual_counter.length-1];
+                        hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
+                    }
+                    else if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_overlap_start).getConstantState())){
+                        hold_text.setText(String.valueOf(i +1));
+                    }
+                    else{
+                        hold_image.setBackgroundResource(R.drawable.hold_background_yellow);
+                        hold_text.setText(String.valueOf(i +1));
+                    }
 
                     break;
                 case "blue":
-                    hold_image.setBackgroundResource(R.drawable.hold_background_cyan);
+                    if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_blue).getConstantState())){
+                        hold_image.setBackgroundResource(R.drawable.hold_background_overlap_intermediate);
+                        // get the currently displayed TextView text as array. This way you can update the dual counter correctly
+                        String[] dual_counter = hold_text.getText().toString().split(" ");
+                        // get the last part of the array, because that is the counter of previous problem
+                        String previous_counter = dual_counter[dual_counter.length-1];
+                        hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
+                    }
+                    else if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_overlap_intermediate).getConstantState())){
+                        hold_text.setText(String.valueOf(i +1));
+                    }
+                    else{
+                        hold_image.setBackgroundResource(R.drawable.hold_background_cyan);
+                        hold_text.setText(String.valueOf(i +1));
+                    }
 
                     break;
                 case "red":
-                    hold_image.setBackgroundResource(R.drawable.hold_background_magenta);
+                    if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_red).getConstantState())){
+                        hold_image.setBackgroundResource(R.drawable.hold_background_overlap_top);
+                        // get the currently displayed TextView text as array. This way you can update the dual counter correctly
+                        String[] dual_counter = hold_text.getText().toString().split(" ");
+                        // get the last part of the array, because that is the counter of previous problem
+                        String previous_counter = dual_counter[dual_counter.length-1];
+                        hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
+
+                    }
+                    else if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_overlap_top).getConstantState())){
+                        hold_text.setText(String.valueOf(i +1));
+                    }
+                    else{
+                        hold_image.setBackgroundResource(R.drawable.hold_background_magenta);
+                        hold_text.setText(String.valueOf(i +1));
+                    }
 
                     break;
             }
@@ -546,9 +638,79 @@ public class MainActivity extends AppCompatActivity{
         for (int i = 0; i < holds.length; i ++){
             ImageView hold_image = (ImageView) mainWall.findViewById(Integer.parseInt(holds[i]));
             TextView hold_text = (TextView) mainWall.findViewById(Integer.parseInt(hold_counters[i]));
-            hold_text.setText(""); // reset the hold counter
-            hold_image.setTag("empty"); // reset the hold tag
-            hold_image.setBackgroundResource(R.drawable.hold_background_empty);; // reset the hold background
+
+            // check if the hold that you're trying to reset overlaps with another hold - START
+            if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_overlap_start).getConstantState())){
+                if(!primary_problem_color){
+                    // erase the first part of the counter as it represents the problem we are trying to delete
+                    String[] dual_counter = hold_text.getText().toString().split(" ");
+                    // get the last part of the array, because that is the counter of the problem we are trying to delete
+                    String current_counter = dual_counter[dual_counter.length-1];
+                    hold_text.setText(current_counter);
+                    hold_image.setTag("green"); // reset the hold tag
+                    hold_image.setBackgroundResource(R.drawable.hold_background_yellow);; // reset the hold background
+                }
+                else{
+                    // erase the first part of the counter as it represents the problem we are trying to delete
+                    String[] dual_counter = hold_text.getText().toString().split(" ");
+                    // get the last part of the array, because that is the counter of the problem we are trying to delete
+                    String current_counter = dual_counter[dual_counter.length-1];
+                    hold_text.setText(current_counter);
+                    hold_image.setTag("green"); // reset the hold tag
+                    hold_image.setBackgroundResource(R.drawable.hold_background_green);; // reset the hold background
+                }
+            }
+
+            // check if the hold that you're trying to reset overlaps with another hold - INTERMEDIATE
+            else if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_overlap_intermediate).getConstantState())){
+                if(!primary_problem_color){
+                    // erase the first part of the counter as it represents the problem we are trying to delete
+                    String[] dual_counter = hold_text.getText().toString().split(" ");
+                    // get the last part of the array, because that is the counter of the problem we are trying to delete
+                    String current_counter = dual_counter[dual_counter.length-1];
+                    hold_text.setText(current_counter);
+                    hold_image.setTag("blue"); // reset the hold tag
+                    hold_image.setBackgroundResource(R.drawable.hold_background_cyan);; // reset the hold background
+                }
+                else{
+                    // erase the first part of the counter as it represents the problem we are trying to delete
+                    String[] dual_counter = hold_text.getText().toString().split(" ");
+                    // get the last part of the array, because that is the counter of the problem we are trying to delete
+                    String current_counter = dual_counter[dual_counter.length-1];
+                    hold_text.setText(current_counter);
+                    hold_image.setTag("green"); // reset the hold tag
+                    hold_image.setBackgroundResource(R.drawable.hold_background_blue);; // reset the hold background
+                }
+            }
+
+            // check if the hold that you're trying to reset overlaps with another hold - TOP
+            else if(Objects.equals(hold_image.getBackground().getConstantState(), getResources().getDrawable(R.drawable.hold_background_overlap_top).getConstantState())){
+                if(!primary_problem_color){
+                    // erase the first part of the counter as it represents the problem we are trying to delete
+                    String[] dual_counter = hold_text.getText().toString().split(" ");
+                    // get the last part of the array, because that is the counter of the problem we are trying to delete
+                    String current_counter = dual_counter[dual_counter.length-1];
+                    hold_text.setText(current_counter);
+                    hold_image.setTag("red"); // reset the hold tag
+                    hold_image.setBackgroundResource(R.drawable.hold_background_magenta);; // reset the hold background
+                }
+                else{
+                    // erase the first part of the counter as it represents the problem we are trying to delete
+                    String[] dual_counter = hold_text.getText().toString().split(" ");
+                    // get the last part of the array, because that is the counter of the problem we are trying to delete
+                    String current_counter = dual_counter[dual_counter.length-1];
+                    hold_text.setText(current_counter);
+                    hold_image.setTag("red"); // reset the hold tag
+                    hold_image.setBackgroundResource(R.drawable.hold_background_red);; // reset the hold background
+                }
+            }
+            // completely reset the hold
+            else{
+                hold_text.setText(""); // reset the hold counter
+                hold_image.setTag("empty"); // reset the hold tag
+                hold_image.setBackgroundResource(R.drawable.hold_background_empty);; // reset the hold background
+            }
+
         }
     }
 
