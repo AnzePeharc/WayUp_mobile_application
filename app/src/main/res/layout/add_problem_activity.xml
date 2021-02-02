@@ -109,6 +109,7 @@
         android:layout_height="wrap_content"
         app:boxStrokeColor="@color/colorBlack"
         app:boxStrokeWidth="2dp"
+        android:layout_marginBottom="20dp"
         android:textColorHint="@color/colorBlack"
         android:hint="@string/add_problem_setter_hint"
         style="@style/WhiteText"
