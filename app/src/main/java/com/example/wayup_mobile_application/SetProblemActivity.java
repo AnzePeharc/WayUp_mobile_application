@@ -28,7 +28,7 @@ public class SetProblemActivity extends AppCompatActivity {
 
     Button cancel;
     Button next;
-    // variable for hold sequence counter
+    // variable for hold sequence counter. It starts with one, because people count from 1 :D
     int counter = 1;
 
     // variable for alert PopUp
@@ -37,6 +37,7 @@ public class SetProblemActivity extends AppCompatActivity {
     // variables for interactive climbing wall
     ArrayList<Integer> selected_holds = new ArrayList<>();
     ArrayList<Integer> selected_holds_counters = new ArrayList<>();
+
     /*array that hold the colors of the selected holds.
     It starts at integer 1, because counter goes from 1 onwards. This array is used top check if
     the selected sequence contains the starting and ending hold.
@@ -63,7 +64,7 @@ public class SetProblemActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                // check if the sequence is not empty
+                // check if the sequence is not empty and if it contains START and TOP hold
                 if(!selected_holds.isEmpty() && Arrays.asList(selected_colors).contains("green") && Arrays.asList(selected_colors).contains("red")){
                     // convert ArrayList with TextView ids into comma separated string
                     StringBuilder sb_image = new StringBuilder();
@@ -99,6 +100,7 @@ public class SetProblemActivity extends AppCompatActivity {
                             selected_holdsString, selected_holds_tagsString, selected_holds_countersString);
                 }
                 else {
+                    // Alert if there aren't any holds
                     if(selected_holds.isEmpty()){
                         final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(SetProblemActivity.this);
                         builder.setTitle("Try Again!");
@@ -111,6 +113,7 @@ public class SetProblemActivity extends AppCompatActivity {
                         });
                         dialog = builder.show();
                     }
+                    // Alert if there is no TOP hold
                     else if(!Arrays.asList(selected_colors).contains("green")){
                         final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(SetProblemActivity.this);
                         builder.setTitle("Try Again!");
@@ -123,6 +126,7 @@ public class SetProblemActivity extends AppCompatActivity {
                         });
                         dialog = builder.show();
                     }
+                    // Alert if there is no START hold
                     else if(!Arrays.asList(selected_colors).contains("red")){
                         final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(SetProblemActivity.this);
                         builder.setTitle("Try Again!");

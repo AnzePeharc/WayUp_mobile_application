@@ -19,7 +19,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class AddProblemActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    // Array with Dropdown values
+    // Array with Dropdown values. Currently not used, because the values are loaded from string resource file
     String[] grades = {"5a", "5a+", "5b", "5b+", "5c", "5c+", "6a", "6a+", "6b", "6b+", "6c", "6c+",
             "7a", "7a+", "7b", "7b+", "7c", "7c+", "8a", "8a+", "8b", "8b+", "8c", "8c+"};
 
@@ -125,10 +125,10 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
 
                     // Alert user about the status of the added problem
                     if(insert_status){
-                        Toast.makeText(getApplicationContext(),"Problem successfully added." +  insert_status, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Problem successfully added.", Toast.LENGTH_LONG).show();
                     }
                     else{
-                        Toast.makeText(getApplicationContext(),"Failed to add the problem." +  insert_status, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Failed to add the problem.", Toast.LENGTH_LONG).show();
                     }
                     // Redirect the user back to the mainActivity
                     MainActivity.redirectActivity(AddProblemActivity.this, MainActivity.class);
