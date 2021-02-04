@@ -6,9 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 
 import android.annotation.SuppressLint;
@@ -17,17 +14,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.GridLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,13 +28,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -97,7 +84,7 @@ public class MainActivity extends AppCompatActivity{
         hold_led_numbers.put("K", 150);
 
         // Fill ArrayList with problems from Database, so you can show them with load_problem
-        loadDatabase();
+        loadFromDatabase();
         current_problem_index = 0;
 
         // TOP NAVIGATION CODE
@@ -226,6 +213,7 @@ public class MainActivity extends AppCompatActivity{
                                     ResetWall(getCurrentFocus());
                                     loaded_from_library = false;
                                 }
+                                // get the instance of the current problem from the Database
                                 Problem current_problem = allProblems.get(current_problem_index);
                                 // set the name and the grade of the problem
                                 selected_problem_info.setText(getString(R.string.selected_problem_info, current_problem.getName(), current_problem.getGrade()));
@@ -326,7 +314,7 @@ public class MainActivity extends AppCompatActivity{
         If the extra data in Intent is not empty, you show the Problem sequence on the wall
         */
 
-        // first check if there were two problems sent
+        // FIRSTLY check if there were two problems sent
         if(getIntent().getStringExtra("mainScreen_second_sequence") != null){
 
             //DISPLAY THE FIRST PROBLEM
@@ -358,7 +346,7 @@ public class MainActivity extends AppCompatActivity{
                     second_sequence_data.get("Sequence_name"), second_sequence_data.get("Sequence_grade")));
             loaded_from_library = true; // set the variable for checking if problem was loaded from Database to true
         }
-        // secondly check if there was only one problem sent
+        // SECONDLY check if there was only one problem sent
         else if(getIntent().getStringExtra("mainScreen_sequence") != null){
             current_sequence_data.put("Sequence",getIntent().getStringExtra("mainScreen_sequence"));// add problem sequence to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_counters",getIntent().getStringExtra("mainScreen_sequence_counters"));// add problem sequence_counters to the HashMap as the currently selected problem
@@ -382,8 +370,15 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    @Override
+    protected void onPause(){
+        super.onPause();
+        // close Drawer
+        closeDrawer(drawerLayout);
+
+    }
     /*
-    Function for displaying more information about the currently displayed problem. So far that information if Setter and Comment
+    Function for displaying more information about the currently displayed problem. So far that information is: Setter and Comment
      */
     public void MoreInfo(View view){
         // show more_info alert dialog if problem is displayed
@@ -452,7 +447,9 @@ public class MainActivity extends AppCompatActivity{
         redirectActivity(this, DatabaseActivity.class);
     }
 
-    // helper function for managing redirection between activities
+    /*
+    helper function for managing redirection between activities
+     */
     public static void redirectActivity(Activity activity, Class aClass) {
         // Initialize intent
         Intent intent = new Intent(activity, aClass);
@@ -462,7 +459,10 @@ public class MainActivity extends AppCompatActivity{
         activity.startActivity(intent);
     }
 
-
+    /*
+    Function that completely resets the climbing wall (all the ImageViews and TextViews)
+    and all other variables associated with displaying the problems
+     */
     public void ResetWall(View view){
         clearWall(); // clear the climbing wall
         selected_problem_info.setText(""); // reset selected problem name and grade
@@ -475,15 +475,10 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
-    @Override
-    protected void onPause(){
-        super.onPause();
-        // close Drawer
-        closeDrawer(drawerLayout);
-
-    }
-
-    public void loadDatabase(){
+    /*
+    Function that is called for loading data from the Database
+     */
+    public void loadFromDatabase(){
         Cursor cursor = databaseHelper.getAllData();
         // check if there are any entries in the Database
         if(cursor.getCount() == 0){
@@ -500,8 +495,14 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    /*
+    Function to display primary sequence on the climbing wall
+     */
     public void selectDatabaseProblem(String sequence, String sequence_counters, String sequence_tags){
 
+        /*check if the option for displaying two problems is switched off.
+        Therefore you can clear the previous problem, before displaying the next one
+        */
         if(!second_problem_displayed){
             clearWall(); // clear GridLayout
         }
@@ -516,6 +517,7 @@ public class MainActivity extends AppCompatActivity{
             // select the correct color for the hold background
             switch (hold_tags[i]){
                 case "green":
+                    // check if the current hold is shared by the already displayed sequence
                     if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(), R.drawable.hold_background_yellow, null).getConstantState())){
                         hold_image.setBackgroundResource(R.drawable.hold_background_overlap_start);
                         // get the currently displayed TextView text as array. This way you can update the dual counter correctly
@@ -524,9 +526,11 @@ public class MainActivity extends AppCompatActivity{
                         String previous_counter = dual_counter[dual_counter.length-1];
                         hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
                     }
-                    else if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(), R.drawable.hold_background_yellow, null).getConstantState())){
+                    // check if the current hold is already being shared and just change the counter text
+                    else if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(), R.drawable.hold_background_overlap_start, null).getConstantState())){
                         hold_text.setText(String.valueOf(i +1));
                     }
+                    // if the hold has not been displayed yet, set the color and counter text
                     else{
                         hold_image.setBackgroundResource(R.drawable.hold_background_green);
                         hold_text.setText(String.valueOf(i +1));
@@ -534,6 +538,7 @@ public class MainActivity extends AppCompatActivity{
 
                     break;
                 case "blue":
+                    // check if current hold is shared by the already displayed sequence
                     if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(), R.drawable.hold_background_cyan, null).getConstantState())){
                         hold_image.setBackgroundResource(R.drawable.hold_background_overlap_intermediate);
                         // get the currently displayed TextView text as array. This way you can update the dual counter correctly
@@ -542,9 +547,11 @@ public class MainActivity extends AppCompatActivity{
                         String previous_counter = dual_counter[dual_counter.length-1];
                         hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
                     }
+                    // check if the current hold is already being shared and just change the counter text
                     else if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(),R.drawable.hold_background_overlap_intermediate, null).getConstantState())){
                         hold_text.setText(String.valueOf(i +1));
                     }
+                    // if the hold has not been displayed yet, set the color and counter text
                     else{
                         hold_image.setBackgroundResource(R.drawable.hold_background_blue);
                         hold_text.setText(String.valueOf(i +1));
@@ -552,6 +559,7 @@ public class MainActivity extends AppCompatActivity{
 
                     break;
                 case "red":
+                    // check if current hold is shared by the already displayed sequence
                     if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(),R.drawable.hold_background_magenta, null).getConstantState())){
                         hold_image.setBackgroundResource(R.drawable.hold_background_overlap_top);
                         // get the currently displayed TextView text as array. This way you can update the dual counter correctly
@@ -560,9 +568,11 @@ public class MainActivity extends AppCompatActivity{
                         String previous_counter = dual_counter[dual_counter.length-1];
                         hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
                     }
+                    // check if the current hold is already being shared and just change the counter text
                     else if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(),R.drawable.hold_background_overlap_top, null).getConstantState())){
                         hold_text.setText(String.valueOf(i +1));
                     }
+                    // if the hold has not been displayed yet, set the color and counter text
                     else{
                         hold_image.setBackgroundResource(R.drawable.hold_background_red);
                         hold_text.setText(String.valueOf(i +1));
@@ -572,6 +582,9 @@ public class MainActivity extends AppCompatActivity{
             }
         }
     }
+    /*
+    Function to display primary sequence on the climbing wall
+    */
     public void selectSecondDatabaseProblem(String sequence, String sequence_counters, String sequence_tags){
 
         String[] holds = sequence.split(",");
@@ -584,6 +597,7 @@ public class MainActivity extends AppCompatActivity{
             // select the correct color for the hold background
             switch (hold_tags[i]){
                 case "green":
+                    // check if current hold is shared by the already displayed sequence
                     if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(), R.drawable.hold_background_green, null).getConstantState())){
                         hold_image.setBackgroundResource(R.drawable.hold_background_overlap_start);
                         // get the currently displayed TextView text as array. This way you can update the dual counter correctly
@@ -592,9 +606,11 @@ public class MainActivity extends AppCompatActivity{
                         String previous_counter = dual_counter[dual_counter.length-1];
                         hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
                     }
+                    // check if the current hold is already being shared and just change the counter text
                     else if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(), R.drawable.hold_background_overlap_start, null).getConstantState())){
                         hold_text.setText(String.valueOf(i +1));
                     }
+                    // if the hold has not been displayed yet, set the color and counter text
                     else{
                         hold_image.setBackgroundResource(R.drawable.hold_background_yellow);
                         hold_text.setText(String.valueOf(i +1));
@@ -602,6 +618,7 @@ public class MainActivity extends AppCompatActivity{
 
                     break;
                 case "blue":
+                    // check if current hold is shared by the already displayed sequence
                     if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(), R.drawable.hold_background_blue, null).getConstantState())){
                         hold_image.setBackgroundResource(R.drawable.hold_background_overlap_intermediate);
                         // get the currently displayed TextView text as array. This way you can update the dual counter correctly
@@ -610,9 +627,11 @@ public class MainActivity extends AppCompatActivity{
                         String previous_counter = dual_counter[dual_counter.length-1];
                         hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
                     }
+                    // check if the current hold is already being shared and just change the counter text
                     else if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(),R.drawable.hold_background_overlap_intermediate, null).getConstantState())){
                         hold_text.setText(String.valueOf(i +1));
                     }
+                    // if the hold has not been displayed yet, set the color and counter text
                     else{
                         hold_image.setBackgroundResource(R.drawable.hold_background_cyan);
                         hold_text.setText(String.valueOf(i +1));
@@ -620,6 +639,7 @@ public class MainActivity extends AppCompatActivity{
 
                     break;
                 case "red":
+                    // check if current hold is shared by the already displayed sequence
                     if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(), R.drawable.hold_background_red, null).getConstantState())){
                         hold_image.setBackgroundResource(R.drawable.hold_background_overlap_top);
                         // get the currently displayed TextView text as array. This way you can update the dual counter correctly
@@ -629,9 +649,11 @@ public class MainActivity extends AppCompatActivity{
                         hold_text.setText(getString(R.string.two_selected_problems_counter, previous_counter, String.valueOf(i +1)));
 
                     }
+                    // check if the current hold is already being shared and just change the counter text
                     else if(Objects.equals(hold_image.getBackground().getConstantState(), ResourcesCompat.getDrawable(getResources(), R.drawable.hold_background_overlap_top, null).getConstantState())){
                         hold_text.setText(String.valueOf(i +1));
                     }
+                    // if the hold has not been displayed yet, set the color and counter text
                     else{
                         hold_image.setBackgroundResource(R.drawable.hold_background_magenta);
                         hold_text.setText(String.valueOf(i +1));
@@ -645,7 +667,7 @@ public class MainActivity extends AppCompatActivity{
     public void clearSpecificProblem(String sequence, String sequence_counters, String sequence_tags){
         String[] holds = sequence.split(",");
         String[] hold_counters = sequence_counters.split(",");
-        String[] hold_tags = sequence_tags.split(",");
+        String[] hold_tags = sequence_tags.split(","); // currently not used, but might be useful in the future
 
         for (int i = 0; i < holds.length; i ++){
             ImageView hold_image = (ImageView) mainWall.findViewById(Integer.parseInt(holds[i]));
@@ -726,6 +748,9 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
+    /*
+    Function that resets the values of ImageView and TextViews that are part of the climbing wall
+     */
     public void clearWall(){
 
         for(String width: width){
@@ -750,19 +775,18 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void sendSequence(View view){
-
-
                 sequenceSender = new SequenceSender(getApplicationContext());
 
-                //check if application is closing
+                //check if application is about to shutdown and switch of all LEDs. This is useful when the user quits the App
                 if (!opened){
                     sequenceSender.execute("hide_all");
                 }
-                // check if HashMap is empty - there is no selected problem
+                // check if HashMap current_sequence_data is empty - there is no selected problem
                 if(current_sequence_data.isEmpty()){
                     Toast.makeText(getApplicationContext(),"ERROR: You need to choose the problem first!" , Toast.LENGTH_LONG).show();
                     sequenceSender.execute("There is no problem selected");
                 }
+                // calculate the correct values for LEDs and send them to Arduino UNO
                 else{
                     String [] sequence = current_sequence_data.get("Sequence").split(",");
                     StringBuilder sequence_id = new StringBuilder();
@@ -779,6 +803,9 @@ public class MainActivity extends AppCompatActivity{
                 }
 
     }
+    /*
+    Function that maps sequence holds to corresponding LED lights
+     */
 
     public String translate_coordinate(String hold_id){
         String hold_letter = hold_id.substring(0,1); // get the letter part of the ID
