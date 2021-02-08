@@ -52,14 +52,15 @@ public class MainActivity extends AppCompatActivity{
     boolean problem_displayed = false; // variable for checking if the problem is displayed on the climbing wall
     boolean second_problem_displayed = false; // variable for checking if the second_problem is displayed on the climbing wall
     boolean primary_problem_color = true; // color to used to display the problem. This is used in case that there are displayed two problems. True indicates that primary color should be used!
-    boolean loaded_from_library = false; // variable that tells us, if the current problem on the wall was from Problem Library
+    boolean loaded_from_library = false; // variable that tells us, if the current problem on the wall is from Problem Library
     SwitchMaterial two_problem_option; // Switch in the main_drawer that allows user to display two problems at once
     // ProblemViewModel mViewModel;  viewModel which can be used for keeping score of some values that change - currently not used
     // variable for turning off lights when application is closed
     boolean opened = true;
 
     // VARIABLES for establishing socket connection
-    SequenceSender sequenceSender;
+    FirstSequenceSender firstSequenceSender;
+    SecondSequenceSender secondSequenceSender;
 
 
     @Override
@@ -113,12 +114,8 @@ public class MainActivity extends AppCompatActivity{
                         // reset the second_sequence HashMap
                         second_sequence_data = new HashMap<>();
                         // check which color was last used and keep the same color, when switch is turned off
-                        if(!primary_problem_color){
-                            selectSecondDatabaseProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags")); // call function for displaying the problem on the graphic wall
-                        }
-                        else{
-                            selectDatabaseProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags")); // call function for displaying the problem on the graphic wall
-                        }
+                        clearWall();
+                        selectDatabaseProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags")); // call function for displaying the problem on the graphic wall
                     }
                     // set the value for second problem to false
                     second_problem_displayed = false;
@@ -471,7 +468,11 @@ public class MainActivity extends AppCompatActivity{
         current_sequence_data = new HashMap<>(); // reset the dictionary for the selected problem
         second_sequence_data = new HashMap<>(); // reset the dictionary for the second selected problem
         current_problem_index = 0; // set the problem index to default value
+        two_problem_option.setChecked(false); // set the switch to OFF mode
         closeDrawer(drawerLayout); // close the drawer
+        // reset the lights on the real climbing wall
+        firstSequenceSender = new FirstSequenceSender(getApplicationContext());
+        firstSequenceSender.execute("reset_lights"); // string to send, that tells the controller to turn the lights off
     }
 
 
@@ -775,34 +776,69 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void sendSequence(View view){
-                sequenceSender = new SequenceSender(getApplicationContext());
+                firstSequenceSender = new FirstSequenceSender(getApplicationContext());
+                secondSequenceSender = new SecondSequenceSender(getApplicationContext());
 
                 //check if application is about to shutdown and switch of all LEDs. This is useful when the user quits the App
                 if (!opened){
-                    sequenceSender.execute("hide_all");
+                    firstSequenceSender.execute("hide_all");
                 }
                 // check if HashMap current_sequence_data is empty - there is no selected problem
                 if(current_sequence_data.isEmpty()){
                     Toast.makeText(getApplicationContext(),"ERROR: You need to choose the problem first!" , Toast.LENGTH_LONG).show();
-                    sequenceSender.execute("There is no problem selected");
+                    firstSequenceSender.execute("There is no problem selected");
                 }
                 // calculate the correct values for LEDs and send them to Arduino UNO
                 else{
-                    String [] sequence = current_sequence_data.get("Sequence").split(",");
-                    StringBuilder sequence_id = new StringBuilder();
-                    String prefix = "";
-                    for (String id : sequence){
-                        sequence_id.append(prefix);
-                        String led_number = translate_coordinate(getResources().getResourceEntryName(Integer.parseInt(id)));
-                        sequence_id.append(led_number);
-                        //sequence_id.append(getResources().getResourceEntryName(Integer.parseInt(id)));
-                        prefix = ",";
+                    // if there are two problems displayed on the wall
+                    if(second_problem_displayed){
+                        // send data from the FIRST SEQUENCE
+                        String [] current_sequence = current_sequence_data.get("Sequence").split(",");
+                        StringBuilder current_sequence_id = new StringBuilder();
+                        String prefix = "";
+                        for (String id : current_sequence){
+                            current_sequence_id.append(prefix);
+                            String led_number = translate_coordinate(getResources().getResourceEntryName(Integer.parseInt(id)));
+                            current_sequence_id.append(led_number);
+                            prefix = ",";
+                        }
+
+                        String current_sequence_info = current_sequence_id.toString() + ";" + current_sequence_data.get("Sequence_tags") + ";" + "first";
+                        firstSequenceSender.execute(current_sequence_info);
+
+
+                        // send data from the SECOND SEQUENCE
+                        String [] second_sequence = second_sequence_data.get("Sequence").split(",");
+                        StringBuilder second_sequence_id = new StringBuilder();
+                        prefix = "";
+                        for (String id : second_sequence){
+                            second_sequence_id.append(prefix);
+                            String led_number = translate_coordinate(getResources().getResourceEntryName(Integer.parseInt(id)));
+                            second_sequence_id.append(led_number);
+                            prefix = ",";
+                        }
+                        String second_sequence_info = second_sequence_id.toString() + ";" + second_sequence_data.get("Sequence_tags") + ";" + "second";
+                        secondSequenceSender.execute(second_sequence_info);
                     }
-                    String sequence_info = sequence_id.toString() + ";" + current_sequence_data.get("Sequence_tags");
-                    sequenceSender.execute(sequence_info);
+                    // if there is one problem displayed on the wall
+                    else{
+                        String [] sequence = current_sequence_data.get("Sequence").split(",");
+                        StringBuilder sequence_id = new StringBuilder();
+                        String prefix = "";
+                        for (String id : sequence){
+                            sequence_id.append(prefix);
+                            String led_number = translate_coordinate(getResources().getResourceEntryName(Integer.parseInt(id)));
+                            sequence_id.append(led_number);
+                            prefix = ",";
+                        }
+                        String sequence_info = sequence_id.toString() + ";" + current_sequence_data.get("Sequence_tags") + ";" + "first";
+                        firstSequenceSender.execute(sequence_info);
+                    }
+
                 }
 
     }
+
     /*
     Function that maps sequence holds to corresponding LED lights
      */
@@ -810,10 +846,14 @@ public class MainActivity extends AppCompatActivity{
     public String translate_coordinate(String hold_id){
         String hold_letter = hold_id.substring(0,1); // get the letter part of the ID
         int hold_number = Integer.parseInt(hold_id.substring(1)); // get the number part of the ID as integer
-
-        int led_number = hold_led_numbers.get(hold_letter) + hold_number; // calculate the corresponding led number
+        /*
+        calculate the corresponding led number
+        (you need to subtract 1, because LED assignments start with 0
+                */
+        int led_number = hold_led_numbers.get(hold_letter) + hold_number - 1;
 
         return String.valueOf(led_number); // convert the led number to string
     }
 
 }
+
