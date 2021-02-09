@@ -47,14 +47,13 @@ public class MainActivity extends AppCompatActivity{
     String[] height = {"15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
     HashMap<String,String> current_sequence_data = new HashMap<>(); // global variable for holding sequence information
     HashMap<String,String> second_sequence_data = new HashMap<>(); // global variable for holding second sequence information
-    HashMap<String,Integer> hold_led_numbers = new HashMap<>(); // global variable for holding sequence information
+    HashMap<String,Integer> hold_led_numbers = new HashMap<>(); // Array that maps the hold_id to actual LED number that should be turned on
     TextView selected_problem_info; // TextView above the climbing wall. It is used to display problem name and grade
-    boolean problem_displayed = false; // variable for checking if the problem is displayed on the climbing wall
-    boolean second_problem_displayed = false; // variable for checking if the second_problem is displayed on the climbing wall
     boolean primary_problem_color = true; // color to used to display the problem. This is used in case that there are displayed two problems. True indicates that primary color should be used!
     boolean loaded_from_library = false; // variable that tells us, if the current problem on the wall is from Problem Library
     SwitchMaterial two_problem_option; // Switch in the main_drawer that allows user to display two problems at once
     // ProblemViewModel mViewModel;  viewModel which can be used for keeping score of some values that change - currently not used
+
     // variable for turning off lights when application is closed
     boolean opened = true;
 
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity{
         two_problem_option.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // check if the switch has been turned off and switch back to displaying one problem
-                if(!two_problem_option.isChecked() && second_problem_displayed){
+                if(!two_problem_option.isChecked() && !second_sequence_data.isEmpty()){
                     clearSpecificProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags"));
                     // check if HashMap is not empty
                     if(!second_sequence_data.isEmpty()){
@@ -115,10 +114,8 @@ public class MainActivity extends AppCompatActivity{
                         second_sequence_data = new HashMap<>();
                         // check which color was last used and keep the same color, when switch is turned off
                         clearWall();
-                        selectDatabaseProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags")); // call function for displaying the problem on the graphic wall
+                        showDatabaseProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags")); // call function for displaying the problem on the graphic wall
                     }
-                    // set the value for second problem to false
-                    second_problem_displayed = false;
                     // set the primary color back to true
                     primary_problem_color = true;
                 }
@@ -154,9 +151,9 @@ public class MainActivity extends AppCompatActivity{
                         }
                         else{
                             // check if there is a problem displayed and check if switch is checked
-                            if(problem_displayed & two_problem_option.isChecked()){
+                            if(!current_sequence_data.isEmpty() & two_problem_option.isChecked()){
                                 Problem current_problem = allProblems.get(current_problem_index);
-                                if(second_problem_displayed){
+                                if(!second_sequence_data.isEmpty()){
                                     // Clear the previously displayed problem
                                     clearSpecificProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags"));
                                     // replace the values for the current problem and with the second_sequence_data
@@ -182,11 +179,11 @@ public class MainActivity extends AppCompatActivity{
                                         second_sequence_data.get("Sequence_name"), second_sequence_data.get("Sequence_grade")));
                                 // use the secondary colors for displaying the problem
                                 if(primary_problem_color){
-                                    selectSecondDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
+                                    showSecondDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
                                 }
                                 // use the primary colors for displaying the problem
                                 if(!primary_problem_color){
-                                    selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
+                                    showDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
                                 }
 
                                 // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
@@ -198,7 +195,6 @@ public class MainActivity extends AppCompatActivity{
                                     current_problem_index = 0;
                                 }
                                 primary_problem_color = !primary_problem_color; // switch the value of primary color so the same color is not used for two problems
-                                second_problem_displayed = true; // set the value for second problem display to true
                             }
                             else{
 
@@ -222,7 +218,7 @@ public class MainActivity extends AppCompatActivity{
                                 current_sequence_data.put("Sequence_grade",current_problem.getGrade());// add problem sequence_grade to the HashMap as the currently selected problem
                                 current_sequence_data.put("Sequence_setter",current_problem.getSetter());// add problem sequence_setter to the HashMap as the currently selected problem
                                 current_sequence_data.put("Sequence_comment",current_problem.getComment());// add problem sequence_comment to the HashMap as the currently selected problem
-                                selectDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
+                                showDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
 
                                 // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
                                 if(current_problem_index < allProblems.size()-1){
@@ -232,7 +228,6 @@ public class MainActivity extends AppCompatActivity{
                                 else{
                                     current_problem_index = 0;
                                 }
-                                problem_displayed = true; // set the variable for checking if the problem is displayed on the wall
                             }
 
                         }
@@ -322,9 +317,8 @@ public class MainActivity extends AppCompatActivity{
             current_sequence_data.put("Sequence_grade",getIntent().getStringExtra("mainScreen_sequence_grade"));// add problem sequence_grade to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_setter",getIntent().getStringExtra("mainScreen_sequence_setter"));// add problem sequence_setter to the HashMap as the currently selected problem
             current_sequence_data.put("Sequence_comment",getIntent().getStringExtra("mainScreen_sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
-            problem_displayed = true; // set variable for checking if the problem is shown on the wall to true
             // call function for displaying the problem on the graphic wall
-            selectDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
+            showDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
 
             //DISPLAY THE SECOND PROBLEM
             second_sequence_data.put("Sequence",getIntent().getStringExtra("mainScreen_second_sequence"));// add problem sequence to the HashMap as the currently selected problem
@@ -334,9 +328,8 @@ public class MainActivity extends AppCompatActivity{
             second_sequence_data.put("Sequence_grade",getIntent().getStringExtra("mainScreen_second_sequence_grade"));// add problem sequence_grade to the HashMap as the currently selected problem
             second_sequence_data.put("Sequence_setter",getIntent().getStringExtra("mainScreen_second_sequence_setter"));// add problem sequence_setter to the HashMap as the currently selected problem
             second_sequence_data.put("Sequence_comment",getIntent().getStringExtra("mainScreen_second_sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
-            second_problem_displayed = true; // set variable for checking if the second problem is shown on the wall to true
             // call function for displaying the problem on the graphic wall
-            selectSecondDatabaseProblem(getIntent().getStringExtra("mainScreen_second_sequence"), getIntent().getStringExtra("mainScreen_second_sequence_counters"), getIntent().getStringExtra("mainScreen_second_sequence_tags"));
+            showSecondDatabaseProblem(getIntent().getStringExtra("mainScreen_second_sequence"), getIntent().getStringExtra("mainScreen_second_sequence_counters"), getIntent().getStringExtra("mainScreen_second_sequence_tags"));
 
             // set the name and the grade of the both problems
             selected_problem_info.setText(getString(R.string.two_selected_problems_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade"),
@@ -354,10 +347,9 @@ public class MainActivity extends AppCompatActivity{
             current_sequence_data.put("Sequence_comment",getIntent().getStringExtra("mainScreen_sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
             // set the name and the grade of the problem
             selected_problem_info.setText(getString(R.string.selected_problem_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade")));
-            problem_displayed = true; // set variable for checking if the problem is shown on the wall to true
             primary_problem_color = false;
             // call function for displaying the problem on the graphic wall
-            selectDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
+            showDatabaseProblem(getIntent().getStringExtra("mainScreen_sequence"), getIntent().getStringExtra("mainScreen_sequence_counters"), getIntent().getStringExtra("mainScreen_sequence_tags"));
             loaded_from_library = true; // set the variable for checking if problem was loaded from Database to true
         }
         // otherwise no data has been sent
@@ -380,9 +372,9 @@ public class MainActivity extends AppCompatActivity{
     public void MoreInfo(View view){
         // show more_info alert dialog if problem is displayed
         final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
-        if(problem_displayed){
+        if(!current_sequence_data.isEmpty()){
             builder.setTitle("More info about the problem");
-            if(second_problem_displayed){
+            if(!second_sequence_data.isEmpty()){
                 builder.setMessage(getString(R.string.two_problems_selected_more_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_setter"),
                         current_sequence_data.get("Sequence_comment"), second_sequence_data.get("Sequence_name"), second_sequence_data.get("Sequence_setter"), second_sequence_data.get("Sequence_comment")));
             }
@@ -463,8 +455,6 @@ public class MainActivity extends AppCompatActivity{
     public void ResetWall(View view){
         clearWall(); // clear the climbing wall
         selected_problem_info.setText(""); // reset selected problem name and grade
-        problem_displayed = false; // set that there is not problem selected
-        second_problem_displayed = false; // set that there is not second_problem selected
         current_sequence_data = new HashMap<>(); // reset the dictionary for the selected problem
         second_sequence_data = new HashMap<>(); // reset the dictionary for the second selected problem
         current_problem_index = 0; // set the problem index to default value
@@ -499,12 +489,12 @@ public class MainActivity extends AppCompatActivity{
     /*
     Function to display primary sequence on the climbing wall
      */
-    public void selectDatabaseProblem(String sequence, String sequence_counters, String sequence_tags){
+    public void showDatabaseProblem(String sequence, String sequence_counters, String sequence_tags){
 
         /*check if the option for displaying two problems is switched off.
         Therefore you can clear the previous problem, before displaying the next one
         */
-        if(!second_problem_displayed){
+        if(second_sequence_data.isEmpty()){
             clearWall(); // clear GridLayout
         }
 
@@ -586,7 +576,7 @@ public class MainActivity extends AppCompatActivity{
     /*
     Function to display primary sequence on the climbing wall
     */
-    public void selectSecondDatabaseProblem(String sequence, String sequence_counters, String sequence_tags){
+    public void showSecondDatabaseProblem(String sequence, String sequence_counters, String sequence_tags){
 
         String[] holds = sequence.split(",");
         String[] hold_counters = sequence_counters.split(",");
@@ -791,7 +781,7 @@ public class MainActivity extends AppCompatActivity{
                 // calculate the correct values for LEDs and send them to Arduino UNO
                 else{
                     // if there are two problems displayed on the wall
-                    if(second_problem_displayed){
+                    if(!second_sequence_data.isEmpty()){
                         // send data from the FIRST SEQUENCE
                         String [] current_sequence = current_sequence_data.get("Sequence").split(",");
                         StringBuilder current_sequence_id = new StringBuilder();
