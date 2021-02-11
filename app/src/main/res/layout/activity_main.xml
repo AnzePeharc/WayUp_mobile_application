@@ -58,7 +58,7 @@
             app:itemIconTint="@color/colorWhite"
             app:itemTextColor="@color/colorWhite"
             app:menu="@menu/menu_navigation"
-            android:paddingTop="5dp"/>
+            android:paddingTop="2dp"/>
 
     </RelativeLayout>
     <RelativeLayout

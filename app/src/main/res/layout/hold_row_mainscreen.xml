@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:columnCount="12"
-    android:rowCount="16"
-    android:padding="25dp"
+    android:columnCount="13"
+    android:rowCount="17"
+    android:padding="7dp"
     android:id="@+id/gridlayout_mainscreen"
     android:background="@drawable/climbing_wall">
 
@@ -118,13 +118,366 @@
         android:textStyle="bold"
         android:textSize="15sp"
         android:textColor="@color/colorBlue"/>
-
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="10dp"
+        android:text="L"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="@color/colorBlue"/>
 
     <!-- 1 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
+        android:text="XVI"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
+    <LinearLayout
+        android:id="@+id/layout_A16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/A16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_A16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_B16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/B16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_B16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_C16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/C16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_C16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_D16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/D16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_D16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_E16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/E16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_E16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_F16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/F16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_F16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_G16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/G16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_G16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_H16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/H16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_H16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_I16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/I16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_I16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_J16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/J16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_J16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_K16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/K16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_K16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_L16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 2 Row -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="7dp"
         android:text="XV"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -437,11 +790,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 2 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 3 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="XIV"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -754,11 +1135,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 3 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 4 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="XIII"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -1071,11 +1480,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 4 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 5 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="XII"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -1388,11 +1825,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 5 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 6 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="XI"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -1705,11 +2170,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 6 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 7 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="X"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -2022,11 +2515,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 7 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 8 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="IX"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -2339,11 +2860,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 8 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 9 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="VIII"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -2656,11 +3205,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 9 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 10 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="VII"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -2973,11 +3550,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 10 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 11 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="VI"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -3290,11 +3895,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 11 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 12 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="V"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -3607,11 +4240,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 12 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 13 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="IV"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -3924,11 +4585,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 13 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 14 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="III"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -4241,11 +4930,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 14 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 15 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="II"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -4558,11 +5275,39 @@
             android:textSize="10sp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
-    <!-- 15 Row -->
+    <LinearLayout
+        android:id="@+id/layout_L2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <!-- 16 Row -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:paddingRight="7dp"
         android:text="I"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -4868,6 +5613,34 @@
 
         <TextView
             android:id="@+id/counter_K1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textSize="10sp"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_L1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="1dp"
+        >
+
+        <ImageView
+            android:id="@+id/L1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wall_hole_white"
+            android:background="@drawable/hold_background_empty"
+            android:tag="green"/>
+
+        <TextView
+            android:id="@+id/counter_L1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
