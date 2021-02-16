@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity{
     DatabaseHelper databaseHelper = new DatabaseHelper(this); // Initialize the instance of DatabaseHelper for loading problems
     ArrayList<Problem> allProblems = new ArrayList<>(); // ArrayList for holding the problems loaded from Database
     int current_problem_index; // index of currently displayed problem from Database
-    String[] width = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
-    String[] height = {"15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
+    String[] width = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
+    String[] height = {"16", "15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
     HashMap<String,String> current_sequence_data = new HashMap<>(); // global variable for holding sequence information
     HashMap<String,String> second_sequence_data = new HashMap<>(); // global variable for holding second sequence information
     HashMap<String,Integer> hold_led_numbers = new HashMap<>(); // Array that maps the hold_id to actual LED number that should be turned on
