@@ -17,7 +17,7 @@ public class FirstSequenceSender extends AsyncTask<String, Void, Void> {
     Socket socket;
     DataOutputStream dos; // to be used for receiving data from the server
     PrintWriter pw;
-    String SERVER_IP = "192.168.0.110"; // this is the IPv4 address of the device you're trying to connect to (for testing purpose use your computers address)
+    String SERVER_IP = "192.168.0.150"; // this is the IPv4 address of the device you're trying to connect to (for testing purpose use your computers address)
     int SERVER_PORT = 8080;
     final private Context mContext;
     AlertDialog dialog;
