@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
     TextInputLayout name;
     TextInputLayout setter;
     TextInputLayout comment;
+    EditText editText;
 
     // variable for interacting with DatabaseHelper
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
@@ -48,6 +50,15 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_problem_activity);
+        editText = findViewById(R.id.plain_text_input);
+        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         // assign views to the variables
         back = (Button) findViewById(R.id.back_button);
         discard = (Button) findViewById(R.id.discard_button);
@@ -56,9 +67,10 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
         name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard();
-                }
+                Toast.makeText(getApplicationContext(),"Pride", Toast.LENGTH_LONG).show();
+                System.out.println("Pride!!");
+                hideKeyboard(v);
+
             }
         });
         setter = (TextInputLayout) findViewById(R.id.setter_input);
@@ -66,7 +78,7 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    hideKeyboard();
+                    hideKeyboard(v);
                 }
             }
         });
@@ -75,7 +87,7 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    hideKeyboard();
+                    hideKeyboard(v);
                 }
             }
         });
@@ -177,11 +189,13 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
     }
 
     // Method that hides the keyboard when user presses outside the EditText
-    private void hideKeyboard() {
-        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+    private void hideKeyboard(View view) {
+
         //Find the currently focused view, so we can grab the correct window token from it.
-        View view = this.getCurrentFocus();
-        //If no view currently has focus, create a new one, just so we can grab a window token from it
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
     }
 }
