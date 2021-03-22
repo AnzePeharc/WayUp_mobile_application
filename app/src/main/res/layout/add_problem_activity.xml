@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_problem_back"
-            style="@style/WhiteText"
+            style="@style/Button"
             />
 
         <View
@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_problem_discard"
-            style="@style/WhiteText"
+            style="@style/Button"
             />
 
 
@@ -151,6 +151,6 @@
         android:layout_marginTop="100dp"
         android:text="@string/add_problem_save"
         android:layout_gravity="center"
-        style="@style/WhiteText"/>
+        style="@style/Button"/>
 
 </LinearLayout>

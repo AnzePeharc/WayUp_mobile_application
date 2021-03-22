@@ -78,7 +78,6 @@
             android:layout_width="70dp"
             android:layout_height="35dp"
             android:textSize="12sp"
-            android:background="@drawable/custom_button"
             android:onClick="UserInfo"
             android:text="@string/set_problem_info" />
     </LinearLayout>
