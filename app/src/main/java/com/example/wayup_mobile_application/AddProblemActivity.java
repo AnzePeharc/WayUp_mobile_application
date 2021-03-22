@@ -1,10 +1,12 @@
 package com.example.wayup_mobile_application;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -49,10 +51,34 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
         // assign views to the variables
         back = (Button) findViewById(R.id.back_button);
         discard = (Button) findViewById(R.id.discard_button);
-        save = (Button) findViewById(R.id.save_button); //TODO implement onclicklistener for adding problems to the database
+        save = (Button) findViewById(R.id.save_button);
         name = (TextInputLayout) findViewById(R.id.name_input);
+        name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard();
+                }
+            }
+        });
         setter = (TextInputLayout) findViewById(R.id.setter_input);
+        setter.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard();
+                }
+            }
+        });
         comment = (TextInputLayout) findViewById(R.id.comment_input);
+        comment.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard();
+                }
+            }
+        });
         spinner = (Spinner) findViewById(R.id.grade_spinner);
         // set the default value of the spinner to the first element from array - grades
         spinner.setSelection(0);
@@ -148,5 +174,14 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    // Method that hides the keyboard when user presses outside the EditText
+    private void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = this.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

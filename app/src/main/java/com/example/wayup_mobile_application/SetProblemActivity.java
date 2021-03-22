@@ -26,8 +26,7 @@ import java.util.Arrays;
 
 public class SetProblemActivity extends AppCompatActivity {
 
-    Button cancel;
-    Button next;
+    Button cancel, next;
     // variable for hold sequence counter. It starts with one, because people count from 1 :D
     int counter = 1;
 

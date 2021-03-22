@@ -18,6 +18,7 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity{
 
     // variable for alert PopUp
     AlertDialog dialog;
+    // Action buttons
+    Button load, show, add;
     // variable for drawerMenu
     DrawerLayout drawerLayout;
     // variables for loading problem from Database
@@ -123,160 +126,157 @@ public class MainActivity extends AppCompatActivity{
                 closeDrawer(drawerLayout);
             }
         });
-
-        // BOTTOM NAVIGATION CODE
-        // Initialize bottomNavigation variable
-        final BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        // set default state
-        bottomNavigationView.setSelectedItemId(R.id.show_problem);
-        // set ActionListener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @SuppressLint("NonConstantResourceId")
+        // BOTTOM ACTION BUTTONS
+        load = findViewById(R.id.load_problem);
+        // load problem from Database
+        load.setOnClickListener(new View.OnClickListener(){
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    // load problem from Database
-                    case R.id.load_problem:
-                        if(allProblems.isEmpty()){
-                            final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
-                            builder.setTitle("Try Again!");
-                            builder.setMessage("There are no problems in the Library. Please add some.");
-                            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
-                            dialog = builder.show();
+            public void onClick(View view) {
+                if(allProblems.isEmpty()){
+                    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+                    builder.setTitle("Try Again!");
+                    builder.setMessage("There are no problems in the Library. Please add some.");
+                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
                         }
+                    });
+                    dialog = builder.show();
+                }
+                else{
+                    // check if there is a problem displayed and check if switch is checked
+                    if(!current_sequence_data.isEmpty() & two_problem_option.isChecked()){
+                        Problem current_problem = allProblems.get(current_problem_index);
+                        if(!second_sequence_data.isEmpty()){
+                            // Clear the previously displayed problem
+                            clearSpecificProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags"));
+                            // replace the values for the current problem and with the second_sequence_data
+                            current_sequence_data.put("Sequence",second_sequence_data.get("Sequence"));// add problem sequence to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_counters",second_sequence_data.get("Sequence_counters"));// add problem sequence_counters to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_tags",second_sequence_data.get("Sequence_tags"));// add problem sequence_tags to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_name",second_sequence_data.get("Sequence_name"));// add problem sequence_name to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_grade",second_sequence_data.get("Sequence_grade"));// add problem sequence_grade to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_setter",second_sequence_data.get("Sequence_setter"));// add problem sequence_setter to the HashMap as the currently selected problem
+                            current_sequence_data.put("Sequence_comment",second_sequence_data.get("Sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
+
+                        }
+                        // prepare other data to show the second_sequence of the problem on the climbing wall
+                        second_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
+                        second_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
+                        second_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
+                        second_sequence_data.put("Sequence_name",current_problem.getName());// add problem sequence_name to the HashMap as the currently selected problem
+                        second_sequence_data.put("Sequence_grade",current_problem.getGrade());// add problem sequence_grade to the HashMap as the currently selected problem
+                        second_sequence_data.put("Sequence_setter",current_problem.getSetter());// add problem sequence_setter to the HashMap as the currently selected problem
+                        second_sequence_data.put("Sequence_comment",current_problem.getComment());// add problem sequence_comment to the HashMap as the currently selected problem
+                        // set the name and the grade of the problem
+                        selected_problem_info.setText(getString(R.string.two_selected_problems_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade"),
+                                second_sequence_data.get("Sequence_name"), second_sequence_data.get("Sequence_grade")));
+                        // use the secondary colors for displaying the problem
+                        if(primary_problem_color){
+                            showSecondDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
+                        }
+                        // use the primary colors for displaying the problem
+                        if(!primary_problem_color){
+                            showDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
+                        }
+
+                        // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
+                        if(current_problem_index < allProblems.size()-1){
+                            current_problem_index ++; // increment the index to show new problem when load_problem is pressed again
+                        }
+                        // if the problem_index is equal to array size, reset it to zero - that way you start showing problems from the beginning again
                         else{
-                            // check if there is a problem displayed and check if switch is checked
-                            if(!current_sequence_data.isEmpty() & two_problem_option.isChecked()){
-                                Problem current_problem = allProblems.get(current_problem_index);
-                                if(!second_sequence_data.isEmpty()){
-                                    // Clear the previously displayed problem
-                                    clearSpecificProblem(current_sequence_data.get("Sequence"), current_sequence_data.get("Sequence_counters"), current_sequence_data.get("Sequence_tags"));
-                                    // replace the values for the current problem and with the second_sequence_data
-                                    current_sequence_data.put("Sequence",second_sequence_data.get("Sequence"));// add problem sequence to the HashMap as the currently selected problem
-                                    current_sequence_data.put("Sequence_counters",second_sequence_data.get("Sequence_counters"));// add problem sequence_counters to the HashMap as the currently selected problem
-                                    current_sequence_data.put("Sequence_tags",second_sequence_data.get("Sequence_tags"));// add problem sequence_tags to the HashMap as the currently selected problem
-                                    current_sequence_data.put("Sequence_name",second_sequence_data.get("Sequence_name"));// add problem sequence_name to the HashMap as the currently selected problem
-                                    current_sequence_data.put("Sequence_grade",second_sequence_data.get("Sequence_grade"));// add problem sequence_grade to the HashMap as the currently selected problem
-                                    current_sequence_data.put("Sequence_setter",second_sequence_data.get("Sequence_setter"));// add problem sequence_setter to the HashMap as the currently selected problem
-                                    current_sequence_data.put("Sequence_comment",second_sequence_data.get("Sequence_comment"));// add problem sequence_comment to the HashMap as the currently selected problem
-
-                                }
-                                // prepare other data to show the second_sequence of the problem on the climbing wall
-                                second_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
-                                second_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
-                                second_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
-                                second_sequence_data.put("Sequence_name",current_problem.getName());// add problem sequence_name to the HashMap as the currently selected problem
-                                second_sequence_data.put("Sequence_grade",current_problem.getGrade());// add problem sequence_grade to the HashMap as the currently selected problem
-                                second_sequence_data.put("Sequence_setter",current_problem.getSetter());// add problem sequence_setter to the HashMap as the currently selected problem
-                                second_sequence_data.put("Sequence_comment",current_problem.getComment());// add problem sequence_comment to the HashMap as the currently selected problem
-                                // set the name and the grade of the problem
-                                selected_problem_info.setText(getString(R.string.two_selected_problems_info, current_sequence_data.get("Sequence_name"), current_sequence_data.get("Sequence_grade"),
-                                        second_sequence_data.get("Sequence_name"), second_sequence_data.get("Sequence_grade")));
-                                // use the secondary colors for displaying the problem
-                                if(primary_problem_color){
-                                    showSecondDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
-                                }
-                                // use the primary colors for displaying the problem
-                                if(!primary_problem_color){
-                                    showDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
-                                }
-
-                                // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
-                                if(current_problem_index < allProblems.size()-1){
-                                    current_problem_index ++; // increment the index to show new problem when load_problem is pressed again
-                                }
-                                // if the problem_index is equal to array size, reset it to zero - that way you start showing problems from the beginning again
-                                else{
-                                    current_problem_index = 0;
-                                }
-                                primary_problem_color = !primary_problem_color; // switch the value of primary color so the same color is not used for two problems
-                            }
-                            else{
+                            current_problem_index = 0;
+                        }
+                        primary_problem_color = !primary_problem_color; // switch the value of primary color so the same color is not used for two problems
+                    }
+                    else{
 
                                 /*check if the current problem displayed on the wall was loaded from the library.
                                 If it was loaded, reset the climbing wall in order to correctly display next problems via button load problem
                                  */
-                                if(loaded_from_library){
-                                    // reset the wall and set loaded from library to false
-                                    ResetWall(getCurrentFocus());
-                                    loaded_from_library = false;
-                                }
-                                // get the instance of the current problem from the Database
-                                Problem current_problem = allProblems.get(current_problem_index);
-                                // set the name and the grade of the problem
-                                selected_problem_info.setText(getString(R.string.selected_problem_info, current_problem.getName(), current_problem.getGrade()));
-                                // prepare other data to show the sequence of the problem on the climbing wall
-                                current_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
-                                current_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
-                                current_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
-                                current_sequence_data.put("Sequence_name",current_problem.getName());// add problem sequence_name to the HashMap as the currently selected problem
-                                current_sequence_data.put("Sequence_grade",current_problem.getGrade());// add problem sequence_grade to the HashMap as the currently selected problem
-                                current_sequence_data.put("Sequence_setter",current_problem.getSetter());// add problem sequence_setter to the HashMap as the currently selected problem
-                                current_sequence_data.put("Sequence_comment",current_problem.getComment());// add problem sequence_comment to the HashMap as the currently selected problem
-                                showDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
-
-                                // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
-                                if(current_problem_index < allProblems.size()-1){
-                                    current_problem_index ++; // increment the index to show new problem when load_problem is pressed again
-                                }
-                                // if the problem_index is equal to array size, reset it to zero - that way you start showing problems from the beginning again
-                                else{
-                                    current_problem_index = 0;
-                                }
-                            }
-
+                        if(loaded_from_library){
+                            // reset the wall and set loaded from library to false
+                            ResetWall(getCurrentFocus());
+                            loaded_from_library = false;
                         }
-                        return true;
-                    // send the Problem sequence via WiFi to Arduino, which then lights the correct LEDs
-                    case R.id.show_problem:
+                        // get the instance of the current problem from the Database
+                        Problem current_problem = allProblems.get(current_problem_index);
+                        // set the name and the grade of the problem
+                        selected_problem_info.setText(getString(R.string.selected_problem_info, current_problem.getName(), current_problem.getGrade()));
+                        // prepare other data to show the sequence of the problem on the climbing wall
+                        current_sequence_data.put("Sequence",current_problem.getSequence());// add problem sequence to the HashMap as the currently selected problem
+                        current_sequence_data.put("Sequence_counters",current_problem.getSequence_counters());// add problem sequence_counters to the HashMap as the currently selected problem
+                        current_sequence_data.put("Sequence_tags",current_problem.getSequence_tags());// add problem sequence_tags to the HashMap as the currently selected problem
+                        current_sequence_data.put("Sequence_name",current_problem.getName());// add problem sequence_name to the HashMap as the currently selected problem
+                        current_sequence_data.put("Sequence_grade",current_problem.getGrade());// add problem sequence_grade to the HashMap as the currently selected problem
+                        current_sequence_data.put("Sequence_setter",current_problem.getSetter());// add problem sequence_setter to the HashMap as the currently selected problem
+                        current_sequence_data.put("Sequence_comment",current_problem.getComment());// add problem sequence_comment to the HashMap as the currently selected problem
+                        showDatabaseProblem(current_problem.getSequence(), current_problem.getSequence_counters(), current_problem.getSequence_tags()); // call function for displaying the problem on the graphic wall
 
-                        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE); // get the WiFi status
-                        // check if WiFi is enabled
-                        if (wifiManager.isWifiEnabled()) {
-
-                            sendSequence(bottomNavigationView);
-
+                        // check if the current_problem_index is still in range of array size - Avoid indexOutofBounds
+                        if(current_problem_index < allProblems.size()-1){
+                            current_problem_index ++; // increment the index to show new problem when load_problem is pressed again
                         }
-                        // if the WiFi is disable show AlertDialog to user
+                        // if the problem_index is equal to array size, reset it to zero - that way you start showing problems from the beginning again
                         else{
-                            final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
-                            builder.setTitle("WiFi ERROR");
-                            builder.setMessage("Please connect to the WiFi");
-                            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
-                            dialog = builder.show();
+                            current_problem_index = 0;
                         }
-                        return true;
-                    // add new Problem to the Database, which redirects the user to SetProblemActivity
-                    case R.id.add_problem:
-                        Intent intent = new Intent(getApplicationContext(), SetProblemActivity.class);
-                        // Set Flag
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        // send current_problem_data to SetProblemActivity for maintaining mainScreen UI
-                        intent.putExtra("setScreen_sequence", current_sequence_data.get("Sequence"));
-                        intent.putExtra("setScreen_sequence_tags", current_sequence_data.get("Sequence_tags"));
-                        intent.putExtra("setScreen_sequence_counters", current_sequence_data.get("Sequence_counters"));
-                        intent.putExtra("setScreen_sequence_name", current_sequence_data.get("Sequence_name"));
-                        intent.putExtra("setScreen_sequence_grade", current_sequence_data.get("Sequence_grade"));
-                        intent.putExtra("setScreen_sequence_setter", current_sequence_data.get("Sequence_setter"));
-                        intent.putExtra("setScreen_sequence_comment", current_sequence_data.get("Sequence_comment"));
-                        // Start the activity
-                        startActivity(intent);
-                        return true;
+                    }
+
                 }
-                return false;
             }
         });
 
+        show = findViewById(R.id.show_problem);
+        // send the Problem sequence via WiFi to Arduino, which then lights the correct LEDs
+        show.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE); // get the WiFi status
+                // check if WiFi is enabled
+                if (wifiManager.isWifiEnabled()) {
+
+                    sendSequence(view);
+
+                }
+                // if the WiFi is disable show AlertDialog to user
+                else{
+                    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+                    builder.setTitle("WiFi ERROR");
+                    builder.setMessage("Please connect to the WiFi");
+                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog = builder.show();
+                }
+            }
+        });
+
+        add = findViewById(R.id.add_problem);
+        // add new Problem to the Database, which redirects the user to SetProblemActivity
+        add.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SetProblemActivity.class);
+                // Set Flag
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                // send current_problem_data to SetProblemActivity for maintaining mainScreen UI
+                intent.putExtra("setScreen_sequence", current_sequence_data.get("Sequence"));
+                intent.putExtra("setScreen_sequence_tags", current_sequence_data.get("Sequence_tags"));
+                intent.putExtra("setScreen_sequence_counters", current_sequence_data.get("Sequence_counters"));
+                intent.putExtra("setScreen_sequence_name", current_sequence_data.get("Sequence_name"));
+                intent.putExtra("setScreen_sequence_grade", current_sequence_data.get("Sequence_grade"));
+                intent.putExtra("setScreen_sequence_setter", current_sequence_data.get("Sequence_setter"));
+                intent.putExtra("setScreen_sequence_comment", current_sequence_data.get("Sequence_comment"));
+                // Start the activity
+                startActivity(intent);
+            }
+        });
 
     }
 

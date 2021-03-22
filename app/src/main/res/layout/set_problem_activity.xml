@@ -23,7 +23,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/set_problem_cancel"
-            android:background="@drawable/rounded_button"
             style="@style/Button"/>
 
         <View
@@ -49,7 +48,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/set_problem_next"
-            android:background="@drawable/rounded_button"
             style="@style/Button" />
 
 
@@ -80,7 +78,7 @@
             android:layout_width="70dp"
             android:layout_height="35dp"
             android:textSize="12sp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/custom_button"
             android:onClick="UserInfo"
             android:text="@string/set_problem_info" />
     </LinearLayout>

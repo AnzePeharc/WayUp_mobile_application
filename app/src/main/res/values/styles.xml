@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="CustomTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorBlue</item>
         <item name="colorPrimaryDark">@color/colorBlack</item>
@@ -12,11 +12,13 @@
     <style name="Button" parent="Widget.AppCompat.Button">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:background">@drawable/custom_button</item>
     </style>
 
     <style name="WhiteText" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:background">@drawable/custom_button</item>
     </style>
     <style name="BlueText" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:textColor">@color/colorBlue</item>

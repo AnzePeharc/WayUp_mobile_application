@@ -8,7 +8,9 @@
     android:orientation="vertical"
     android:padding="20dp"
     android:background="@color/colorBlack"
-    >
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +25,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_problem_back"
-            android:background="@drawable/rounded_button"
             style="@style/WhiteText"
             />
 
@@ -49,13 +50,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_problem_discard"
-            android:background="@drawable/rounded_button"
             style="@style/WhiteText"
             />
 
 
     </LinearLayout>
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/name_input"
@@ -152,7 +151,6 @@
         android:layout_marginTop="100dp"
         android:text="@string/add_problem_save"
         android:layout_gravity="center"
-        android:background="@drawable/rounded_button"
         style="@style/WhiteText"/>
 
 </LinearLayout>
