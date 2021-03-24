@@ -59,6 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/main_load_problem"
+                app:icon="@drawable/ic_load_problem"
                 style="@style/Button"/>
 
             <View
@@ -71,6 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/main_show_problem"
+                app:icon="@drawable/ic_show_problem"
                 style="@style/Button"/>
 
             <View
@@ -83,6 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/main_add_problem"
+                app:icon="@drawable/ic_add_problem"
                 style="@style/Button"/>
 
         </LinearLayout>
