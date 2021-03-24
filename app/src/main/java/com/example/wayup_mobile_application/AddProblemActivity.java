@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class AddProblemActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -41,7 +42,7 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
     TextInputLayout name;
     TextInputLayout setter;
     TextInputLayout comment;
-    EditText editText;
+    TextInputEditText editText_name, editText_setter, editText_comment;
 
     // variable for interacting with DatabaseHelper
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
@@ -50,8 +51,29 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_problem_activity);
-        editText = findViewById(R.id.plain_text_input);
-        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        editText_name = findViewById(R.id.name_input_edittext);
+        // Soft hide keyboard if user clicks outside EditText - NAME text_field
+        editText_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+        // Soft hide keyboard if user clicks outside EditText - SETTER text_field
+        editText_setter = findViewById(R.id.setter_input_edittext);
+        editText_setter.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+        // Soft hide keyboard if user clicks outside EditText - COMMENT text_field
+        editText_comment = findViewById(R.id.comment_input_edittext);
+        editText_comment.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
@@ -64,33 +86,8 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
         discard = (Button) findViewById(R.id.discard_button);
         save = (Button) findViewById(R.id.save_button);
         name = (TextInputLayout) findViewById(R.id.name_input);
-        name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                Toast.makeText(getApplicationContext(),"Pride", Toast.LENGTH_LONG).show();
-                System.out.println("Pride!!");
-                hideKeyboard(v);
-
-            }
-        });
         setter = (TextInputLayout) findViewById(R.id.setter_input);
-        setter.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
         comment = (TextInputLayout) findViewById(R.id.comment_input);
-        comment.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
         spinner = (Spinner) findViewById(R.id.grade_spinner);
         // set the default value of the spinner to the first element from array - grades
         spinner.setSelection(0);

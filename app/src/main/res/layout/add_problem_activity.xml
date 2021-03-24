@@ -55,11 +55,6 @@
 
 
     </LinearLayout>
-    <EditText
-        android:id="@+id/plain_text_input"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:inputType="text"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/name_input"
@@ -74,6 +69,9 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_input_edittext"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@color/colorBlack"
@@ -120,9 +118,11 @@
         android:background="@drawable/customborder_blue">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/setter_input_edittext"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:textColorHint="@color/colorBlack"
             />
 
@@ -141,9 +141,11 @@
         android:background="@drawable/customborder_blue">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/comment_input_edittext"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-
             android:textColorHint="@color/colorBlack" />
 
     </com.google.android.material.textfield.TextInputLayout>
