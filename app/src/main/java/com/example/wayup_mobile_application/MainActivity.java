@@ -75,16 +75,16 @@ public class MainActivity extends AppCompatActivity{
         mainWall = findViewById(R.id.gridlayout_mainscreen);
         // fill the HasHMap with hold led numbers. This is used then to send numbers of LED diodes that need to be lit up to Arduino
         hold_led_numbers.put("A", 0);
-        hold_led_numbers.put("B", 15);
-        hold_led_numbers.put("C", 30);
-        hold_led_numbers.put("D", 45);
-        hold_led_numbers.put("E", 60);
-        hold_led_numbers.put("F", 75);
-        hold_led_numbers.put("G", 90);
-        hold_led_numbers.put("H", 105);
-        hold_led_numbers.put("I", 120);
-        hold_led_numbers.put("J", 135);
-        hold_led_numbers.put("K", 150);
+        hold_led_numbers.put("B", 31);
+        hold_led_numbers.put("C", 32);
+        hold_led_numbers.put("D", 63);
+        hold_led_numbers.put("E", 64);
+        hold_led_numbers.put("F", 95);
+        hold_led_numbers.put("G", 96);
+        hold_led_numbers.put("H", 127);
+        hold_led_numbers.put("I", 128);
+        hold_led_numbers.put("J", 159);
+        hold_led_numbers.put("K", 160);
 
         // Fill ArrayList with problems from Database, so you can show them with load_problem
         loadFromDatabase();
