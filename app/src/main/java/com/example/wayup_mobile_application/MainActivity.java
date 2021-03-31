@@ -30,6 +30,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity{
         hold_led_numbers.put("I", 128);
         hold_led_numbers.put("J", 159);
         hold_led_numbers.put("K", 160);
+        hold_led_numbers.put("L", 191);
 
         // Fill ArrayList with problems from Database, so you can show them with load_problem
         loadFromDatabase();
@@ -834,15 +836,24 @@ public class MainActivity extends AppCompatActivity{
      */
 
     public String translate_coordinate(String hold_id){
+        ArrayList<String> subtract = new ArrayList<String>(
+                Arrays.asList("B", "D", "F", "H", "J", "L"));
         String hold_letter = hold_id.substring(0,1); // get the letter part of the ID
         int hold_number = Integer.parseInt(hold_id.substring(1)); // get the number part of the ID as integer
         /*
         calculate the corresponding led number
         (you need to subtract 1, because LED assignments start with 0
                 */
-        int led_number = hold_led_numbers.get(hold_letter) + hold_number - 1;
-
+        int led_number;// convert the led number to string
+        if(subtract.contains(hold_letter)){
+            led_number = hold_led_numbers.get(hold_letter) - hold_number + 1;
+        }
+        else{
+            led_number = hold_led_numbers.get(hold_letter) + hold_number - 1;
+        }
         return String.valueOf(led_number); // convert the led number to string
+
+
     }
 
 }
