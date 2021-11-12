@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "777489483255",
+    "project_id": "wayupapp-bf730",
+    "storage_bucket": "wayupapp-bf730.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777489483255:android:84d16848df6028c8601af2",
+        "android_client_info": {
+          "package_name": "com.example.wayup_mobile_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "777489483255-5lntfa2b0no6don8222akq3ufprqpa0o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB42goxBwnmni2pjXGyNFlpjybq-20kIQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "777489483255-5lntfa2b0no6don8222akq3ufprqpa0o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
