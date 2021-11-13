@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+// Google Firebase imports
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class AddProblemActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -47,10 +55,15 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
     // variable for interacting with DatabaseHelper
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_problem_activity);
+        // FIREBASE START
+        FirebaseHelper fbhelper = new FirebaseHelper();
+        // FIREBASE END
+
         editText_name = findViewById(R.id.name_input_edittext);
         // Soft hide keyboard if user clicks outside EditText - NAME text_field
         editText_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -153,10 +166,23 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
                     String problem_sequence = getIntent().getStringExtra("Problem_sequence"); // get the sequence from SetProblemActivity
                     String problem_sequence_counters = getIntent().getStringExtra("Problem_sequence_counters"); // get the sequence_counters from SetProblemActivity
                     String problem_sequence_tags = getIntent().getStringExtra("Problem_sequence_tags"); // get the sequence_tags from SetProblemActivity
+                    // insert data into Firebase
+                    Problem problem = new Problem(1, problem_sequence, problem_sequence_tags,problem_sequence_counters, name.getEditText().getText().toString().trim(),
+                            spinner.getSelectedItem().toString(), setter.getEditText().getText().toString().trim(), comment.getEditText().getText().toString().trim());
 
+                    fbhelper.add(problem).addOnSuccessListener(suc ->
+                        {
+                            Toast.makeText(getApplicationContext(), "Record is inserted", Toast.LENGTH_SHORT).show();
+                        }).addOnFailureListener(er ->
+                        {
+                            Toast.makeText(getApplicationContext(), "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                        });
+
+                    /*
                     // insert data into database
                     boolean insert_status = databaseHelper.insertData(problem_sequence, problem_sequence_tags,problem_sequence_counters, name.getEditText().getText().toString().trim(),
                             spinner.getSelectedItem().toString(), setter.getEditText().getText().toString().trim(), comment.getEditText().getText().toString().trim());
+
 
                     // Alert user about the status of the added problem
                     if(insert_status){
@@ -165,6 +191,8 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
                     else{
                         Toast.makeText(getApplicationContext(),"Failed to add the problem.", Toast.LENGTH_LONG).show();
                     }
+
+                     */
                     // Redirect the user back to the mainActivity
                     MainActivity.redirectActivity(AddProblemActivity.this, MainActivity.class);
                 }
