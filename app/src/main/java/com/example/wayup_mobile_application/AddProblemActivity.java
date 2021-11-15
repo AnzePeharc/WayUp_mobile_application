@@ -166,6 +166,7 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
                     String problem_sequence = getIntent().getStringExtra("Problem_sequence"); // get the sequence from SetProblemActivity
                     String problem_sequence_counters = getIntent().getStringExtra("Problem_sequence_counters"); // get the sequence_counters from SetProblemActivity
                     String problem_sequence_tags = getIntent().getStringExtra("Problem_sequence_tags"); // get the sequence_tags from SetProblemActivity
+
                     // insert data into Firebase
                     Problem problem = new Problem(1, problem_sequence, problem_sequence_tags,problem_sequence_counters, name.getEditText().getText().toString().trim(),
                             spinner.getSelectedItem().toString(), setter.getEditText().getText().toString().trim(), comment.getEditText().getText().toString().trim());
@@ -179,7 +180,7 @@ public class AddProblemActivity extends AppCompatActivity implements AdapterView
                         });
 
                     /*
-                    // insert data into database
+                    // insert data into Local Database
                     boolean insert_status = databaseHelper.insertData(problem_sequence, problem_sequence_tags,problem_sequence_counters, name.getEditText().getText().toString().trim(),
                             spinner.getSelectedItem().toString(), setter.getEditText().getText().toString().trim(), comment.getEditText().getText().toString().trim());
 

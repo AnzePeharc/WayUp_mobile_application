@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
@@ -16,6 +17,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
@@ -25,6 +27,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,15 +44,18 @@ public class DatabaseActivity extends AppCompatActivity{
     AlertDialog dialog;
     // variable for interacting with DatabaseHelper
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
+    // variable for interacting with FirebaseHelper
+    FirebaseHelper fbhelper = new FirebaseHelper();
 
     // variables for filling the ListView
     ArrayList<Problem> arrayOfProblems = new ArrayList<Problem>(); // ArrayList containing all the problems
     ArrayList<Problem> arrayOfProblemsAsc = new ArrayList<Problem>(); // ArrayList containing all the problem sorted ascending
     ArrayList<Problem> arrayOfProblemsDesc = new ArrayList<Problem>();// ArrayList containing all the problem sorted descending
+    ArrayList<Problem> arrayOfProblemsFirebase = new ArrayList<Problem>();// ArrayList containing all the problems in Firebase
     ProblemAdapter problemAdapter; // adapter that displays the problems from database in ListView
     SearchView search_problems; // SearchView that allows filtering of the problems by name
     TextView problem_count; // TextView to display number of problems in database
-    ArrayList<Integer> selected_problem_positions = new ArrayList<Integer>(); // arrayList for holding the two selected problems
+    ArrayList<Integer> selected_problem_positions = new ArrayList<Integer>(); // arrayList for holding the two selected problems positions (int)
     ArrayList<Problem> selected_problems = new ArrayList<Problem>(); // arrayList for holding the two selected problems
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,17 +68,44 @@ public class DatabaseActivity extends AppCompatActivity{
         // set variable for drawerLayout
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
+        // set variable for the ListView, which contains the problems
+        problemTable = (ListView) findViewById(R.id.problem_table);
+
+        problemAdapter =  new ProblemAdapter(this, arrayOfProblemsFirebase);
+        problemTable.setAdapter(problemAdapter); // bind the adapter to the arrayList
+        // START loading all the data from the Firebase
+        fbhelper.get().addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot data : snapshot.getChildren())
+                {
+                    Problem fb_problem = data.getValue(Problem.class);
+
+                    arrayOfProblemsFirebase.add(fb_problem);
+                }
+                // update the problem_count TextView with the number of all problems
+                problem_count.setText(getString(R.string.problem_count, arrayOfProblemsFirebase.size()));
+                problemAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        // END Firebase loading
         // call function for filling the table with elements
-        fillTable(this);
+        //fillTable(this);
         // fill the table with database content
-        problemAdapter =  new ProblemAdapter(this, arrayOfProblems);
+
         // Initialize problem Switch
         two_problem_option = findViewById(R.id.two_problems_switch);
         two_problem_option.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // check if the switch has been turned of and reset the adapter of the problems
                 if(!isChecked){
-                    problemAdapter =  new ProblemAdapter(getApplicationContext(), arrayOfProblems);
+                    problemAdapter =  new ProblemAdapter(getApplicationContext(), arrayOfProblemsFirebase);
                     problemTable.setAdapter(problemAdapter); // reset the problemAdapter in order to restore the basic colors of background
                     selected_problem_positions = new ArrayList<Integer>(); // reset arrayList for holding currently selected two problems
                     selected_problems = new ArrayList<Problem>(); // reset arrayList for holding instances of selected problems
@@ -78,8 +113,7 @@ public class DatabaseActivity extends AppCompatActivity{
                 closeDrawer(drawerLayout); // close the drawer
             }
         });
-        problemTable = (ListView) findViewById(R.id.problem_table);
-        problemTable.setAdapter(problemAdapter); // bind the adapter to the arrayList
+
         // Add OnItemClickListener for ListView
         problemTable.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -197,6 +231,7 @@ public class DatabaseActivity extends AppCompatActivity{
     // function for filling the table with problem entries
     public void fillTable(Context context){
 
+
         // get the cursor from Database for AllData
         Cursor cursor = databaseHelper.getAllData();
         // update the problem_count TextView with the number of all problems
@@ -244,6 +279,8 @@ public class DatabaseActivity extends AppCompatActivity{
                 arrayOfProblemsDesc.add(new_problem);
             }
         }
+
+
 
     }
     //   function for updating the table of content

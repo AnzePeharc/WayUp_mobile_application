@@ -1,6 +1,7 @@
 package com.example.wayup_mobile_application;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class ProblemAdapter extends ArrayAdapter<Problem> implements Filterable 
     public View getView(int position, View convertView, ViewGroup parent) {
 
         Problem new_problem = getItem(position);
+        Log.i("ProblemClass content", "MyClass.getView() — get item number " + new_problem.getName());
         if(convertView == null)
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.table_item,parent,false);
 
