@@ -73,6 +73,7 @@ public class DatabaseActivity extends AppCompatActivity{
 
         problemAdapter =  new ProblemAdapter(this, arrayOfProblemsFirebase);
         problemTable.setAdapter(problemAdapter); // bind the adapter to the arrayList
+
         // START loading all the data from the Firebase
         fbhelper.get().addValueEventListener(new ValueEventListener() {
             @Override
@@ -95,6 +96,7 @@ public class DatabaseActivity extends AppCompatActivity{
         });
 
         // END Firebase loading
+
         // call function for filling the table with elements
         //fillTable(this);
         // fill the table with database content
@@ -227,7 +229,27 @@ public class DatabaseActivity extends AppCompatActivity{
         MainActivity.closeDrawer(drawerLayout);
 
     }
+    public void fillListView_firebase(Context context){
+        fbhelper.get().addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot data : snapshot.getChildren())
+                {
+                    Problem fb_problem = data.getValue(Problem.class);
 
+                    arrayOfProblemsAsc.add(fb_problem);
+                }
+                // update the problem_count TextView with the number of all problems
+                problem_count.setText(getString(R.string.problem_count, arrayOfProblemsFirebase.size()));
+                problemAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
     // function for filling the table with problem entries
     public void fillTable(Context context){
 

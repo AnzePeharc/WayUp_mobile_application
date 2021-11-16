@@ -17,7 +17,7 @@ public class Problem {
     public String comment;
 
     public Problem(){
-        // Default constructor required for calls to DataSnapshot.getValue(User.class)
+        // Default constructor required for calls to DataSnapshot.getValue(Problem.class)
     }
     public Problem(int id, String sequence, String sequence_tags,String sequence_counters, String name, String grade, String setter, String comment)
     {

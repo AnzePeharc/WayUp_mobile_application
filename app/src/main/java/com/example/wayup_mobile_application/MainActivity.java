@@ -28,6 +28,9 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity{
     // variables for loading problem from Database
     GridLayout mainWall; //Variable for main climbing wall
     DatabaseHelper databaseHelper = new DatabaseHelper(this); // Initialize the instance of DatabaseHelper for loading problems
+    FirebaseHelper fbhelper = new FirebaseHelper(); // variable for interacting with FirebaseHelper
     ArrayList<Problem> allProblems = new ArrayList<>(); // ArrayList for holding the problems loaded from Database
     int current_problem_index; // index of currently displayed problem from Database
     String[] width = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
@@ -472,6 +476,33 @@ public class MainActivity extends AppCompatActivity{
     Function that is called for loading data from the Database
      */
     public void loadFromDatabase(){
+        // START loading all the data from the Firebase
+        fbhelper.get().addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()) {
+                    for (DataSnapshot data : snapshot.getChildren()) {
+                        Problem fb_problem = data.getValue(Problem.class);
+
+                        allProblems.add(fb_problem);
+                    }
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"ERROR: Empty Database." , Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        // END Firebase loading
+
+        /*
+
+        // LOAD DATA FROM A LOCAL DATABASE
         Cursor cursor = databaseHelper.getAllData();
         // check if there are any entries in the Database
         if(cursor.getCount() == 0){
@@ -485,6 +516,7 @@ public class MainActivity extends AppCompatActivity{
                 allProblems.add(new_problem);
             }
         }
+          */
 
     }
 
