@@ -29,6 +29,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -73,20 +74,23 @@ public class DatabaseActivity extends AppCompatActivity{
 
         problemAdapter =  new ProblemAdapter(this, arrayOfProblemsFirebase);
         problemTable.setAdapter(problemAdapter); // bind the adapter to the arrayList
-
         // START loading all the data from the Firebase
         fbhelper.get().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot data : snapshot.getChildren())
-                {
-                    Problem fb_problem = data.getValue(Problem.class);
+                if (snapshot.exists()) {
+                    for (DataSnapshot data : snapshot.getChildren()) {
+                        Problem fb_problem = data.getValue(Problem.class);
 
-                    arrayOfProblemsFirebase.add(fb_problem);
+                        arrayOfProblemsFirebase.add(fb_problem);
+                    }
+                    // update the problem_count TextView with the number of all problems
+                    problem_count.setText(getString(R.string.problem_count, arrayOfProblemsFirebase.size()));
+                    problemAdapter.notifyDataSetChanged();
                 }
-                // update the problem_count TextView with the number of all problems
-                problem_count.setText(getString(R.string.problem_count, arrayOfProblemsFirebase.size()));
-                problemAdapter.notifyDataSetChanged();
+                else{
+                    Toast.makeText(getApplicationContext(),"ERROR: Empty Database." , Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
@@ -96,7 +100,6 @@ public class DatabaseActivity extends AppCompatActivity{
         });
 
         // END Firebase loading
-
         // call function for filling the table with elements
         //fillTable(this);
         // fill the table with database content
@@ -229,27 +232,30 @@ public class DatabaseActivity extends AppCompatActivity{
         MainActivity.closeDrawer(drawerLayout);
 
     }
-    public void fillListView_firebase(Context context){
-        fbhelper.get().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot data : snapshot.getChildren())
-                {
-                    Problem fb_problem = data.getValue(Problem.class);
+    public void fillTableFirebase(Context context){
 
-                    arrayOfProblemsAsc.add(fb_problem);
+        Query query = fbhelper.get().orderByChild("name");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                        // do something with the individual "issues"
+                    }
                 }
-                // update the problem_count TextView with the number of all problems
-                problem_count.setText(getString(R.string.problem_count, arrayOfProblemsFirebase.size()));
-                problemAdapter.notifyDataSetChanged();
+                else{
+                    Toast.makeText(getApplicationContext(),"ERROR: Empty Database." , Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull  DatabaseError databaseError) {
 
             }
         });
     }
+
     // function for filling the table with problem entries
     public void fillTable(Context context){
 
