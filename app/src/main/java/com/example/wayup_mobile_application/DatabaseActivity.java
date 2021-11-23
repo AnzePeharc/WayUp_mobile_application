@@ -353,10 +353,10 @@ public class DatabaseActivity extends AppCompatActivity{
                 if (dataSnapshot.exists()) {
                     // dataSnapshot is the "issue" node with all children with id 0
                     for (DataSnapshot data : dataSnapshot.getChildren()) {
-
                         Problem fb_problem = data.getValue(Problem.class);
-                        System.out.println("Problem " + fb_problem.getName());
-                        sortedArray.add(fb_problem);
+                        if (fb_problem.getGrade().compareTo(minGrade) >= 0 & fb_problem.getGrade().compareTo(maxGrade) <= 0) {
+                            sortedArray.add(fb_problem);
+                        }
                     }
                     // sort problems descending
                     if(sorted.equals("ascending")){
