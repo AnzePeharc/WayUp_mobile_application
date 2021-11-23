@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,6 +34,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -52,6 +54,7 @@ public class DatabaseActivity extends AppCompatActivity{
     ArrayList<Problem> arrayOfProblems = new ArrayList<Problem>(); // ArrayList containing all the problems
     ArrayList<Problem> arrayOfProblemsAsc = new ArrayList<Problem>(); // ArrayList containing all the problem sorted ascending
     ArrayList<Problem> arrayOfProblemsDesc = new ArrayList<Problem>();// ArrayList containing all the problem sorted descending
+    ArrayList<Problem> sortedArray = new ArrayList<Problem>();// ArrayList containing all the sorted problems (desc or asc)
     ArrayList<Problem> arrayOfProblemsFirebase = new ArrayList<Problem>();// ArrayList containing all the problems in Firebase
     ProblemAdapter problemAdapter; // adapter that displays the problems from database in ListView
     SearchView search_problems; // SearchView that allows filtering of the problems by name
@@ -101,6 +104,7 @@ public class DatabaseActivity extends AppCompatActivity{
 
         // END Firebase loading
         // call function for filling the table with elements
+        // fillTableFirebaseDesc(this);
         //fillTable(this);
         // fill the table with database content
 
@@ -190,6 +194,7 @@ public class DatabaseActivity extends AppCompatActivity{
     protected void onStart() {
         super.onStart();
         if(getIntent().getStringExtra("sortType") != null){
+            System.out.println("Pride noter!");
             sortByGrade(getIntent().getStringExtra("sortType"), getIntent().getStringExtra("minGrade"), getIntent().getStringExtra("maxGrade"));
 
         }
@@ -232,25 +237,28 @@ public class DatabaseActivity extends AppCompatActivity{
         MainActivity.closeDrawer(drawerLayout);
 
     }
-    public void fillTableFirebase(Context context){
+    public void fillTableFirebaseDesc(Context context){
 
-        Query query = fbhelper.get().orderByChild("name");
+        Query query = fbhelper.get().orderByChild("grade");
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     // dataSnapshot is the "issue" node with all children with id 0
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        // do something with the individual "issues"
+                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+
+                        Problem fb_problem = data.getValue(Problem.class);
+                        System.out.println("Problem " + fb_problem.getName());
+                        arrayOfProblemsDesc.add(fb_problem);
                     }
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"ERROR: Empty Database." , Toast.LENGTH_LONG).show();
+                    System.out.println("Length: "+ arrayOfProblemsDesc.size());
+                } else {
+                    Toast.makeText(getApplicationContext(), "ERROR: Empty Database.", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull  DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
@@ -335,24 +343,40 @@ public class DatabaseActivity extends AppCompatActivity{
 
     public void sortByGrade(String sorted, String minGrade, String maxGrade){
 
-        ArrayList<Problem> temp = new ArrayList<Problem>();
-        if(sorted.equals("descending")){
-            for(Problem problem : arrayOfProblemsDesc){
-                if(problem.getGrade().compareTo(minGrade) >= 0 & problem.getGrade().compareTo(maxGrade) <= 0){
-                    temp.add(problem);
-                }
-            }
-        }
-        else{
-            for(Problem problem : arrayOfProblemsAsc) {
-                if (problem.getGrade().compareTo(minGrade) >= 0 & problem.getGrade().compareTo(maxGrade) <= 0) {
-                    temp.add(problem);
-                }
-            }
-        }
-        problemAdapter =  new ProblemAdapter(this, temp);
+        problemAdapter =  new ProblemAdapter(this, sortedArray);
         problemTable.setAdapter(problemAdapter);
 
+        Query query = fbhelper.get().orderByChild("grade");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+
+                        Problem fb_problem = data.getValue(Problem.class);
+                        System.out.println("Problem " + fb_problem.getName());
+                        sortedArray.add(fb_problem);
+                    }
+                    // sort problems descending
+                    if(sorted.equals("ascending")){
+                        Collections.reverse(sortedArray);
+                        Problem test = sortedArray.get(sortedArray.size() - 1);
+                        System.out.println("LastProblem: " + test.getGrade());
+                    }
+                    problem_count.setText(getString(R.string.problem_count, sortedArray.size()));
+                    problemAdapter.notifyDataSetChanged();
+                    System.out.println("Length: "+ sortedArray.size());
+                } else {
+                    Toast.makeText(getApplicationContext(), "ERROR: Empty Database.", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public void FilterOptions(View view){
