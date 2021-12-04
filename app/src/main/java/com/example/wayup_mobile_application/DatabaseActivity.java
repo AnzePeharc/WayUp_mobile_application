@@ -54,7 +54,6 @@ public class DatabaseActivity extends AppCompatActivity{
     ArrayList<Problem> arrayOfProblems = new ArrayList<Problem>(); // ArrayList containing all the problems
     ArrayList<Problem> arrayOfProblemsAsc = new ArrayList<Problem>(); // ArrayList containing all the problem sorted ascending
     ArrayList<Problem> arrayOfProblemsDesc = new ArrayList<Problem>();// ArrayList containing all the problem sorted descending
-    ArrayList<Problem> sortedArray = new ArrayList<Problem>();// ArrayList containing all the sorted problems (desc or asc)
     ArrayList<Problem> arrayOfProblemsFirebase = new ArrayList<Problem>();// ArrayList containing all the problems in Firebase
     ProblemAdapter problemAdapter; // adapter that displays the problems from database in ListView
     SearchView search_problems; // SearchView that allows filtering of the problems by name
@@ -78,29 +77,7 @@ public class DatabaseActivity extends AppCompatActivity{
         problemAdapter =  new ProblemAdapter(this, arrayOfProblemsFirebase);
         problemTable.setAdapter(problemAdapter); // bind the adapter to the arrayList
         // START loading all the data from the Firebase
-        fbhelper.get().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot data : snapshot.getChildren()) {
-                        Problem fb_problem = data.getValue(Problem.class);
-
-                        arrayOfProblemsFirebase.add(fb_problem);
-                    }
-                    // update the problem_count TextView with the number of all problems
-                    problem_count.setText(getString(R.string.problem_count, arrayOfProblemsFirebase.size()));
-                    problemAdapter.notifyDataSetChanged();
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"ERROR: Empty Database." , Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        fbhelper.get().addValueEventListener(valueEventListener);
 
         // END Firebase loading
         // call function for filling the table with elements
@@ -190,11 +167,33 @@ public class DatabaseActivity extends AppCompatActivity{
         });
 
     }
+
+    //standard valueEventListener for querying the data from the Firebase
+    ValueEventListener valueEventListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            arrayOfProblemsFirebase.clear();
+            if (dataSnapshot.exists()) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Problem fb_problem = snapshot.getValue(Problem.class);
+
+                    arrayOfProblemsFirebase.add(fb_problem);
+                }
+                problem_count.setText(getString(R.string.problem_count, arrayOfProblemsFirebase.size()));
+                problemAdapter.notifyDataSetChanged();
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
+
     @Override
     protected void onStart() {
         super.onStart();
         if(getIntent().getStringExtra("sortType") != null){
-            System.out.println("Pride noter!");
             sortByGrade(getIntent().getStringExtra("sortType"), getIntent().getStringExtra("minGrade"), getIntent().getStringExtra("maxGrade"));
 
         }
@@ -343,30 +342,29 @@ public class DatabaseActivity extends AppCompatActivity{
 
     public void sortByGrade(String sorted, String minGrade, String maxGrade){
 
-        problemAdapter =  new ProblemAdapter(this, sortedArray);
-        problemTable.setAdapter(problemAdapter);
 
         Query query = fbhelper.get().orderByChild("grade");
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                arrayOfProblemsFirebase.clear();
                 if (dataSnapshot.exists()) {
                     // dataSnapshot is the "issue" node with all children with id 0
                     for (DataSnapshot data : dataSnapshot.getChildren()) {
                         Problem fb_problem = data.getValue(Problem.class);
                         if (fb_problem.getGrade().compareTo(minGrade) >= 0 & fb_problem.getGrade().compareTo(maxGrade) <= 0) {
-                            sortedArray.add(fb_problem);
+                            arrayOfProblemsFirebase.add(fb_problem);
                         }
                     }
                     // sort problems descending
                     if(sorted.equals("ascending")){
-                        Collections.reverse(sortedArray);
-                        Problem test = sortedArray.get(sortedArray.size() - 1);
+                        Collections.reverse(arrayOfProblemsFirebase);
+                        Problem test = arrayOfProblemsFirebase.get(arrayOfProblemsFirebase.size() - 1);
                         System.out.println("LastProblem: " + test.getGrade());
                     }
-                    problem_count.setText(getString(R.string.problem_count, sortedArray.size()));
+                    problem_count.setText(getString(R.string.problem_count, arrayOfProblemsFirebase.size()));
                     problemAdapter.notifyDataSetChanged();
-                    System.out.println("Length: "+ sortedArray.size());
+                    System.out.println("Length: "+ arrayOfProblemsFirebase.size());
                 } else {
                     Toast.makeText(getApplicationContext(), "ERROR: Empty Database.", Toast.LENGTH_LONG).show();
                 }

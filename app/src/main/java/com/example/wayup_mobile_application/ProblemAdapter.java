@@ -1,7 +1,6 @@
 package com.example.wayup_mobile_application;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +12,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class ProblemAdapter extends ArrayAdapter<Problem> implements Filterable {
 
-    public ArrayList<Problem> fullList;
+    public ArrayList<Problem> originalList, tempList;
+     CustomFilter cs;
+
 
     public ProblemAdapter(Context context, ArrayList<Problem> list) {
         super(context, 0 , list);
-        this.fullList = new ArrayList<>(list);
+        this.originalList = list;
+        this.tempList = list;
+    }
+
+    @Override
+    public Problem getItem(int i){
+        return originalList.get(i);
     }
 
     @Override
@@ -47,37 +53,54 @@ public class ProblemAdapter extends ArrayAdapter<Problem> implements Filterable 
         return convertView;
     }
 
+    @Override
+    public int getCount(){
+        return originalList.size();
+    }
+
     // Override getFilter in order to implement searching by problem name
     @NonNull
     @Override
     public Filter getFilter() {
-        return problemFilter;
+        if (cs == null){
+            cs = new CustomFilter();
+        }
+
+        return cs;
     }
 
-    private Filter problemFilter = new Filter() {
+    class CustomFilter extends Filter {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-
+            System.out.println(originalList.size());
             FilterResults results = new FilterResults(); // initialize results variable
             ArrayList<Problem> filteredList = new ArrayList<>(); // create empty ArrayList for the filtered problems
 
-            // check if search term is empty. Therefore show all results
-            if (constraint == null || constraint.length() == 0){
-                filteredList.addAll(fullList);
-            }
+            // check if search term is not empty and filter the arraylist
+            if (constraint != null && constraint.length() > 0){
 
-            // if the search term is not empty, filter the results and update the ArrayList
-            else{
-                String filterString = constraint.toString().toLowerCase().trim();
-                for (Problem problem : fullList){
-                    if(problem.getName().toLowerCase().contains(filterString)){
+                constraint = constraint.toString().toLowerCase().trim();
+
+                for (Problem problem : originalList){
+
+                    if(problem.getName().toLowerCase().contains(constraint)){
+                        System.out.println(problem.getName());
+                        System.out.println(constraint);
                         filteredList.add(problem);
                     }
                 }
+                results.values = filteredList;
+                results.count = filteredList.size();
             }
 
-            results.values = filteredList;
-            results.count = filteredList.size();
+            // if the search term is empty, therefore show all results
+            else{
+                System.out.println("Pride!");
+                results.values = tempList;
+                results.count = tempList.size();
+            }
+
+
 
             return results;
         }
@@ -85,8 +108,10 @@ public class ProblemAdapter extends ArrayAdapter<Problem> implements Filterable 
         // function that updates the adapter values
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            clear(); // clear the current values of the adapter
-            addAll((ArrayList<Problem>) results.values); // add new values to the adapter
+            for (Problem problem : (ArrayList<Problem>) results.values){
+                System.out.println(problem.getName());
+            }
+            originalList = (ArrayList<Problem>) results.values;
             notifyDataSetChanged(); // tell the adapter to update the values on the screen
         }
     };
